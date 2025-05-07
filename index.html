@@ -11,9 +11,11 @@
 <body>
   <div class="top-bar">
     <input type="text" id="searchInput" placeholder="🔍 Cerca..." />
-    <button id="locateBtn" title="Fermata più vicina">📍</button>
+    <div class="locate-container">
+      <button id="locateBtn" title="Fermata più vicina">📍</button>
+      <div id="nearestStop" class="nearest-info"></div>
+    </div>
   </div>
-  <div id="nearestStop"></div>
   <div id="map"></div>
   <script src="script.js"></script>
 </body>

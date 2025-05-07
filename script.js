@@ -6,14 +6,6 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   maxZoom: 19
 }).addTo(map);
 
-// Icona personalizzata grigia senza ombra
-const customIcon = L.icon({
-  iconUrl: 'marker-gray.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34]
-});
-
 let markers = [];
 let stops = [];
 
@@ -22,7 +14,7 @@ fetch('stops_fixed.json')
   .then(data => {
     stops = data;
     data.forEach(stop => {
-      const marker = L.marker([stop.lat, stop.lon], { icon: customIcon }).addTo(map);
+      const marker = L.marker([stop.lat, stop.lon]).addTo(map);
       marker.bindPopup(`<b>${stop.name}</b><br><a href="${stop.url}" target="_blank">Vedi dettagli</a>`);
       marker.stopName = stop.name.toLowerCase();
       markers.push(marker);
@@ -41,8 +33,10 @@ document.getElementById("searchInput").addEventListener("input", function(e) {
 });
 
 document.getElementById("locateBtn").addEventListener("click", () => {
+  const infoDiv = document.getElementById("nearestStop");
+  infoDiv.innerHTML = "⏳ Caricamento...";
   if (!navigator.geolocation) {
-    alert("Geolocalizzazione non supportata");
+    infoDiv.innerHTML = "❌ Geolocalizzazione non supportata";
     return;
   }
   navigator.geolocation.getCurrentPosition(position => {
@@ -61,9 +55,11 @@ document.getElementById("locateBtn").addEventListener("click", () => {
     });
 
     if (nearest) {
-      alert(`📍 Fermata più vicina: ${nearest.name}\n${nearest.url}`);
-      document.getElementById("nearestStop").innerHTML =
-        `📍 Fermata più vicina: <strong>${nearest.name}</strong> – <a href="${nearest.url}" target="_blank">Vai al link</a>`;
+      infoDiv.innerHTML = `📍 <strong>${nearest.name}</strong><br><a href="${nearest.url}" target="_blank">Vai al link</a>`;
+    } else {
+      infoDiv.innerHTML = "❌ Nessuna fermata trovata";
     }
+  }, err => {
+    infoDiv.innerHTML = "❌ Errore nella geolocalizzazione";
   });
 });

@@ -16,6 +16,7 @@ body, html {
   padding: 6px 10px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  align-items: center;
 }
 #searchInput {
   padding: 6px 10px;
@@ -33,12 +34,15 @@ body, html {
   font-size: 14px;
   cursor: pointer;
 }
-#nearestStop {
-  margin-top: 60px;
-  padding: 8px;
+.locate-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nearest-info {
+  font-size: 12px;
+  margin-top: 4px;
   text-align: center;
-  font-size: 14px;
-  background-color: #e0f2fe;
 }
 #map {
   position: absolute;
