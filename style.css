@@ -3,42 +3,35 @@ body, html {
   margin: 0;
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f9fafb;
 }
-header {
+.top-bar {
   position: fixed;
-  top: 0;
-  width: 100%;
-  background: white;
-  padding: 8px 10px;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
   z-index: 1000;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 #searchInput {
-  flex-grow: 1;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  padding: 6px 10px;
   font-size: 14px;
-  margin-right: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 200px;
 }
 #locateBtn {
-  padding: 8px 12px;
+  padding: 6px 10px;
   background: #2563eb;
   border: none;
   color: white;
-  border-radius: 8px;
-  font-size: 16px;
+  border-radius: 6px;
+  font-size: 14px;
   cursor: pointer;
-}
-#map {
-  position: absolute;
-  top: 60px;
-  bottom: 0;
-  width: 100%;
 }
 #nearestStop {
   margin-top: 60px;
@@ -46,4 +39,11 @@ header {
   text-align: center;
   font-size: 14px;
   background-color: #e0f2fe;
+}
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 0;
 }

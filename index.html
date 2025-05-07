@@ -9,10 +9,10 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
-  <header>
-    <input type="text" id="searchInput" placeholder="🔍 Cerca una fermata..." />
-    <button id="locateBtn" title="Mostra la fermata più vicina">📍</button>
-  </header>
+  <div class="top-bar">
+    <input type="text" id="searchInput" placeholder="🔍 Cerca..." />
+    <button id="locateBtn" title="Fermata più vicina">📍</button>
+  </div>
   <div id="nearestStop"></div>
   <div id="map"></div>
   <script src="script.js"></script>
