@@ -3,42 +3,45 @@ body, html {
   margin: 0;
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
+  background-color: #f9fafb;
 }
 header {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #2563eb;
+  background: white;
   padding: 8px 10px;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 #searchInput {
   flex-grow: 1;
-  padding: 8px;
-  border: none;
-  border-radius: 5px;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
   font-size: 14px;
+  margin-right: 10px;
 }
 #locateBtn {
-  padding: 8px 10px;
-  background: white;
+  padding: 8px 12px;
+  background: #2563eb;
   border: none;
-  border-radius: 5px;
-  font-size: 14px;
+  color: white;
+  border-radius: 8px;
+  font-size: 16px;
   cursor: pointer;
 }
 #map {
   position: absolute;
-  top: 70px;
+  top: 60px;
   bottom: 0;
   width: 100%;
 }
 #nearestStop {
-  margin-top: 50px;
+  margin-top: 60px;
   padding: 8px;
   text-align: center;
   font-size: 14px;
