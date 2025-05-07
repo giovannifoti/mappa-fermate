@@ -6,14 +6,12 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   maxZoom: 19
 }).addTo(map);
 
-// Icona personalizzata grigia con ombra
+// Icona personalizzata grigia senza ombra
 const customIcon = L.icon({
-  iconUrl: 'marker-icon-gray.png',
+  iconUrl: 'marker-gray.png',
   iconSize: [25, 41],
   iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-  shadowSize: [41, 41]
+  popupAnchor: [1, -34]
 });
 
 let markers = [];
@@ -63,6 +61,7 @@ document.getElementById("locateBtn").addEventListener("click", () => {
     });
 
     if (nearest) {
+      alert(`📍 Fermata più vicina: ${nearest.name}\n${nearest.url}`);
       document.getElementById("nearestStop").innerHTML =
         `📍 Fermata più vicina: <strong>${nearest.name}</strong> – <a href="${nearest.url}" target="_blank">Vai al link</a>`;
     }
