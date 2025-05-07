@@ -9,20 +9,38 @@ header {
   top: 0;
   width: 100%;
   background: #2563eb;
-  color: white;
-  padding: 10px;
+  padding: 8px 10px;
   z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
 }
 #searchInput {
-  width: 100%;
-  padding: 10px;
+  flex-grow: 1;
+  padding: 8px;
   border: none;
-  border-radius: 6px;
-  font-size: 16px;
+  border-radius: 5px;
+  font-size: 14px;
+}
+#locateBtn {
+  padding: 8px 10px;
+  background: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
 }
 #map {
   position: absolute;
-  top: 60px;
+  top: 70px;
   bottom: 0;
   width: 100%;
+}
+#nearestStop {
+  margin-top: 50px;
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+  background-color: #e0f2fe;
 }
