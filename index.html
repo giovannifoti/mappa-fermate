@@ -2,28 +2,17 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mappa Fermate - Messina</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mappa Fermate Messina</title>
   <link rel="stylesheet" href="style.css" />
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
-  <div class="top-bar">
-    <div class="user-id" id="userIdDisplay"></div>
-    <button id="locateBtn">📍 Posizione attuale</button>
-  </div>
-
-  <div id="favoritesPanel">
-    <h3>⭐ Preferiti</h3>
-    <ul id="favoritesList"></ul>
-  </div>
-
+  <header>
+    <input type="text" id="searchInput" placeholder="🔍 Cerca una fermata..." />
+  </header>
   <div id="map"></div>
-
   <script src="script.js"></script>
 </body>
 </html>

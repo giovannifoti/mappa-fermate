@@ -1,56 +1,28 @@
 
 body, html {
   margin: 0;
-  padding: 0;
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f3f4f6;
 }
-
-#map {
-  height: calc(100% - 50px);
+header {
+  position: fixed;
+  top: 0;
   width: 100%;
-  z-index: 1;
-}
-
-.top-bar {
-  height: 50px;
-  background-color: #2563eb;
+  background: #2563eb;
   color: white;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-}
-
-#locateBtn {
-  background: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-}
-
-.user-id {
-  font-weight: bold;
-  font-size: 0.9em;
-}
-
-#favoritesPanel {
-  position: absolute;
-  top: 60px;
-  left: 10px;
-  background: white;
-  border-radius: 10px;
   padding: 10px;
   z-index: 1000;
-  max-height: 200px;
-  overflow-y: auto;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  width: 200px;
 }
-
-#favoritesPanel h3 {
-  margin-top: 0;
+#searchInput {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+}
+#map {
+  position: absolute;
+  top: 60px;
+  bottom: 0;
+  width: 100%;
 }
