@@ -1,0 +1,15 @@
+{
+  "name": "Fermate Autobus",
+  "short_name": "Fermate",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#003366",
+  "icons": [
+    {
+      "src": "logo_sito.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
