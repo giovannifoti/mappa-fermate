@@ -1,60 +1,60 @@
 [
   {
-    "name": "CAPOLINEA FARO",
+    "name": "CAPOLINEA TORRE FARO",
     "lat": 38.265545,
     "lon": 15.638842,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=832&rnd=24"
   },
   {
-    "name": "CARONTE VERSO CENTRO",
+    "name": "CARONTE DIR CENTRO",
     "lat": 38.210917,
     "lon": 15.561099,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1555&rnd=87"
   },
   {
-    "name": "CARONTE VERSO LAGO",
+    "name": "CARONTE DIR LAGO",
     "lat": 38.21091,
     "lon": 15.561294,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=555&rnd=85"
   },
   {
-    "name": "CASA VERSO CENTRO",
+    "name": "V. CONSOLARE POMPEA 1497 DIR CENTRO",
     "lat": 38.251942,
     "lon": 15.594482,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1756&rnd=19"
   },
   {
-    "name": "CASA VERSO LAGO",
+    "name": "V. CONSOLARE POMPEA 1497 DIR LAGO",
     "lat": 38.251945,
     "lon": 15.594574,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=756&rnd=27"
   },
   {
-    "name": "CESARE BATTISTI DOPO TRIBUNALE",
+    "name": "V. CESARE BATTISTI 215",
     "lat": 38.187321,
     "lon": 15.552785,
-    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1555&rnd=87"
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=245&rnd=87"
   },
   {
-    "name": "DECO DIR CENTRO",
+    "name": "DECO V.CONSOLARE POMPEA DIR CENTRO",
     "lat": 38.25262,
     "lon": 15.59651,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1757&rnd=67"
   },
   {
-    "name": "DECO DIR LAGO",
+    "name": "DECO V. CONSOLARE POMPEA DIR LAGO",
     "lat": 38.252538,
     "lon": 15.596598,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=757&rnd=67"
   },
   {
-    "name": "DESPAR LATO DISCESA",
+    "name": "DESPAR ARCERI LATO DISCESA",
     "lat": 38.259321,
     "lon": 15.60237,
-    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1757&rnd=67"
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1866&rnd=67"
   },
   {
-    "name": "DISCESA UNI",
+    "name": "DISCESA UNI PAPARDO",
     "lat": 38.255635,
     "lon": 15.602252,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1759&rnd=71"
@@ -63,7 +63,7 @@
     "name": "FARMACIA GRASSO DIR FARO (CENTRO)",
     "lat": 38.190264,
     "lon": 15.552101,
-    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1759&rnd=71"
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=510&rnd=71"
   },
   {
     "name": "FORESTALE",
@@ -72,13 +72,13 @@
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1246&rnd=91"
   },
   {
-    "name": "MC TREMESTIERI VERSO CENTRO",
+    "name": "MC TREMESTIERI DIR CENTRO",
     "lat": 38.153206,
     "lon": 15.530892,
-    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1246&rnd=91"
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1309&rnd=91"
   },
   {
-    "name": "POLICLINICO VERSO CENTRO",
+    "name": "POLICLINICO DIR CENTRO",
     "lat": 38.162104,
     "lon": 15.538406,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=116&rnd=98"
@@ -87,7 +87,7 @@
     "name": "SALITA ANNUNZIATA",
     "lat": 38.218223,
     "lon": 15.564862,
-    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=116&rnd=98"
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=558&rnd=98"
   },
   {
     "name": "SEMAFORO PAPARDO DIR CENTRO",
@@ -120,7 +120,7 @@
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=129&rnd=12"
   },
   {
-    "name": "UNI",
+    "name": "UNI PAPARDO",
     "lat": 38.261337,
     "lon": 15.59965,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=863&rnd=55"
