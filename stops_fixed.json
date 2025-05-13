@@ -60,7 +60,7 @@
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1759&rnd=71"
   },
   {
-    "name": "FARMACIA GRASSO DIR FARO (CENTRO)",
+    "name": "FARMACIA GRASSO DIR LAGO (CENTRO)",
     "lat": 38.190264,
     "lon": 15.552101,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=510&rnd=71"
@@ -131,4 +131,16 @@
     "lon": 15.553908,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=103&rnd=87"
   }
+  {
+    "name": "MUSEO DIR LAGO",
+    "lat": 38.2171857,
+    "lon": 15.5655006,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=557&rnd=84"
+  },
+  {
+    "name": "MUSEO DIR CENTRO",
+    "lat": 38.2165316,
+    "lon": 15.5644549,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1557&rnd=84"
+  },
 ]
