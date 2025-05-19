@@ -148,5 +148,17 @@
     "lat": 38.1915815,
     "lon": 15.5561411,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=148&rnd=84"
+  },
+  {
+    "name": "TROCADERO DIR CENTRO",
+    "lat": 38.2381817,
+    "lon": 15.5778133,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1699&rnd=84"
+  },
+  {
+    "name": "TROCADERO DIR LAGO",
+    "lat": 38.2380945,
+    "lon": 15.5777359,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=699&rnd=84"
   }
 ]
