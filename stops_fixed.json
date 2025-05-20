@@ -126,7 +126,7 @@
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=863&rnd=55"
   },
   {
-    "name": "VIA CESERE BATTISTI UNI",
+    "name": "V. CESERE BATTISTI UNI",
     "lat": 38.188793,
     "lon": 15.553908,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=103&rnd=87"
@@ -160,5 +160,17 @@
     "lat": 38.2380945,
     "lon": 15.5777359,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=699&rnd=84"
+  },
+  {
+    "name": "V. CONSOLARE POMPEA 17 DIR LAGO",
+    "lat": 38.2194025,
+    "lon": 15.5658121,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1691&rnd=84"
+  },
+  {
+    "name": "V. CONSOLARE POMPEA 17 DIR CENTRO",
+    "lat": 38.2192946,
+    "lon": 15.5657917,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=691&rnd=84"
   }
 ]
