@@ -60,7 +60,7 @@
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1759&rnd=71"
   },
   {
-    "name": "FARMACIA GRASSO DIR LAGO (CENTRO)",
+    "name": "FARMACIA GRASSO DIR LAGO",
     "lat": 38.190264,
     "lon": 15.552101,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=510&rnd=71"
@@ -172,5 +172,17 @@
     "lat": 38.2192946,
     "lon": 15.5657917,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1691&rnd=84"
+  },
+  {
+    "name": "V. FIUMARA GUARDIA - AUTODROMO DIR CENTRO",
+    "lat": 38.25046839269177,
+    "lon": 15.590353687145155,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1755&rnd=84"
+  },
+   {
+    "name": "V. FIUMARA GUARDIA - AUTODROMO DIR LAGO",
+    "lat": 38.250551629664365,
+    "lon": 15.591066726324893,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=755&rnd=84"
   }
 ]
