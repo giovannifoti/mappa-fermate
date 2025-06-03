@@ -54,7 +54,7 @@
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1866&rnd=67"
   },
   {
-    "name": "DISCESA UNI PAPARDO",
+    "name": "DISCESA UNI PAPARDO DIR CENTRO",
     "lat": 38.255635,
     "lon": 15.602252,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1759&rnd=71"
@@ -202,5 +202,35 @@
     "lat": 38.2056637,
     "lon": 15.5580666,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=550&rnd=84"
+  },
+  {
+    "name": "V. CONSOLARE POMPEA 1955 DIR CENTRO",
+    "lat": 38.26292265500724,
+    "lon": 15.621517887013757,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1766&rnd=84"
+  }, 
+  {
+    "name": "V. CONSOLARE POMPEA 1955 DIR LAGO",
+    "lat": 38.26281578683574,
+    "lon": 15.621502948677731,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=766&rnd=84"
+  }, 
+  {
+    "name": "V. CONSOLARE POMPEA 1929 DIR LAGO",
+    "lat": 38.26211179503126,
+    "lon": 15.618105932808044,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=765&rnd=84"
+  },   
+  {
+    "name": "V. CONSOLARE POMPEA 1929 DIR CENTRO",
+    "lat": 38.26224521083938,
+    "lon": 15.618089610236815,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1765&rnd=84"
+  },
+  {
+    "name": "V. GARIBALDI - VILLA MAZZINI DIR LAGO",
+    "lat": 38.19800456169704,
+    "lon": 15.5574684385418,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=514&rnd=84"
   }
 ]
