@@ -232,5 +232,182 @@
     "lat": 38.19800456169704,
     "lon": 15.5574684385418,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=514&rnd=84"
+  },
+  {
+    "name": "V.LE LIBERTA' - RINGO DIR LAGO",
+    "lat": 38.213546470506365,
+    "lon": 15.562496222552126, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=556&rnd=84"
+  },
+  {
+    "name": "V.LE LIBERTA' - RINGO DIR CENTRO",
+    "lat": 38.213592834175444,
+    "lon": 15.562222637233344, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1556&rnd=84"
+  },
+  {
+    "name": "MUSEO DIR LAGO",
+    "lat": 38.21723018275719,
+    "lon": 15.565505661067919, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=557&rnd=84"
+  },
+  {
+    "name": "MUSEO DIR CENTRO",
+    "lat": 38.216616682706544,
+    "lon": 15.564453899856828, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1557&rnd=84"
+  },
+  {
+    "name": "MUSEO DIR CENTRO",
+    "lat": 38.216616682706544,
+    "lon": 15.564453899856828, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1557&rnd=84"
+  },
+  {
+    "name": "V. CONSOLARE POMPEA 45 DIR LAGO",
+    "lat": 38.22154,
+    "lon": 15.56569, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=692&rnd=84"
+  },
+  {
+    "name": "V. CONSOLARE POMPEA 45 DIR CENTRO",
+    "lat": 38.22154,
+    "lon": 15.56558, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1692&rnd=84"
+  },
+  {
+    "name": "V. CONSOLARE POMPEA 245 DIR LAGO",
+    "lat": 38.22400,
+    "lon": 15.56676, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=693&rnd=84"
+  },
+  {
+    "name": "V. CONSOLARE POMPEA 245 DIR CENTRO",
+    "lat": 38.22404,
+    "lon": 15.56666, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1693&rnd=84"
+  },
+  {
+    "name": "PARADISO POSTE DIR LAGO",
+    "lat": 38.22661,
+    "lon": 15.56850, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=694&rnd=84"
+  },
+  {
+    "name": "PARADISO POSTE DIR CENTRO",
+    "lat": 38.22661,
+    "lon": 15.56840, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1694&rnd=84"
+  },
+  {
+    "name": "CONT - POMPEA N 239 DIR CENTRO",
+    "lat": 38.22921,
+    "lon": 15.56970, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1695&rnd=84"
+  },
+  {
+    "name": "CONT - POMPEA N 239 DIR LAGO",
+    "lat": 38.22921,
+    "lon": 15.56980, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=695&rnd=84"
+  },
+  {
+    "name": "CONT - POMPEA N 419 DIR CENTRO",
+    "lat": 38.23231,
+    "lon": 15.57091, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1696&rnd=84"
+  },
+  {
+    "name": "CONT - POMPEA N 419 DIR LAGO",
+    "lat": 38.23231,
+    "lon": 15.57100, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=696&rnd=84"
+  },
+  {
+    "name": "CONT - V.LLA BOSURGI DIR LAGO",
+    "lat": 38.23432,
+    "lon": 15.57210, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=697&rnd=84"
+  },
+  {
+    "name": "CONT - V.LLA BOSURGI DIR CENTRO",
+    "lat": 38.23432,
+    "lon": 15.57201, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1697&rnd=84"
+  },
+  {
+    "name": "PACE V. CONSOLARE POMPEA DIR LAGO",
+    "lat": 38.23671,
+    "lon": 15.57530, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=698&rnd=84"
+  },
+  {
+    "name": "TORR.PACE DIR CENTRO",
+    "lat": 38.23671,
+    "lon": 15.57530, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1698&rnd=84"
+  },
+  {
+    "name": "GROTTE - POMPEA N 836 DIR LAGO",
+    "lat": 38.24192,
+    "lon": 15.58000, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=700&rnd=84"
+  },
+  {
+    "name": "GROTTE - POMPEA N 836 DIR CENTRO",
+    "lat": 38.24190,
+    "lon": 15.57990, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1700&rnd=84"
+  },
+  {
+    "name": "GROTTE - C.DA FORTINO DIR LAGO",
+    "lat": 38.24423,
+    "lon": 15.58090, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=701&rnd=84"
+  },
+  {
+    "name": "GROTTE - C.DA FORTINO DIR CENTRO",
+    "lat": 38.24420,
+    "lon": 15.58080, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1701&rnd=84"
+  },
+  {
+    "name": "GROTTE - POMPEA N 1129 DIR LAGO",
+    "lat": 38.24641,
+    "lon": 15.58280, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=702&rnd=84"
+  },
+  {
+    "name": "GROTTE - POMPEA N 1129 DIR CENTRO",
+    "lat": 38.24640,
+    "lon": 15.58270, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1702&rnd=84"
+  },
+  {
+    "name": "GROTTE - POMPEA N 1279 DIR LAGO",
+    "lat": 38.24792,
+    "lon": 15.58471, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=703&rnd=84"
+  },
+  {
+    "name": "GROTTE - POMPEA N 1279 DIR CENTRO",
+    "lat": 38.24791,
+    "lon": 15.58460, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1703&rnd=84"
+  },
+  {
+    "name": "GROTTE - POMPEA N 1349 DIR LAGO",
+    "lat": 38.24941,
+    "lon": 15.58770, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=704&rnd=84"
+  },
+  {
+    "name": "GROTTE - POMPEA N 1349 DIR CENTRO",
+    "lat": 38.24940,
+    "lon": 15.58760, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1704&rnd=84"
   }
 ]
+
+
+
