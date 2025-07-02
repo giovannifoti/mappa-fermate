@@ -982,6 +982,126 @@
     "lat": 38.29255,
     "lon": 15.52870, 
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1799&rnd=84"
+  },
+  {
+    "name": "V.LE ANNUNZIATA S.ELENA DIR SALITA",
+    "lat": 38.21868,
+    "lon": 15.56290, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=559&rnd=84"
+  },
+  {
+    "name": "V.LE ANNUNZIATA S.ELENA DIR DISCESA",
+    "lat": 38.21850,
+    "lon": 15.56293, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1559&rnd=84"
+  },
+  {
+    "name": "ST. PANORAMICA DELLO STRETTO V.LE DEI TIGLI DIR LAGO",
+    "lat": 38.21963,
+    "lon": 15.56382, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=847&rnd=84"
+  },
+  {
+    "name": "ST. PANORAMICA DELLO STRETTO V.LE DEI TIGLI DIR CENTRO",
+    "lat": 38.21967,
+    "lon": 15.56371, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1847&rnd=84"
+  },
+  {
+    "name": "ST. PANORAMICA DELLO STRETTO EDEN PARK DIR CENTRO",
+    "lat": 38.22312,
+    "lon": 15.56460, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1848&rnd=84"
+  },
+  {
+    "name": "ST. PANORAMICA DELLO STRETTO EDEN PARK DIR LAGO",
+    "lat": 38.22310,
+    "lon": 15.56450, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=848&rnd=84"
+  },
+  {
+    "name": "ST. PANORAMICA DELLO STRETTO 574 DIR LAGO",
+    "lat": 38.22532,
+    "lon": 15.56470, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=849&rnd=84"
+  },
+  {
+    "name": "ST. PANORAMICA DELLO STRETTO 574 DIR CENTRO",
+    "lat": 38.22530,
+    "lon": 15.56460, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1849&rnd=84"
+  },
+  {
+    "name": "ST. PANORAMICA DELLO STRETTO PARNASO DIR LAGO",
+    "lat": 38.22637,
+    "lon": 15.56571, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=850&rnd=84"
+  },
+  {
+    "name": "ST. PANORAMICA DELLO STRETTO PARNASO DIR CENTRO",
+    "lat": 38.22640,
+    "lon": 15.56560, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1850&rnd=84"
+  },
+  {
+    "name": "ST. PANORAMICA DELLO STRETTO LINEA VERDE 1 DIR LAGO",
+    "lat": 38.22726,
+    "lon": 15.56656, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=851&rnd=84"
+  },
+  {
+    "name": "ST. PANORAMICA DELLO STRETTO LINEA VERDE DIR CENTRO",
+    "lat": 38.22751,
+    "lon": 15.56650, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1851&rnd=84"
+  },
+  {
+    "name": "ST. PANORAMICA DELLO STRETTO LINEA VERDE 2 DIR LAGO",
+    "lat": 38.22932,
+    "lon": 15.56824, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=852&rnd=84"
+  },
+  {
+    "name": "ST. PANORAMICA DELLO STRETTO LINEA VERDE 2 DIR CENTRO",
+    "lat": 38.22931,
+    "lon": 15.56817, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1852&rnd=84"
+  },
+  {
+    "name": "ST. PANORAMICA DELLO STRETTO RIALTO AZZURRO DIR LAGO",
+    "lat": 38.23102,
+    "lon": 15.56830, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=853&rnd=84"
+  },
+  {
+    "name": "ST. PANORAMICA DELLO STRETTO RIALTO AZZURRO DIR CENTRO",
+    "lat": 38.23097,
+    "lon": 15.56825, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1853&rnd=84"
+  },
+  {
+    "name": "ST. PANORAMICA DELLO STRETTO KM 2-200 DIR LAGO",
+    "lat": 38.23289,
+    "lon": 15.56996, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=854&rnd=84"
+  },
+  {
+    "name": "ST. PANORAMICA DELLO STRETTO KM 2-200 DIR CENTRO",
+    "lat": 38.23292,
+    "lon": 15.56969, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1854&rnd=84"
+  },
+  {
+    "name": "ST. PANORAMICA DELLO STRETTO KM 2-500 DIR LAGO",
+    "lat": 38.23651,
+    "lon": 15.57210, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=855&rnd=84"
+  },
+  {
+    "name": "ST. PANORAMICA DELLO STRETTO KM 2-500 DIR CENTRO",
+    "lat": 38.23677,
+    "lon": 15.57172, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1855&rnd=84"
   }
 ]
 
