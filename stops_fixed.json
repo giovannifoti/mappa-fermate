@@ -784,6 +784,204 @@
     "lat": 38.27338,
     "lon": 15.59666, 
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1781&rnd=84"
+  },
+  {
+    "name": "TIMPAZZI STR.STATALE 113 KM 14-900 DIR LAGO",
+    "lat": 38.27489,
+    "lon": 15.59278, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=782&rnd=84"
+  },
+  {
+    "name": "TIMPAZZI STR.STATALE 113 KM 14-900 DIR CENTRO",
+    "lat": 38.27487,
+    "lon": 15.59250, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1782&rnd=84"
+  },
+  {
+    "name": "C.SA BIANCA STR.STATALE 113 KM 15-150 DIR LAGO",
+    "lat": 38.27712,
+    "lon": 15.58860, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=783&rnd=84"
+  },
+  {
+    "name": "C.SA BIANCA STR.STATALE 113 KM 15-150 DIR CENTRO",
+    "lat": 38.27709,
+    "lon": 15.58850, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1783&rnd=84"
+  },
+  {
+    "name": "C.SA BIANCA STR.STATALE 113 KM 15-500 DIR LAGO",
+    "lat": 38.27811,
+    "lon": 15.58530, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=784&rnd=84"
+  },
+  {
+    "name": "C.SA BIANCA STR.STATALE 113 KM 15-500 DIR CENTRO",
+    "lat": 38.27801,
+    "lon": 15.58520, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1784&rnd=84"
+  },
+  {
+    "name": "C.SA BIANCA STR.STATALE 113 KM 15-950 DIR LAGO",
+    "lat": 38.28033,
+    "lon": 15.58052, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=785&rnd=84"
+  },
+  {
+    "name": "C.SA BIANCA STR.STATALE 113 KM 15-950 DIR CENTRO",
+    "lat": 38.28032,
+    "lon": 15.58040, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1785&rnd=84"
+  },
+  {
+    "name": "TONO STR. STATALE 113 KM 16-600",
+    "lat": 38.28234,
+    "lon": 15.57648, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=786&rnd=84"
+  },
+  {
+    "name": "TONO STR. STATALE 113 KM 16-900 DIR LAGO",
+    "lat": 38.28424,
+    "lon": 15.57422, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=787&rnd=84"
+  },
+  {
+    "name": "TONO STR. STATALE 113 KM 16-900 DIR CENTRO",
+    "lat": 38.28423,
+    "lon": 15.57409, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1787&rnd=84"
+  },
+  {
+    "name": "TONO STR. STATALE 113 B.VIO FARO SUP DIR LAGO",
+    "lat": 38.28399,
+    "lon": 15.57084, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=788&rnd=84"
+  },
+  {
+    "name": "TONO STR. STATALE 113 B.VIO FARO SUP DIR CENTRO",
+    "lat": 38.28392,
+    "lon": 15.57070, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1788&rnd=84"
+  },
+  {
+    "name": "TONO STR. STATALE 113 KM 17-200 DIR LAGO",
+    "lat": 38.28594,
+    "lon": 15.56909, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=789&rnd=84"
+  },
+  {
+    "name": "TONO STR. STATALE 113 KM 17-200 DIR CENTRO",
+    "lat": 38.28591,
+    "lon": 15.56900, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1789&rnd=84"
+  },
+  {
+    "name": "TONO STR. STATALE 113 TORR. MEZZANA DIR LAGO",
+    "lat": 38.29043,
+    "lon": 15.56321, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=790&rnd=84"
+  },
+  {
+    "name": "TONO STR. STATALE 113 TORR. MEZZANA DIR CENTRO",
+    "lat": 38.29044,
+    "lon": 15.56311, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1790&rnd=84"
+  },
+  {
+    "name": "P.NO ROCCA SS113 B.VIO ACQUALADRONE DIR LAGO",
+    "lat": 38.29155,
+    "lon": 15.55524, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=791&rnd=84"
+  },
+  {
+    "name": "P.NO ROCCA SS113 B.VIO ACQUALADRONE DIR CENTRO",
+    "lat": 38.29163,
+    "lon": 15.55489, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1791&rnd=84"
+  },
+  {
+    "name": "P.NO ROCCA SS113 KM 20-100 DIR LAGO",
+    "lat": 38.29393,
+    "lon": 15.55432, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=792&rnd=84"
+  },
+  {
+    "name": "P.NO ROCCA SS113 KM 20-100 DIR CENTRO",
+    "lat": 38.29380,
+    "lon": 15.55430, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1792&rnd=84"
+  },
+  {
+    "name": "P.NO ROCCA SS113 KM 20-300 DIR LAGO",
+    "lat": 38.29434,
+    "lon": 15.55200, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=793&rnd=84"
+  },
+  {
+    "name": "P.NO ROCCA SS113 KM 20-300 DIR CENTRO",
+    "lat": 38.29424,
+    "lon": 15.55190, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1793&rnd=84"
+  },
+  {
+    "name": "P.NO ROCCA SS113 KM 20-500 DIR LAGO",
+    "lat": 38.29494,
+    "lon": 15.54854, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=794&rnd=84"
+  },
+  {
+    "name": "P.NO ROCCA SS113 KM 20-500 DIR CENTRO",
+    "lat": 38.29483,
+    "lon": 15.54840, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1794&rnd=84"
+  },
+  {
+    "name": "SPARTA' STR.STATALE 113 KM 20-800 DIR LAGO",
+    "lat": 38.29338,
+    "lon": 15.54625, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=795&rnd=84"
+  },
+  {
+    "name": "SPARTA' STR.STATALE 113 KM 20-800 DIR CENTRO",
+    "lat": 38.29330,
+    "lon": 15.54822, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1795&rnd=84"
+  },
+  {
+    "name": "SPARTA' KM 21-300 DIR LAGO",
+    "lat": 38.29442,
+    "lon": 15.54190, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=796&rnd=84"
+  },
+  {
+    "name": "SPARTA' KM 21-300 DIR CENTRO",
+    "lat": 38.29435,
+    "lon": 15.54189, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1796&rnd=84"
+  },
+  {
+    "name": "SPARTA' KM 21-800",
+    "lat": 38.29442,
+    "lon": 15.54190, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=797&rnd=84"
+  },
+  {
+    "name": "P.NO TORRE DISC. MARINA DI MEZZACAPA DIR LAGO",
+    "lat": 38.29321,
+    "lon": 15.53298, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=798&rnd=84"
+  },
+  {
+    "name": "P.NO TORRE SS113 KM 22-500 DIR LAGO",
+    "lat": 38.29268,
+    "lon": 15.52879, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=799&rnd=84"
+  },
+  {
+    "name": "P.NO TORRE SS113 KM 22-500 DIR CENTRO",
+    "lat": 38.29255,
+    "lon": 15.52870, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1799&rnd=84"
   }
 ]
 
