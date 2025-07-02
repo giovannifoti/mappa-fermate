@@ -1660,6 +1660,342 @@
     "lat": 38.26591,
     "lon": 15.54500, 
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=730&rnd=84"
+  },
+  {
+    "name": "SP45 MASSA S.GIOVANNI KM 10-800 DIR SALITA",
+    "lat": 38.26788,
+    "lon": 15.54597, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=731&rnd=84"
+  },
+  {
+    "name": "SP45 MASSA S.GIOVANNI KM 10-800 DIR DISCESA",
+    "lat": 38.26793,
+    "lon": 15.54593, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1731&rnd=84"
+  },
+  {
+    "name": "SP45 MASSA S.LUCIA KM 11-000 DIR SALITA",
+    "lat": 38.26881,
+    "lon": 15.54740, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=732&rnd=84"
+  },
+  {
+    "name": "SP45 MASSA S.LUCIA KM 11-000 DIR DISCESA",
+    "lat": 38.26873,
+    "lon": 15.54748, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1732&rnd=84"
+  },
+  {
+    "name": "SP45 MASSA S.LUCIA 5 DIR SALITA",
+    "lat": 38.26862,
+    "lon": 15.54821, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=733&rnd=84"
+  },
+  {
+    "name": "SP45 MASSA S.LUCIA 5 DIR DISCESA",
+    "lat": 38.26870,
+    "lon": 15.54820, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1733&rnd=84"
+  },
+  {
+    "name": "SP45 MASSA S.LUCIA SCUOLA ELEMENTARE DIR SALITA",
+    "lat": 38.27031,
+    "lon": 15.54810, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=734&rnd=84"
+  },
+  {
+    "name": "SP45 MASSA S.LUCIA SCUOLA ELEMENTARE DIR DISCESA",
+    "lat": 38.27030,
+    "lon": 15.54800, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1734&rnd=84"
+  },
+  {
+    "name": "SP45 MASSA S.NICOLA KM 12-000 DIR SALITA",
+    "lat": 38.27096,
+    "lon": 15.54325, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=735&rnd=84"
+  },
+  {
+    "name": "SP45 MASSA S.NICOLA KM 12-000 DIR DISCESA",
+    "lat": 38.27093,
+    "lon": 15.54320, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1735&rnd=84"
+  },
+  {
+    "name": "SP45 MASSA S.GIORGIO - INIZIO ",
+    "lat": 38.27391,
+    "lon": 15.53710, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1736&rnd=84"
+  },
+  {
+    "name": "SP45 MASSA S.GIORGIO",
+    "lat": 38.27522,
+    "lon": 15.53701, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=737&rnd=84"
+  },
+  {
+    "name": "SP50 MASSA S.GIORGIO 41 DIR DISCESA",
+    "lat": 38.27384,
+    "lon": 15.53682, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1738&rnd=84"
+  },
+  {
+    "name": "SP50 MASSA S.GIORGIO 41 DIR SALITA",
+    "lat": 38.27373,
+    "lon": 15.53686, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=738&rnd=84"
+  },
+  {
+    "name": "SP50 MASSA S.GIORGIO C.DA VIGNA GR.DE DIR SALITA",
+    "lat": 38.27236,
+    "lon": 15.53585, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=739&rnd=84"
+  },
+  {
+    "name": "SP50 MASSA S.GIORGIO C.DA VIGNA GR.DE DIR DISCESA",
+    "lat": 38.27237,
+    "lon": 15.53574, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1739&rnd=84"
+  },
+  {
+    "name": "SP50 CASTANEA - INIZIO DIR SALITA",
+    "lat": 38.26981,
+    "lon": 15.53100, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=740&rnd=84"
+  },
+  {
+    "name": "SP50 CASTANEA - INIZIO DIR DISCESA",
+    "lat": 38.26980,
+    "lon": 15.53090, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1740&rnd=84"
+  },
+  {
+    "name": "SP50 CASTANEA - C.SA CAMARDA - COSTA DIR SALITA",
+    "lat": 38.26842,
+    "lon": 15.52851, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=741&rnd=84"
+  },
+  {
+    "name": "SP50 CASTANEA - C.SA CAMARDA - COSTA DIR DISCESA",
+    "lat": 38.26830,
+    "lon": 15.52849, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1741&rnd=84"
+  },
+  {
+    "name": "SP50 CASTANEA DIR SALITA",
+    "lat": 38.26753,
+    "lon": 15.52548, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=742&rnd=84"
+  },
+  {
+    "name": "SP50 CASTANEA DIR DISCESA",
+    "lat": 38.26740,
+    "lon": 15.52540, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1742&rnd=84"
+  },
+  {
+    "name": "SP50 CASTANEA - C.SA VINICOLA DIR SALITA",
+    "lat": 38.26591,
+    "lon": 15.52340, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=743&rnd=84"
+  },
+  {
+    "name": "SP50 CASTANEA - C.SA VINICOLA DIR DISCESA",
+    "lat": 38.26580,
+    "lon": 15.52340, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1743&rnd=84"
+  },
+  {
+    "name": "SP50 CASTANEA - P.ZZA SS ROSARIO DIR SALITA",
+    "lat": 38.26344,
+    "lon": 15.52182, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=744&rnd=84"
+  },
+  {
+    "name": "SP50 CASTANEA - P.ZZA SS ROSARIO DIR DISCESA",
+    "lat": 38.26330,
+    "lon": 15.52169, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1744&rnd=84"
+  },
+  {
+    "name": "SP50 CASTANEA - 5A DIR SALITA",
+    "lat": 38.26325,
+    "lon": 15.52312, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=745&rnd=84"
+  },
+  {
+    "name": "SP50 CASTANEA - 5A DIR DISCESA",
+    "lat": 38.26321,
+    "lon": 15.52300, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1745&rnd=84"
+  },
+  {
+    "name": "SP50 CASTANEA - C.SA POPOLARI DIR SALITA",
+    "lat": 38.26187,
+    "lon": 15.52448, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=746&rnd=84"
+  },
+  {
+    "name": "SP50 CASTANEA - C.SA POPOLARI DIR DISCESA",
+    "lat": 38.26184,
+    "lon": 15.52434, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1746&rnd=84"
+  },
+  {
+    "name": "SP50 CASTANEA",
+    "lat": 38.26030,
+    "lon": 15.52390, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1747&rnd=84"
+  },
+  {
+    "name": "SP50 CASTANEA",
+    "lat": 38.25983,
+    "lon": 15.52382, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=748&rnd=84"
+  },
+  {
+    "name": "SP50 S. COSIMO CARABINIERI DIR SALITA",
+    "lat": 38.25702,
+    "lon": 15.52211, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=749&rnd=84"
+  },
+  {
+    "name": "SP50 S. COSIMO CARABINIERI DIR DISCESA",
+    "lat": 38.25690,
+    "lon": 15.52205, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1749&rnd=84"
+  },
+  {
+    "name": "SP50 S. COSIMO 117 DIR SALITA",
+    "lat": 38.25461,
+    "lon": 15.52332, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=750&rnd=84"
+  },
+  {
+    "name": "SP50 S. COSIMO 117 DIR DISCESA",
+    "lat": 38.25450,
+    "lon": 15.52340, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1750&rnd=84"
+  },
+  {
+    "name": "SP50 S. COSIMO 125 DIR SALITA",
+    "lat": 38.25213,
+    "lon": 15.52432, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=751&rnd=84"
+  },
+  {
+    "name": "SP50 S. COSIMO 125 DIR DISCESA",
+    "lat": 38.25200,
+    "lon": 15.52430, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1751&rnd=84"
+  },
+  {
+    "name": "SP50 S. COSIMO C.SA DI RIPOSO DIR SALITA",
+    "lat": 38.25112,
+    "lon": 15.52691, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=752&rnd=84"
+  },
+  {
+    "name": "SP50 S. COSIMO C.SA DI RIPOSO DIR DISCESA",
+    "lat": 38.25099,
+    "lon": 15.52690, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1752&rnd=84"
+  },
+  {
+    "name": "SP50 C.DA ORBO DIR SALITA",
+    "lat": 38.24813,
+    "lon": 15.52778, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=753&rnd=84"
+  },
+  {
+    "name": "SP50 C.DA ORBO DIR DISCESA",
+    "lat": 38.24799,
+    "lon": 15.52780, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1753&rnd=84"
+  },
+  {
+    "name": "SP50 DIR SALITA",
+    "lat": 38.24111,
+    "lon": 15.52539, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=754&rnd=84"
+  },
+  {
+    "name": "SP50 DIR DISCESA",
+    "lat": 38.24102,
+    "lon": 15.52528, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1754&rnd=84"
+  },
+  {
+    "name": "PORTELLA CASTENEA B.VIO SALICE DIR SALITA",
+    "lat": 38.23653,
+    "lon": 15.52542, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=662&rnd=84"
+  },
+  {
+    "name": "PORTELLA CASTENEA B.VIO SALICE DIR DISCESA",
+    "lat": 38.23650,
+    "lon": 15.52530, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1662&rnd=84"
+  },
+  {
+    "name": "SP51 FER 1 STATUA PADRE PIO DIR SALITA",
+    "lat": 38.23771,
+    "lon": 15.51540, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=663&rnd=84"
+  },
+  {
+    "name": "SP51 FER 1 STATUA PADRE PIO DIR DISCESA",
+    "lat": 38.23770,
+    "lon": 15.51530, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1663&rnd=84"
+  },
+  {
+    "name": "SP51 FER 2 DIR SALITA",
+    "lat": 38.23782,
+    "lon": 15.51310, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=664&rnd=84"
+  },
+  {
+    "name": "SP51 FER 2 DIR DISCESA",
+    "lat": 38.23770,
+    "lon": 15.51310, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1664&rnd=84"
+  },
+  {
+    "name": "SP51 FER 3 - CHIESA DIR SALITA",
+    "lat": 38.23822,
+    "lon": 15.51109, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=665&rnd=84"
+  },
+  {
+    "name": "SP51 FER 3 - CHIESA DIR DISCESA",
+    "lat": 38.23820,
+    "lon": 15.51090, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1665&rnd=84"
+  },
+  {
+    "name": "SP51 FER 4 DIR SALITA",
+    "lat": 38.24114,
+    "lon": 15.51110, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=666&rnd=84"
+  },
+  {
+    "name": "SP51 FER 4 DIR DISCESA",
+    "lat": 38.24110,
+    "lon": 15.51099, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1666&rnd=84"
+  },
+  {
+    "name": "SP51 FER 5 DIR SALITA",
+    "lat": 38.24312,
+    "lon": 15.50391, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=667&rnd=84"
+  },
+  {
+    "name": "SP51 FER 5 DIR DISCESA",
+    "lat": 38.24300,
+    "lon": 15.50390, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1667&rnd=84"
   }
 ]
 
