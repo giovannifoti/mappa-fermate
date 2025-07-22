@@ -2176,6 +2176,66 @@
     "lat": 38.26477,
     "lon": 15.47385, 
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1682&rnd=84"
+  },
+  {
+    "name": "SS113 KM 30-300 DIR DISCESA",
+    "lat": 38.26420,
+    "lon": 15.47290, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1683&rnd=84"
+  },
+  {
+    "name": "SS113 KM 30-300 DIR SALITA",
+    "lat": 38.26434,
+    "lon": 15.47291, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=683&rnd=84"
+  },
+  {
+    "name": "SS113 KM 30-700 DIR SALITA",
+    "lat": 38.26221,
+    "lon": 15.46920, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=684&rnd=84"
+  },
+  {
+    "name": "SS113 KM 30-700 DIR DISCESA",
+    "lat": 38.26211,
+    "lon": 15.46920, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1684&rnd=84"
+  },
+  {
+    "name": "SS113 KM 31-100 DIR SALITA",
+    "lat": 38.25956,
+    "lon": 15.46601, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=685&rnd=84"
+  },
+  {
+    "name": "SS113 KM 31-100 DIR DISCESA",
+    "lat": 38.25939,
+    "lon": 15.46600, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1685&rnd=84"
+  },
+  {
+    "name": "SS113 CAMPANELLA DIR SALITA",
+    "lat": 38.25585,
+    "lon": 15.46191, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=686&rnd=84"
+  },
+  {
+    "name": "SS113 CAMPANELLA DIR DISCESA",
+    "lat": 38.25569,
+    "lon": 15.46189, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1686&rnd=84"
+  },
+  {
+    "name": "SS113 ORTOLIUZZO DIR SALITA",
+    "lat": 38.25224,
+    "lon": 15.45780, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=687&rnd=84"
+  },
+  {
+    "name": "SS113 ORTOLIUZZO DIR DISCESA",
+    "lat": 38.26434,
+    "lon": 15.47291, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1687&rnd=84"
   }
 ]
 
