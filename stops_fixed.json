@@ -2227,15 +2227,33 @@
   },
   {
     "name": "SS113 ORTOLIUZZO DIR SALITA",
-    "lat": 38.25224,
-    "lon": 15.45780, 
+    "lat": 38.25223,
+    "lon": 15.45781, 
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=687&rnd=84"
   },
   {
     "name": "SS113 ORTOLIUZZO DIR DISCESA",
-    "lat": 38.26434,
-    "lon": 15.47291, 
+    "lat": 38.25209,
+    "lon": 15.45781, 
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1687&rnd=84"
+  },
+  {
+    "name": "SS113 PONTEGALLO N23 DIR DISCESA",
+    "lat": 38.24955,
+    "lon": 15.45474, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1688&rnd=84"
+  },
+  {
+    "name": "SS113 PONTEGALLO N23 DIR SALITA",
+    "lat": 38.24855,
+    "lon": 15.45466, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=688&rnd=84"
+  },
+  {
+    "name": "SS113 PONTEGALLO N44 ",
+    "lat": 38.24799,
+    "lon": 15.45341, 
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=689&rnd=84"
   }
 ]
 
