@@ -84,10 +84,16 @@
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=116&rnd=98"
   },
   {
-    "name": "SALITA ANNUNZIATA",
+    "name": "V.LE ANNUNZIATA - V.LLA LUCE DIR SALITA",
     "lat": 38.218223,
     "lon": 15.564862,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=558&rnd=98"
+  },
+  {
+    "name": "V.LE ANNUNZIATA - V.LLA LUCE DIR DISCESA",
+    "lat": 38.21811,
+    "lon": 15.56477,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1558&rnd=98"
   },
   {
     "name": "SEMAFORO PAPARDO DIR CENTRO",
@@ -2254,6 +2260,204 @@
     "lat": 38.24799,
     "lon": 15.45341, 
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=689&rnd=84"
+  },
+  {
+    "name": "V.LE ANNUNZIATA - S.ELENA DIR SALITA",
+    "lat": 38.21867,
+    "lon": 15.56290,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=559&rnd=98"
+  },
+  {
+    "name": "V.LE ANNUNZIATA - S.ELENA DIR DISCESA",
+    "lat": 38.21846,
+    "lon": 15.56292,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1559&rnd=98"
+  },
+  {
+    "name": "V.LE ANNUNZIATA 14 DIR SALITA",
+    "lat": 38.21892,
+    "lon": 15.56121,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=560&rnd=98"
+  },
+  {
+    "name": "V.LE ANNUNZIATA 14 DIR DISCESA",
+    "lat": 38.21822,
+    "lon": 15.56120,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1560&rnd=98"
+  },
+  {
+    "name": "V.LE ANNUNZIATA 29 DIR SALITA",
+    "lat": 38.21913,
+    "lon": 15.55912,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=561&rnd=98"
+  },
+  {
+    "name": "V.LE ANNUNZIATA 29 DIR DISCESA",
+    "lat": 38.21900,
+    "lon": 15.55911,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1561&rnd=98"
+  },
+  {
+    "name": "V.LE ANNUNZIATA 44 DIR SALITA",
+    "lat": 38.21962,
+    "lon": 15.55789,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=562&rnd=98"
+  },
+  {
+    "name": "V.LE ANNUNZIATA 44 DIR DISCESA",
+    "lat": 38.21951,
+    "lon": 15.55792,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1562&rnd=98"
+  },
+  {
+    "name": "V.LE ANNUNZIATA 69 DIR SALITA",
+    "lat": 38.21999,
+    "lon": 15.55736,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=563&rnd=98"
+  },
+  {
+    "name": "V.LE ANNUNZIATA 69 DIR DISCESA",
+    "lat": 38.21990,
+    "lon": 15.55720,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1563&rnd=98"
+  },
+  {
+    "name": "V. ANNUNZIATA 101A - SC. ELEMENTARE DIR DISCESA",
+    "lat": 38.22226,
+    "lon": 15.55398,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1576&rnd=98"
+  },
+  {
+    "name": "SP44 - V.A. GIUFFRE' ",
+    "lat": 38.22571,
+    "lon": 15.55363,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1570&rnd=98"
+  },
+  {
+    "name": "SP44 - STRADA MILITARE PER CAMPO ITALIA 3 DIR SALITA",
+    "lat": 38.22702,
+    "lon": 15.55432,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=569&rnd=98"
+  },
+  {
+    "name": "SP44 - STRADA MILITARE PER CAMPO ITALIA 3 DIR DISCESA",
+    "lat": 38.22700,
+    "lon": 15.55420,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1569&rnd=98"
+  },
+  {
+    "name": "SP44 - STRADA MILITARE PER CAMPO ITALIA 2 DIR SALITA",
+    "lat": 38.22811,
+    "lon": 15.55410,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=568&rnd=98"
+  },
+  {
+    "name": "SP44 - STRADA MILITARE PER CAMPO ITALIA 1 DIR SALITA",
+    "lat": 38.22841,
+    "lon": 15.55538,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=567&rnd=98"
+  },
+  {
+    "name": "SP44 - STRADA MILITARE PER CAMPO ITALIA 1 DIR DISCESA",
+    "lat": 38.22849,
+    "lon": 15.55532,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1567&rnd=98"
+  },
+  {
+    "name": "C.DA CITOLA 20",
+    "lat": 38.22931,
+    "lon": 15.55550,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1540&rnd=98"
+  },
+  {
+    "name": "SP44 C.DA CITOLA",
+    "lat": 38.23081,
+    "lon": 15.55571,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=541&rnd=98"
+  },
+  {
+    "name": "C.DA SORBA DIR SALITA",
+    "lat": 38.23277,
+    "lon": 15.55488,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=542&rnd=98"
+  },
+  {
+    "name": "C.DA SORBA DIR DISCESA",
+    "lat": 38.23270,
+    "lon": 15.55480,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1542&rnd=98"
+  },
+  {
+    "name": "SP44 - RIF LA STERZA DIR SALITA",
+    "lat": 38.23480,
+    "lon": 15.55381,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=543&rnd=98"
+  },
+  {
+    "name": "SP44 - RIF LA STERZA DIR DISCESA",
+    "lat": 38.23472,
+    "lon": 15.55376,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=543&rnd=98"
+  },
+  {
+    "name": "SP44 - CAMPOITALIA COOP. ALDEBARAN DIR SALITA",
+    "lat": 38.23661,
+    "lon": 15.55330,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=544&rnd=98"
+  },
+  {
+    "name": "SP44 - CAMPOITALIA COOP. ALDEBARAN DIR DISCESA",
+    "lat": 38.23660,
+    "lon": 15.55320,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1544&rnd=98"
+  },
+  {
+    "name": "SP44 - CAMPOITALIA COOP. LE TUIE DIR SALITA",
+    "lat": 38.23680,
+    "lon": 15.55378,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=545&rnd=98"
+  },
+  {
+    "name": "SP44 - CAMPOITALIA COOP. LE TUIE DIR DISCESA",
+    "lat": 38.23694,
+    "lon": 15.55380,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1545&rnd=98"
+  },
+  {
+    "name": "SP44 - CAMPOITALIA COOP. ATHENA DIR SALITA",
+    "lat": 38.23720,
+    "lon": 15.55461,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=546&rnd=98"
+  },
+   {
+    "name": "SP44 - CAMPOITALIA COOP. ATHENA DIR DISCESA",
+    "lat": 38.23709,
+    "lon": 15.55430,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1546&rnd=98"
+  },
+  {
+    "name": "SP44 - CAMPOITALIA COOP. ITALIA",
+    "lat": 38.23876,
+    "lon": 15.55426,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1547&rnd=98"
+  },
+  {
+    "name": "SP44 - 16 DIR SALITA",
+    "lat": 38.23740,
+    "lon": 15.55650,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=548&rnd=98"
+  },
+  {
+    "name": "SP44 - 16 DIR DISCESA",
+    "lat": 38.23741,
+    "lon": 15.55662,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1548&rnd=98"
+  },
+  {
+    "name": "PORTELLA ARENA",
+    "lat": 38.24281,
+    "lon": 15.55550,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=549&rnd=98"
   }
 ]
 
