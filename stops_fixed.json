@@ -2632,6 +2632,234 @@
     "lat": 38.23061,
     "lon": 15.55135,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=2008&rnd=98"
+  },
+  {
+    "name": "V.LE REGINA ELENA - S.ELENA DIR CENTRO",
+    "lat": 38.21805,
+    "lon": 15.56182,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1585&rnd=98"
+  },
+  {
+    "name": "V.LE REGINA ELENA - S.ELENA DIR LAGO",
+    "lat": 38.21797,
+    "lon": 15.56194,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=585&rnd=98"
+  },
+  {
+    "name": "V.LE REGINA ELENA 363 DIR CENTRO",
+    "lat": 38.21600,
+    "lon": 15.56191,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1584&rnd=98"
+  },
+  {
+    "name": "V.LE REGINA ELENA 363 DIR LAGO",
+    "lat": 38.21602,
+    "lon": 15.56208,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=584&rnd=98"
+  },
+  {
+    "name": "V.LE REGINA ELENA CLINICA CAPPELLANI DIR CENTRO",
+    "lat": 38.21440,
+    "lon": 15.56150,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1583&rnd=98"
+  },
+  {
+    "name": "V.LE REGINA ELENA CLINICA CAPPELLANI DIR LAGO",
+    "lat": 38.21433,
+    "lon": 15.56153,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=583&rnd=98"
+  },
+  {
+    "name": "V.LE REGINA ELENA S. LICANDRI",
+    "lat": 38.21378,
+    "lon": 15.55875,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=582&rnd=98"
+  },
+  {
+    "name": "VIA L.SCIASCIA 4 DIR SALITA",
+    "lat": 38.21389,
+    "lon": 15.55777,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=523&rnd=98"
+  },
+  {
+    "name": "VIA L.SCIASCIA 4 DIR DISCESA",
+    "lat": 38.21380,
+    "lon": 15.55759,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1523&rnd=98"
+  },
+  {
+    "name": "VIA L.SCIASCIA 10",
+    "lat": 38.21531,
+    "lon": 15.55580,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=524&rnd=98"
+  },
+  {
+    "name": "PIAZZA XXV APRILE DIR CENTRO",
+    "lat": 38.21643,
+    "lon": 15.55368,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=525&rnd=98"
+  },
+  {
+    "name": "PIAZZA XXV APRILE DIR SALITA",
+    "lat": 38.21663,
+    "lon": 15.55407,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=526&rnd=98"
+  },
+  {
+    "name": "VIA L.SCIASCIA 31 DIR SALITA",
+    "lat": 38.21855,
+    "lon": 15.55347,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=527&rnd=98"
+  },
+  {
+    "name": "VIA L.SCIASCIA 31 DIR DISCESA",
+    "lat": 38.21840,
+    "lon": 15.55320,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1527&rnd=98"
+  },
+  {
+    "name": "VIA L.SCIASCIA - V. OLIMPIA DIR SALITA",
+    "lat": 38.21976,
+    "lon": 15.55328,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=528&rnd=98"
+  },
+  {
+    "name": "VIA L.SCIASCIA - V. OLIMPIA DIR DISCESA",
+    "lat": 38.21970,
+    "lon": 15.55300,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1528&rnd=98"
+  },
+  {
+    "name": "V.ANNUNZIATA 85 - CH. SS. ANNUNZIATA DIR DISCESA",
+    "lat": 38.22094,
+    "lon": 15.55569,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1577&rnd=98"
+  },
+  {
+    "name": "V.ANNUNZIATA 85 - CH. SS. ANNUNZIATA DIR SALITA",
+    "lat": 38.22096,
+    "lon": 15.55586,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=577&rnd=98"
+  },
+  {
+    "name": "V.OLIMPIA - COOP IRIDE 83",
+    "lat": 38.21786,
+    "lon": 15.55508,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=529&rnd=98"
+  },
+  {
+    "name": "V. INETRDONATO",
+    "lat": 38.21940,
+    "lon": 15.55533,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=3010&rnd=98"
+  },
+  {
+    "name": "V.CO ANASTASI DIR LAGO",
+    "lat": 38.21963,
+    "lon": 15.55741,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=533&rnd=98"
+  },
+   {
+    "name": "V.CO ANASTASI DIR CENTRO",
+    "lat": 38.21960,
+    "lon": 15.55730,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1533&rnd=98"
+  },
+   {
+    "name": "V. OLIMPIA DIR SALITA",
+    "lat": 38.21720,
+    "lon": 15.55769,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1530&rnd=98"
+  },
+   {
+    "name": "V. OLIMPIA DIR DISCESA",
+    "lat": 38.21712,
+    "lon": 15.55752,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=530&rnd=98"
+  },
+   {
+    "name": "V. CAPPELLANI COOP. GRIFONE DIR SALITA",
+    "lat": 38.21752,
+    "lon": 15.55950,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=532&rnd=98"
+  },
+   {
+    "name": "V. CAPPELLANI COOP. GRIFONE DIR DISCESA",
+    "lat": 38.21750,
+    "lon": 15.55940,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1532&rnd=98"
+  },
+  {
+    "name": "V. CAPPELLANI - V.OLIMPIA DIR SALITA",
+    "lat": 38.21666,
+    "lon": 15.55851,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=531&rnd=98"
+  },
+  {
+    "name": "V. CAPPELLANI - V.OLIMPIA DIR DISCESA",
+    "lat": 38.21679,
+    "lon": 15.55850,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1531&rnd=98"
+  },
+  {
+    "name": "V.LE REGINA ELENA 117",
+    "lat": 38.21234,
+    "lon": 15.55951,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=522&rnd=98"
+  },
+  {
+    "name": "V.LE REGINA ELENA 38 DIR CENTRO",
+    "lat": 38.21083,
+    "lon": 15.56000,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1521&rnd=98"
+  },
+  {
+    "name": "V.LE REGINA ELENA 38 DIR LAGO",
+    "lat": 38.21080,
+    "lon": 15.55998,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=521&rnd=98"
+  },
+  {
+    "name": "P.ZZA CASTRONOVO",
+    "lat": 38.20777,
+    "lon": 15.5586,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=&rnd=98"
+  },
+  {
+    "name": "V.POLA 30 DIR CENTRO",
+    "lat": 38.20831,
+    "lon": 15.56053,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1524&rnd=98"
+  },
+  {
+    "name": "V.LE GIOSTRA (INTERNO) M.TO S.ORSOLA",
+    "lat": 38.20720,
+    "lon": 15.55762,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=2517&rnd=98"
+  },
+  {
+    "name": "V.LE GIOSTRA (INTERNO) V.G. ALIBRANDI",
+    "lat": 38.20862,
+    "lon": 15.55505,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=2518&rnd=98"
+  },
+  {
+    "name": "V.LE REGINA ELENA 51 DIR LAGO",
+    "lat": 38.20947,
+    "lon": 15.55525,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=519&rnd=98"
+  },
+  {
+    "name": "V.LE REGINA ELENA 51 DIR CENTRO",
+    "lat": 38.20950,
+    "lon": 15.55511,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1519&rnd=98"
+  },
+  {
+    "name": "V.LE REGINA ELENA OGLIASTRI",
+    "lat": 38.20912,
+    "lon": 15.55781,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=520&rnd=98"
   }
 ]
 
