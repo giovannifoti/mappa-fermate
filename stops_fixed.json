@@ -2860,6 +2860,24 @@
     "lat": 38.20912,
     "lon": 15.55781,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=520&rnd=98"
+  },
+  {
+    "name": "MUS",
+    "lat": 38.21748,
+    "lon": 15.56601,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=800&rnd=98"
+  },
+  {
+    "name": "V.LE LIBERTA S.FRANCESCO DIR CENTRO",
+    "lat": 38.20872,
+    "lon": 15.56093,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1554&rnd=98"
+  },
+  {
+    "name": "V.LE LIBERTA S.FRANCESCO DIR LAGO",
+    "lat": 38.20872,
+    "lon": 15.56093,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=554&rnd=98"
   }
 ]
 
