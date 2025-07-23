@@ -3250,6 +3250,252 @@
     "lat": 38.22700,
     "lon": 15.52040,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1661&rnd=98"
+  },
+  {
+    "name": "CH. RITIRO",
+    "lat": 38.21331,
+    "lon": 15.53810,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1635&rnd=98"
+  },
+  {
+    "name": "V. PALERMO 690 DIR SALITA",
+    "lat": 38.21317,
+    "lon": 15.53689,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=636&rnd=98"
+  },
+  {
+    "name": "V. PALERMO 690 DIR DISCESA",
+    "lat": 38.21300,
+    "lon": 15.53750,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1636&rnd=98"
+  },
+  {
+    "name": "V. PALERMO 587 DIR SALITA",
+    "lat": 38.21349,
+    "lon": 15.53550,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=637&rnd=98"
+  },
+  {
+    "name": "V. PALERMO 587 DIR DISCESA",
+    "lat": 38.21340,
+    "lon": 15.53561,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1637&rnd=98"
+  },
+  {
+    "name": "V. PALERMO 754 DIR SALITA",
+    "lat": 38.21320,
+    "lon": 15.53205,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=638&rnd=98"
+  },
+  {
+    "name": "V. PALERMO 754 DIR DISCESA",
+    "lat": 38.21312,
+    "lon": 15.53189,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1638&rnd=98"
+  },
+  {
+    "name": "V. PALERMO 731 DIR SALITA",
+    "lat": 38.21236,
+    "lon": 15.52833,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=639&rnd=98"
+  },
+  {
+    "name": "V. PALERMO 731 DIR DISCESA",
+    "lat": 38.21228,
+    "lon": 15.52841,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1639&rnd=98"
+  },
+  {
+    "name": "V. PALERMO 846 DIR SALITA",
+    "lat": 38.21122,
+    "lon": 15.52650,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=640&rnd=98"
+  },
+  {
+    "name": "SS113 - 1",
+    "lat": 38.20953,
+    "lon": 15.52594,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1641&rnd=98"
+  },
+  {
+    "name": "SS113 - 906 DIR SALITA",
+    "lat": 38.20761,
+    "lon": 15.52460,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=642&rnd=98"
+  },
+  {
+    "name": "SS113 - 906 DIR DISCESA",
+    "lat": 38.20750,
+    "lon": 15.52460,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1642&rnd=98"
+  },
+  {
+    "name": "SS113 - B.VIO NOVIZIATO CASAZZA DIR SALITA",
+    "lat": 38.20330,
+    "lon": 15.52280,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=643&rnd=98"
+  },
+  {
+    "name": "SS113 - B.VIO NOVIZIATO CASAZZA DIR DISCESA",
+    "lat": 38.20320,
+    "lon": 15.52280,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1643&rnd=98"
+  },
+  {
+    "name": "SS113 - CENTRO NEUROLESI DIR SALITA",
+    "lat": 38.20660,
+    "lon": 15.52000,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=644&rnd=98"
+  },
+  {
+    "name": "SS113 - CENTRO NEUROLESI DIR DISCESA",
+    "lat": 38.20660,
+    "lon": 15.51990,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1644&rnd=98"
+  },
+  {
+    "name": "SS113 - CENTRO NEUROLESI OSPES DIR SALITA",
+    "lat": 38.20771,
+    "lon": 15.51760,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=645&rnd=98"
+  },
+  {
+    "name": "SS113 - QUATTRO STRADE DIR SALITA",
+    "lat": 38.21570,
+    "lon": 15.50600,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=646&rnd=98"
+  },
+  {
+    "name": "SS113 - QUATTRO STRADE DIR DISCESA",
+    "lat": 38.21570,
+    "lon": 15.50590,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1646&rnd=98"
+  },
+  {
+    "name": "SS113 - LOC.NDA 1 DIR SALITA",
+    "lat": 38.22950,
+    "lon": 15.49780,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=647&rnd=98"
+  },
+  {
+    "name": "SS113 - LOC.NDA 1 DIR DISCESA",
+    "lat": 38.22950,
+    "lon": 15.49769,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1647&rnd=98"
+  },
+  {
+    "name": "SS113 - LOC.NDA 2 DIR SALITA",
+    "lat": 38.23002,
+    "lon": 15.49591,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=648&rnd=98"
+  },
+  {
+    "name": "SS113 - LOC.NDA 2 DIR DISCESA",
+    "lat": 38.22996,
+    "lon": 15.49581,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1648&rnd=98"
+  },
+  {
+    "name": "SS113 - LOC.NDA 3 DIR SALITA",
+    "lat": 38.23076,
+    "lon": 15.49254,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=649&rnd=98"
+  },
+  {
+    "name": "SS113 - LOC.NDA 3 DIR DISCESA",
+    "lat": 38.23057,
+    "lon": 15.49333,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1649&rnd=98"
+  },
+  {
+    "name": "SS113 - LOC.NDA 4 DIR SALITA",
+    "lat": 38.23050,
+    "lon": 15.48930,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=650&rnd=98"
+  },
+  {
+    "name": "SS113 - LOC.NDA 4 DIR DISCESA",
+    "lat": 38.23041,
+    "lon": 15.48930,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1650&rnd=98"
+  },
+  {
+    "name": "SS113 - LOC.NDA 5 DIR SALITA",
+    "lat": 38.23070,
+    "lon": 15.48470,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=651&rnd=98"
+  },
+  {
+    "name": "SS113 - LOC.NDA 5 DIR DISCESA",
+    "lat": 38.23060,
+    "lon": 15.48470,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1651&rnd=98"
+  },
+  {
+    "name": "SS113 - LOC.NDA 6 DIR SALITA",
+    "lat": 38.23060,
+    "lon": 15.48120,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=652&rnd=98"
+  },
+  {
+    "name": "SS113 - LOC.NDA 6 DIR DISCESA",
+    "lat": 38.23052,
+    "lon": 15.48110,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1652&rnd=98"
+  },
+  {
+    "name": "VILL. GESSO - CIMITERO DIR SALITA",
+    "lat": 38.23210,
+    "lon": 15.47710,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=653&rnd=98"
+  },
+  {
+    "name": "VILL. GESSO - CIMITERO DIR DISCESA",
+    "lat": 38.23208,
+    "lon": 15.47698,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1653&rnd=98"
+  },
+  {
+    "name": "VILL. GESSO - C.DA CASTELLO",
+    "lat": 38.23270,
+    "lon": 15.47500,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1654&rnd=98"
+  },
+  {
+    "name": "VILL. GESSO - P.ZZA CASTELLO DIR SALITA",
+    "lat": 38.23360,
+    "lon": 15.47170,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=655&rnd=98"
+  },
+  {
+    "name": "VILL. GESSO - P.ZZA CASTELLO DIR DISCESA",
+    "lat": 38.23360,
+    "lon": 15.47160,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1655&rnd=98"
+  },
+  {
+    "name": "VILL. GESSO - BELVEDERE",
+    "lat": 38.23412,
+    "lon": 15.46933,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1656&rnd=98"
+  },
+  {
+    "name": "VILL. GESSO - 37 DIR SALITA",
+    "lat": 38.23510,
+    "lon": 15.46859,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=657&rnd=98"
+  },
+  {
+    "name": "VILL. GESSO - 37 DIR DISCESA",
+    "lat": 38.23512,
+    "lon": 15.46856,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1657&rnd=98"
+  },
+  {
+    "name": "GESSO",
+    "lat": 38.23642,
+    "lon": 15.46600,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=658&rnd=98"
   }
 ]
 
