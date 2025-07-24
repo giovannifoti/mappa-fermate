@@ -4660,6 +4660,42 @@
     "lat": 38.18841,
     "lon": 15.51770,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=266&rnd=91"
+  },
+  {
+    "name": "PALAZZO GARIFI",
+    "lat": 38.18164,
+    "lon": 15.55216,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=3002&rnd=91"
+  },
+  {
+    "name": "S.NICOLA",
+    "lat": 38.18154,
+    "lon": 15.55233,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=3001&rnd=91"
+  },
+  {
+    "name": "V. TRIESTE 268",
+    "lat": 38.18056,
+    "lon": 15.55102,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=951&rnd=91"
+  },
+  {
+    "name": "V.LE S. MARTINO 347",
+    "lat": 38.17852,
+    "lon": 15.54940,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1892&rnd=91"
+  },
+  {
+    "name": "V.LE S. MARTINO - D.ORIONE DIR SUD",
+    "lat": 38.17661,
+    "lon": 15.54750,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=893&rnd=91"
+  },
+  {
+    "name": "V.LE S. MARTINO - D.ORIONE DIR NORD",
+    "lat": 38.17674,
+    "lon": 15.54768,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=&rnd=91"
   }
 ]
 
