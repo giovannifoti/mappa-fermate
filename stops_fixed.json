@@ -66,10 +66,16 @@
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=510&rnd=71"
   },
   {
-    "name": "FORESTALE",
+    "name": "V.T. CANNIZZARO - FORESTALE DIR LAGO",
     "lat": 38.187466,
     "lon": 15.555154,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1246&rnd=91"
+  },
+  {
+    "name": "CANNIZZARO - CENTONZE",
+    "lat": 38.18764,
+    "lon": 15.55470,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=246&rnd=91"
   },
   {
     "name": "MC TREMESTIERI DIR CENTRO",
@@ -3970,6 +3976,186 @@
     "lat": 38.18608,
     "lon": 15.56059,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=125&rnd=98"
+  },
+  {
+    "name": "CANNIZZARO - UGO BASSI",
+    "lat": 38.18541,
+    "lon": 15.55800,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=247&rnd=98"
+  },
+  {
+    "name": "V.T. CANNIZZARO - TRIBUNALE DIR SUD",
+    "lat": 38.18899,
+    "lon": 15.55234,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1129&rnd=91"
+  },
+  {
+    "name": "V.T. CANNIZZARO - 166 DIR SALITA",
+    "lat": 38.18973,
+    "lon": 15.55060,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=130&rnd=91"
+  },
+  {
+    "name": "V.T. CANNIZZARO - 166 DIR DISCESA",
+    "lat": 38.18963,
+    "lon": 15.55047,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1130&rnd=91"
+  },
+  {
+    "name": "V.T. CANNIZZARO - 231",
+    "lat": 38.19009,
+    "lon": 15.54908,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1131&rnd=91"
+  },
+  {
+    "name": "V.T. CANNIZZARO - 252 DIR SALITA",
+    "lat": 38.19092,
+    "lon": 15.54761,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=132&rnd=91"
+  },
+  {
+    "name": "V.T. CANNIZZARO - 252 DIR DISCESA",
+    "lat": 38.19082,
+    "lon": 15.54745,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1132&rnd=91"
+  },
+  {
+    "name": "P CAST - ORTO BOTANICO DIR SALITA",
+    "lat": 38.19205,
+    "lon": 15.54561,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=295&rnd=91"
+  },
+  {
+    "name": "P CAST - ORTO BOTANICO DIR DISCESA",
+    "lat": 38.19193,
+    "lon": 15.54551,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1295&rnd=91"
+  },
+  {
+    "name": "P.CASTELLI - V.TURIANO DIR SALITA",
+    "lat": 38.19292,
+    "lon": 15.54381,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=296&rnd=91"
+  },
+  {
+    "name": "P.CASTELLI - V.TURIANO DIR DISCESA",
+    "lat": 38.19282,
+    "lon": 15.54377,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1296&rnd=91"
+  },
+  {
+    "name": "P.CASTELLI 134 DIR SALITA",
+    "lat": 38.19374,
+    "lon": 15.54225,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=297&rnd=91"
+  },
+  {
+    "name": "P.CASTELLI 134 DIR DISCESA",
+    "lat": 38.19370,
+    "lon": 15.54209,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1297&rnd=91"
+  },
+  {
+    "name": "CITTA' DEL RAGAZZO DIR SALITA",
+    "lat": 38.19478,
+    "lon": 15.54082,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=298&rnd=91"
+  },
+  {
+    "name": "CITTA' DEL RAGAZZO DIR DISCESA",
+    "lat": 38.19470,
+    "lon": 15.54061,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1298&rnd=91"
+  },
+  {
+    "name": "S.MARIA DELLE GRAZIE DIR SALITA",
+    "lat": 38.19596,
+    "lon": 15.53933,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=299&rnd=91"
+  },
+  {
+    "name": "S.MARIA DELLE GRAZIE DIR DISCESA",
+    "lat": 38.19590,
+    "lon": 15.53919,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1299&rnd=91"
+  },
+  {
+    "name": "P.CASTELLI - G.VERSACI DIR SALITA",
+    "lat": 38.19632,
+    "lon": 15.53721,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=500&rnd=91"
+  },
+  {
+    "name": "P.CASTELLI - G.VERSACI DIR DISCESA",
+    "lat": 38.19623,
+    "lon": 15.53728,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1500&rnd=91"
+  },
+  {
+    "name": "PIAZZA D'ARMI",
+    "lat": 38.19336,
+    "lon": 15.53772,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1579&rnd=91"
+  },
+  {
+    "name": "SP. 42 FER 1 DIR SALITA",
+    "lat": 38.19408,
+    "lon": 15.53464,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=3018&rnd=91"
+  },
+  {
+    "name": "SP. 42 FER 1 DIR DISCESA",
+    "lat": 38.19395,
+    "lon": 15.53454,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=4018&rnd=91"
+  },
+  {
+    "name": "SP. 42 FER 2 DIR SALITA",
+    "lat": 38.19567,
+    "lon": 15.52794,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=3019&rnd=91"
+  },
+  {
+    "name": "SP. 42 FER 2 DIR DISCESA",
+    "lat": 38.19559,
+    "lon": 15.52790,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=4019&rnd=91"
+  },
+  {
+    "name": "SP. 42 FER 3 DIR SALITA",
+    "lat": 38.19823,
+    "lon": 15.52624,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=3023&rnd=91"
+  },
+  {
+    "name": "SP. 42 FER 3 DIR DISCESA",
+    "lat": 38.19822,
+    "lon": 15.52616,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=4023&rnd=91"
+  },
+  {
+    "name": "SP. 42 FER 4 DIR SALITA",
+    "lat": 38.20007,
+    "lon": 15.52804,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=3020&rnd=91"
+  },
+  {
+    "name": "SP. 42 FER 4 DIR DISCESA",
+    "lat": 38.20003,
+    "lon": 15.52797,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=4020&rnd=91"
+  },
+  {
+    "name": "SP. 42 FER 5 DIR SALITA",
+    "lat": 38.20069,
+    "lon": 15.52844,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=3021&rnd=91"
+  },
+  {
+    "name": "SP. 42 FER 5 DIR DISCESA",
+    "lat": 38.20062,
+    "lon": 15.52838,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=4021&rnd=91"
   }
 ]
 
