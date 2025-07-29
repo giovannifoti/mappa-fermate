@@ -5070,13 +5070,13 @@
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1322&rnd=91"
   },
   {
-    "name": "M.LI MARINA - SS114 KM 7-900 DIR SUD",
+    "name": "M.LI MARINA - SS114 KM 7-900 DIR NORD",
     "lat": 38.12459,
     "lon": 15.51809,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1323&rnd=91"
   },
   {
-    "name": "M.LI MARINA - SS114 KM 7-900 DIR NORD",
+    "name": "M.LI MARINA - SS114 KM 7-900 DIR SUD",
     "lat": 38.12369,
     "lon": 15.51673,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=323&rnd=91"
@@ -5104,6 +5104,102 @@
     "lat": 38.11931,
     "lon": 15.51380,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1325&rnd=91"
+  },
+  {
+    "name": "M.LI MARINA SS114 KM 8-900 DIR SUD",
+    "lat": 38.11861,
+    "lon": 15.51310,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=326&rnd=91"
+  },
+  {
+    "name": "M.LI MARINA SS114 KM 8-900 DIR NORD",
+    "lat": 38.11850,
+    "lon": 15.51311,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1326&rnd=91"
+  },
+  {
+    "name": "M.LI MARINA DEPURATORE DIR SUD",
+    "lat": 38.11571,
+    "lon": 15.51120,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=327&rnd=91"
+  },
+  {
+    "name": "M.LI MARINA DEPURATORE DIR NORD",
+    "lat": 38.11560,
+    "lon": 15.51120,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1327&rnd=91"
+  },
+  {
+    "name": "MOLETI - SS114 KM9550 DIR SUD",
+    "lat": 38.11050,
+    "lon": 15.50960,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=328&rnd=91"
+  },
+  {
+    "name": "MOLETI - SS114 KM9550 DIR NORD",
+    "lat": 38.11040,
+    "lon": 15.50960,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1328&rnd=91"
+  },
+  {
+    "name": "MOLETI - GALATI S.ANNA DIR SUD",
+    "lat": 38.10851,
+    "lon": 15.50830,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=329&rnd=91"
+  },
+  {
+    "name": "MOLETI - GALATI S.ANNA DIR NORD",
+    "lat": 38.10840,
+    "lon": 15.50830,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1329&rnd=91"
+  },
+  {
+    "name": "STAZ. FFSS GALATI DIR SUD",
+    "lat": 38.10530,
+    "lon": 15.50630,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=330&rnd=91"
+  },
+  {
+    "name": "STAZ. FFSS GALATI DIR NORD",
+    "lat": 38.10520,
+    "lon": 15.50640,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1330&rnd=91"
+  },
+  {
+    "name": "S.MARG - SS114 KM 10-900 DIR SUD",
+    "lat": 38.09771,
+    "lon": 15.50490,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=331&rnd=91"
+  },
+  {
+    "name": "S.MARG - SS114 KM 10-900 DIR NORD",
+    "lat": 38.09760,
+    "lon": 15.50490,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1331&rnd=91"
+  },
+  {
+    "name": "S.MARG - SS114 KM 11-200 DIR SUD",
+    "lat": 38.09501,
+    "lon": 15.50380,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=332&rnd=91"
+  },
+  {
+    "name": "S.MARG - SS114 KM 11-200 DIR NORD",
+    "lat": 38.09490,
+    "lon": 15.50380,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1332&rnd=91"
+  },
+  {
+    "name": "S.MARG - SS114 KM 12-000 DIR SUD",
+    "lat": 38.08881,
+    "lon": 15.50130,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=333&rnd=91"
+  },
+  {
+    "name": "S.MARG - SS114 KM 12-000 DIR NORD",
+    "lat": 38.08871,
+    "lon": 15.50130,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1333&rnd=91"
   }
 ]
 
