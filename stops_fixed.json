@@ -5200,6 +5200,192 @@
     "lat": 38.08871,
     "lon": 15.50130,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1333&rnd=91"
+  },
+  {
+    "name": "S.MARG - SS114 KM 12-400 DIR SUD",
+    "lat": 38.08591,
+    "lon": 15.49880,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=334&rnd=91"
+  },
+  {
+    "name": "S.MARG - SS114 KM 12-400 DIR NORD",
+    "lat": 38.08580,
+    "lon": 15.49880,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1334&rnd=91"
+  },
+  {
+    "name": "S.MARG - SS114 KM 12-800 DIR SUD",
+    "lat": 38.08401,
+    "lon": 15.49715,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=335&rnd=91"
+  },
+  {
+    "name": "S.MARG - SS114 KM 12-800 DIR NORD",
+    "lat": 38.08390,
+    "lon": 15.49720,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1335&rnd=91"
+  },
+  {
+    "name": "S.MARG - SS114 KM 13-000 DIR SUD",
+    "lat": 38.08102,
+    "lon": 15.49524,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=336&rnd=91"
+  },
+  {
+    "name": "S.MARG - SS114 KM 13-000 DIR NORD",
+    "lat": 38.08090,
+    "lon": 15.49530,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1336&rnd=91"
+  },
+  {
+    "name": "B.MAR - SS114 KM 13-300 DIR SUD",
+    "lat": 38.07894,
+    "lon": 15.49451,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=337&rnd=91"
+  },
+  {
+    "name": "B.MAR - SS114 KM 13-300 DIR NORD",
+    "lat": 38.07880,
+    "lon": 15.49460,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1337&rnd=91"
+  },
+  {
+    "name": "B.MAR - SS114 KM 13-550 DIR SUD",
+    "lat": 38.07654,
+    "lon": 15.49365,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=338&rnd=91"
+  },
+  {
+    "name": "B.MAR - SS114 KM 13-550 DIR NORD",
+    "lat": 38.07640,
+    "lon": 15.49369,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1338&rnd=91"
+  },
+  {
+    "name": "B.MAR - SS114 KM 13-900 DIR SUD",
+    "lat": 38.07454,
+    "lon": 15.49262,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=339&rnd=91"
+  },
+  {
+    "name": "B.MAR - SS114 KM 13-900 DIR NORD",
+    "lat": 38.07440,
+    "lon": 15.49270,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1339&rnd=91"
+  },
+  {
+    "name": "B.MAR - SS114 KM 14-100 DIR SUD",
+    "lat": 38.07255,
+    "lon": 15.49104,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=340&rnd=91"
+  },
+  {
+    "name": "B.MAR - SS114 KM 14-100 DIR NORD",
+    "lat": 38.07243,
+    "lon": 15.49107,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1340&rnd=91"
+  },
+  {
+    "name": "G.MAR - SS114 KM 14-300 DIR SUD",
+    "lat": 38.06940,
+    "lon": 15.48630,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=341&rnd=91"
+  },
+  {
+    "name": "G.MAR - SS114 KM 14-300 DIR NORD",
+    "lat": 38.06930,
+    "lon": 15.48629,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1341&rnd=91"
+  },
+  {
+    "name": "GIAMP. MARINA - SS114 KM 14-800 DIR SUD",
+    "lat": 38.06843,
+    "lon": 15.48497,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=342&rnd=91"
+  },
+  {
+    "name": "GIAMP. MARINA - SS114 KM 14-800 DIR NORD",
+    "lat": 38.06830,
+    "lon": 15.48500,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1342&rnd=91"
+  },
+  {
+    "name": "GIAMP. MARINA - SS114 KM 15-000 DIR NORD",
+    "lat": 38.06704,
+    "lon": 15.48318,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1343&rnd=91"
+  },
+  {
+    "name": "GIAMP. BV GIAMP. SUP DIR SUD",
+    "lat": 38.06531,
+    "lon": 15.48110,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=344&rnd=91"
+  },
+  {
+    "name": "GIAMP. BV GIAMP. SUP DIR NORD",
+    "lat": 38.06520,
+    "lon": 15.48109,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1344&rnd=91"
+  },
+  {
+    "name": "GIAMP- STAZ. FFSS DIR SALITA",
+    "lat": 38.06403,
+    "lon": 15.47931,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=345&rnd=91"
+  },
+  {
+    "name": "GIAMP- STAZ. FFSS DIR DISCESA",
+    "lat": 38.06391,
+    "lon": 15.47940,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1345&rnd=91"
+  },
+  {
+    "name": "GIAMP SP33 KM 0-500 DIR SALITA",
+    "lat": 38.06140,
+    "lon": 15.47820,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=346&rnd=91"
+  },
+  {
+    "name": "GIAMP SP33 KM 0-500 DIR DISCESA",
+    "lat": 38.06130,
+    "lon": 15.47820,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1346&rnd=91"
+  },
+  {
+    "name": "GIAMP SP33 KM 0-700 DIR SALITA",
+    "lat": 38.06204,
+    "lon": 15.47655,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=347&rnd=91"
+  },
+  {
+    "name": "GIAMP SP33 KM 0-700 DIR DISCESA",
+    "lat": 38.06202,
+    "lon": 15.47643,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1347&rnd=91"
+  },
+  {
+    "name": "GIAMP. S. LA SORGIVA",
+    "lat": 38.06572,
+    "lon": 15.47200,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=910&rnd=91"
+  },
+  {
+    "name": "GIAM SP33 KM 1-050 DIR SALITA",
+    "lat": 38.06752,
+    "lon": 15.47150,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=349&rnd=91"
+  },
+  {
+    "name": "GIAMP. SUP",
+    "lat": 38.06811,
+    "lon": 15.46991,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=090&rnd=91"
+  },
+  {
+    "name": "GSUP - UFFICIO POSTALE",
+    "lat": 38.06841,
+    "lon": 15.47030,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=350&rnd=91"
   }
 ]
 
