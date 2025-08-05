@@ -6,71 +6,56 @@ L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   maxZoom: 19
 }).addTo(map);
 
-let markers = [];
+const markerCluster = L.markerClusterGroup();
 let stops = [];
+let markerMap = [];
 
-// Normalizza testo per ricerca (minuscolo e senza accenti)
 function normalize(str) {
-  return str.toLowerCase()
-    .normalize('NFD')
-    .replace(/[̀-\u036f]/g, '');
+  return str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
 }
 
 fetch('stops_fixed.json')
   .then(res => res.json())
   .then(data => {
     stops = data;
-
-    // Crea marker e salva nome normalizzato
     stops.forEach(stop => {
-      const marker = L.marker([stop.lat, stop.lon]).addTo(map);
-      marker.bindPopup(
-        `<b>${stop.name}</b><br><a href="${stop.url}" target="_blank">Vedi dettagli</a>`
-      );
+      const marker = L.marker([stop.lat, stop.lon]);
+      marker.bindPopup(`<b>${stop.name}</b><br><a href="${stop.url}" target="_blank">Vedi dettagli</a>`);
       marker.normalizedName = normalize(stop.name);
-      markers.push(marker);
+      markerCluster.addLayer(marker);
+      markerMap.push(marker);
     });
-
-    // Attiva la ricerca
+    map.addLayer(markerCluster);
     document.getElementById('searchInput').addEventListener('input', onSearch);
   })
   .catch(err => console.error('Errore nel caricamento delle fermate:', err));
 
 function onSearch(e) {
-  const rawQuery = e.target.value;
-  const query = normalize(rawQuery.trim());
+  const query = normalize(e.target.value.trim());
   const infoDiv = document.getElementById('nearestStop');
-
-  // Reset mappa e messaggio
   infoDiv.innerHTML = '';
-  let matchedMarkers = [];
 
-  // Se query vuota, mostra tutti i marker
   if (!query) {
-    markers.forEach(m => m.addTo(map));
+    map.addLayer(markerCluster);
     return;
   }
 
-  // Filtra marker
-  markers.forEach(marker => {
-    if (marker.normalizedName.includes(query)) matchedMarkers.push(marker);
-    map.removeLayer(marker);
-  });
+  const matched = markerMap.filter(marker =>
+    marker.normalizedName.includes(query)
+  );
 
-  if (matchedMarkers.length === 0) {
+  if (matched.length === 0) {
     infoDiv.innerHTML = '❌ Nessuna fermata trovata';
     return;
   }
 
-  // Mostra i risultati e adatta la vista
-  const group = L.featureGroup(matchedMarkers);
+  const group = L.featureGroup(matched);
   map.fitBounds(group.getBounds().pad(0.2));
-  matchedMarkers.forEach(m => m.addTo(map));
 }
 
 document.getElementById('locateBtn').addEventListener('click', () => {
   const infoDiv = document.getElementById('nearestStop');
-  infoDiv.innerHTML = '⏳ Caricamento...';
+  infoDiv.innerHTML = '📡 Caricamento...';
 
   if (!navigator.geolocation) {
     infoDiv.innerHTML = '❌ Geolocalizzazione non supportata';
@@ -96,7 +81,7 @@ document.getElementById('locateBtn').addEventListener('click', () => {
     } else {
       infoDiv.innerHTML = '❌ Nessuna fermata trovata';
     }
-  }, err => {
+  }, () => {
     infoDiv.innerHTML = '❌ Errore nella geolocalizzazione';
   });
 });

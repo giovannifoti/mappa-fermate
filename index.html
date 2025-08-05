@@ -3,27 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mappa Fermate Messina</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <title>Quando Passa - Fermate Autobus Messina</title>
 
-  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+
+  <style>
+    html, body, #map { height: 100%; margin: 0; padding: 0; }
+    .top-bar {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      right: 10px;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: white;
+      padding: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      border-radius: 8px;
+    }
+    #searchInput {
+      flex: 1;
+      padding: 8px;
+      font-size: 16px;
+      margin-right: 10px;
+    }
+    #locateBtn {
+      font-size: 20px;
+      padding: 6px 10px;
+      cursor: pointer;
+    }
+    .nearest-info {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+  </style>
+
   <link rel="icon" type="image/png" href="logo_sito.png" />
   <meta name="theme-color" content="#003366" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="Fermate Autobus">
-  <link rel="apple-touch-icon" href="logo_sito.png">
 </head>
 <body>
   <div class="top-bar">
-    <input type="text" id="searchInput" placeholder="🔍 Cerca..." />
-    <div class="locate-container">
-      <button id="locateBtn" title="Fermata più vicina">📍</button>
-      <div id="nearestStop" class="nearest-info"></div>
-    </div>
+    <input type="text" id="searchInput" placeholder="🔍 Cerca una fermata..." />
+    <button id="locateBtn" title="Trova la fermata più vicina">📍</button>
   </div>
   <div id="map"></div>
+  <div id="nearestStop" class="nearest-info"></div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
