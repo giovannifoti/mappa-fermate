@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
   <style>
-    html, body, #map { height: 100%; margin: 0; padding: 0; }
+    html, body, #map { height: 100%; margin: 0; padding: 0; font-family: sans-serif; }
     .top-bar {
       position: absolute;
       top: 10px;
@@ -18,27 +18,51 @@
       right: 10px;
       z-index: 1000;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      gap: 5px;
       background: white;
       padding: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       border-radius: 8px;
     }
+    .top-controls {
+      display: flex;
+      align-items: center;
+    }
     #searchInput {
       flex: 1;
-      padding: 8px;
-      font-size: 16px;
+      padding: 6px;
+      font-size: 14px;
       margin-right: 10px;
     }
     #locateBtn {
-      font-size: 20px;
+      font-size: 16px;
       padding: 6px 10px;
       cursor: pointer;
+      background: #c00;
+      color: white;
+      border: none;
+      border-radius: 4px;
+    }
+    #locateBtn.active {
+      background: #0c0;
+    }
+    .suggestions {
+      max-height: 150px;
+      overflow-y: auto;
+      font-size: 14px;
+      border-top: 1px solid #ccc;
+    }
+    .suggestions div {
+      padding: 4px 6px;
+      cursor: pointer;
+    }
+    .suggestions div:hover {
+      background-color: #f0f0f0;
     }
     .nearest-info {
-      margin-top: 5px;
       font-size: 14px;
+      margin-top: 5px;
     }
   </style>
 
@@ -47,11 +71,14 @@
 </head>
 <body>
   <div class="top-bar">
-    <input type="text" id="searchInput" placeholder="🔍 Cerca una fermata..." />
-    <button id="locateBtn" title="Trova la fermata più vicina">📍</button>
+    <div class="top-controls">
+      <input type="text" id="searchInput" placeholder="🔍 Cerca una fermata..." autocomplete="off" />
+      <button id="locateBtn" title="Trova la fermata più vicina">📍</button>
+    </div>
+    <div id="suggestions" class="suggestions"></div>
+    <div id="nearestStop" class="nearest-info"></div>
   </div>
   <div id="map"></div>
-  <div id="nearestStop" class="nearest-info"></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>

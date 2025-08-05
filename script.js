@@ -32,7 +32,9 @@ fetch('stops_fixed.json')
 
 function onSearch(e) {
   const query = normalize(e.target.value.trim());
+  const suggestions = document.getElementById('suggestions');
   const infoDiv = document.getElementById('nearestStop');
+  suggestions.innerHTML = '';
   infoDiv.innerHTML = '';
 
   if (!query) {
@@ -44,18 +46,28 @@ function onSearch(e) {
     marker.normalizedName.includes(query)
   );
 
-  if (matched.length === 0) {
-    infoDiv.innerHTML = '❌ Nessuna fermata trovata';
-    return;
-  }
+  matched.slice(0, 10).forEach(marker => {
+    const div = document.createElement('div');
+    div.textContent = marker.getPopup().getContent().split('<br')[0].replace('<b>', '').replace('</b>', '');
+    div.addEventListener('click', () => {
+      map.setView(marker.getLatLng(), 17);
+      marker.openPopup();
+      suggestions.innerHTML = '';
+    });
+    suggestions.appendChild(div);
+  });
 
-  const group = L.featureGroup(matched);
-  map.fitBounds(group.getBounds().pad(0.2));
+  if (matched.length > 0) {
+    const group = L.featureGroup(matched);
+    map.fitBounds(group.getBounds().pad(0.2));
+  }
 }
 
-document.getElementById('locateBtn').addEventListener('click', () => {
+document.getElementById('locateBtn').addEventListener('click', function () {
+  const btn = this;
   const infoDiv = document.getElementById('nearestStop');
   infoDiv.innerHTML = '📡 Caricamento...';
+  btn.classList.remove('active');
 
   if (!navigator.geolocation) {
     infoDiv.innerHTML = '❌ Geolocalizzazione non supportata';
@@ -63,6 +75,7 @@ document.getElementById('locateBtn').addEventListener('click', () => {
   }
 
   navigator.geolocation.getCurrentPosition(pos => {
+    btn.classList.add('active');
     const { latitude, longitude } = pos.coords;
     let minDist = Infinity;
     let nearest = null;
