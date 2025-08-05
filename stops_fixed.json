@@ -5758,6 +5758,138 @@
     "lat": 38.08490,
     "lon": 15.45970,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=386&rnd=91"
+  },
+  {
+    "name": "S.MARGHERITA - SP36 KM140 DIR SALITA",
+    "lat": 38.09621,
+    "lon": 15.50171,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=389&rnd=91"
+  },
+  {
+    "name": "S.MARGHERITA - SP36 KM140 DIR DISCESA",
+    "lat": 38.09619,
+    "lon": 15.50159,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1389&rnd=91"
+  },
+  {
+    "name": "S.MARGHERITA - SP36 KM450 DIR SALITA",
+    "lat": 38.09780,
+    "lon": 15.49890,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=390&rnd=91"
+  },
+  {
+    "name": "S.MARGHERITA - SP36 KM450 DIR DISCESA",
+    "lat": 38.09781,
+    "lon": 15.49879,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1390&rnd=91"
+  },
+  {
+    "name": "S.MARGHERITA - SP36 KM630 DIR DISCESA",
+    "lat": 38.09880,
+    "lon": 15.49721,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1391&rnd=91"
+  },
+  {
+    "name": "S.MARGHERITA - SP36 KM800 DIR SALITA",
+    "lat": 38.09942,
+    "lon": 15.49650,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=392&rnd=91"
+  },
+  {
+    "name": "S.MARGHERITA - SP36 KM800 DIR DISCESA",
+    "lat": 38.09940,
+    "lon": 15.49550,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1392&rnd=91"
+  },
+  {
+    "name": "S.STEFANO M. - SP36 KM900 DIR SALITA",
+    "lat": 38.10002,
+    "lon": 15.49490,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=393&rnd=91"
+  },
+  {
+    "name": "S.STEFANO M. - SP36 KM900 DIR DISCESA",
+    "lat": 38.10000,
+    "lon": 15.49480,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1393&rnd=91"
+  },
+  {
+    "name": "S.STEFANO M. - SP36 KM1000 DIR SALITA",
+    "lat": 38.10112,
+    "lon": 15.49330,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=394&rnd=91"
+  },
+  {
+    "name": "S.STEFANO M. - SP36 KM1000 DIR SALITA",
+    "lat": 38.10110,
+    "lon": 15.49320,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1394&rnd=91"
+  },
+  {
+    "name": "S.STEFANO M. - SP36 KM1300 DIR SALITA",
+    "lat": 38.10170,
+    "lon": 15.49101,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=395&rnd=91"
+  },
+  {
+    "name": "S.STEFANO M. - SP36 KM1300 DIR DISCESA",
+    "lat": 38.10170,
+    "lon": 15.49089,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1395&rnd=91"
+  },
+  {
+    "name": "S.STEFANO M. - SP36 KM1550 DIR SALITA",
+    "lat": 38.10130,
+    "lon": 15.48820,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=396&rnd=91"
+  },
+  {
+    "name": "S.STEFANO M. - SP36 KM1550 DIR DISCESA",
+    "lat": 38.10121,
+    "lon": 15.48809,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1396&rnd=91"
+  },
+  {
+    "name": "S.STEFANO M. - SP36 KM1800 DIR SALITA",
+    "lat": 38.10211,
+    "lon": 15.48600,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=397&rnd=91"
+  },
+  {
+    "name": "S.STEFANO M. - SP36 KM1800 DIR DISCESA",
+    "lat": 38.10210,
+    "lon": 15.48589,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1397&rnd=91"
+  },
+  {
+    "name": "S.STEFANO M. - SP36 KM2000 DIR SALITA",
+    "lat": 38.10202,
+    "lon": 15.48381,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=398&rnd=91"
+  },
+  {
+    "name": "S.STEFANO M. - SP36 KM2000 DIR DISCESA",
+    "lat": 38.10190,
+    "lon": 15.48380,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1398&rnd=91"
+  },
+  {
+    "name": "SS BRIGA - SP36 KM2150 DIR SALITA",
+    "lat": 38.10111,
+    "lon": 15.48280,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=399&rnd=91"
+  },
+  {
+    "name": "SS BRIGA - SP36 KM2150 DIR DISCESA",
+    "lat": 38.10100,
+    "lon": 15.48280,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1399&rnd=91"
+  },
+  {
+    "name": "S. STEFANO BRIGA",
+    "lat": 38.10012,
+    "lon": 15.48109,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=400&rnd=91"
   }
 ]
 
