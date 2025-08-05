@@ -5386,6 +5386,138 @@
     "lat": 38.06841,
     "lon": 15.47030,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=350&rnd=91"
+  },
+  {
+    "name": "VIA M.RIZZO",
+    "lat": 38.06916,
+    "lon": 15.46914,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=387&rnd=91"
+  },
+  {
+    "name": "GSUP - SP33 KM 1-800 DIR SALITA",
+    "lat": 38.06972,
+    "lon": 15.46811,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=351&rnd=91"
+  },
+  {
+    "name": "GSUP - SP33 KM 1-800 DIR DISCESA",
+    "lat": 38.06970,
+    "lon": 15.46800,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1351&rnd=91"
+  },
+  {
+    "name": "GSUP - SP33 KM 2-500 DIR SALITA",
+    "lat": 38.07221,
+    "lon": 15.46120,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=352&rnd=91"
+  },
+  {
+    "name": "GSUP - SP33 KM 2-500 DIR DISCESA",
+    "lat": 38.07234,
+    "lon": 15.46127,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1352&rnd=91"
+  },
+  {
+    "name": "GSUP - SP33 KM 2-900 DIR SALITA",
+    "lat": 38.07190,
+    "lon": 15.46440,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=353&rnd=91"
+  },
+  {
+    "name": "GSUP - SP33 KM 2-900 DIR DISCESA",
+    "lat": 38.07190,
+    "lon": 15.46430,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1353&rnd=91"
+  },
+  {
+    "name": "GSUP - SP33 KM 3-100 DIR SALITA",
+    "lat": 38.07181,
+    "lon": 15.46650,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=354&rnd=91"
+  },
+  {
+    "name": "GSUP - SP33 KM 3-100 DIR DISCESA",
+    "lat": 38.07170,
+    "lon": 15.46640,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1354&rnd=91"
+  },
+  {
+    "name": "GIAMP. SUP. - CIMITERO DIR SALITA",
+    "lat": 38.07451,
+    "lon": 15.46029,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=355&rnd=91"
+  },
+  {
+    "name": "GIAMP. SUP. - CIMITERO DIR DISCESA",
+    "lat": 38.07450,
+    "lon": 15.46020,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1355&rnd=91"
+  },
+  {
+    "name": "B.VIO MOLINO DIR SALITA",
+    "lat": 38.07561,
+    "lon": 15.45880,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=356&rnd=91"
+  },
+  {
+    "name": "B.VIO MOLINO DIR DISCESA",
+    "lat": 38.07560,
+    "lon": 15.45870,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1356&rnd=91"
+  },
+   {
+    "name": "MOLINO DIR SALITA",
+    "lat": 38.07520,
+    "lon": 15.45500,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=357&rnd=91"
+  },
+  {
+    "name": "MOLINO DIR DISCESA",
+    "lat": 38.07510,
+    "lon": 15.45500,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1357&rnd=91"
+  },
+  {
+    "name": "SP33 KM 4-600 DIR SALITA",
+    "lat": 38.07457,
+    "lon": 15.45348,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=358&rnd=91"
+  },
+  {
+    "name": "SP33 KM 4-600 DIR DISCESA",
+    "lat": 38.07450,
+    "lon": 15.45350,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1358&rnd=91"
+  },
+  {
+    "name": "SP33 KM 5-000 DIR SALITA",
+    "lat": 38.07601,
+    "lon": 15.44870,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=359&rnd=91"
+  },
+  {
+    "name": "SP33 KM 5-000 DIR DISCESA",
+    "lat": 38.07600,
+    "lon": 15.44860,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1359&rnd=91"
+  },
+  {
+    "name": "SP33 KM 5350 DIR SALITA",
+    "lat": 38.07688,
+    "lon": 15.44626,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=360&rnd=91"
+  },
+  {
+    "name": "SP33 KM 5350 DIR DISCESA",
+    "lat": 38.07681,
+    "lon": 15.44620,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1360&rnd=91"
+  },
+  {
+    "name": "ALTOLIA",
+    "lat": 38.07557,
+    "lon": 15.44599,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=361&rnd=91"
   }
 ]
 
