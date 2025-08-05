@@ -5518,6 +5518,60 @@
     "lat": 38.07557,
     "lon": 15.44599,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=361&rnd=91"
+  },
+  {
+    "name": "STRADA PROV.LE 34 - FER 1 DIR SALITA",
+    "lat": 38.07211,
+    "lon": 15.48410,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=362&rnd=91"
+  },
+  {
+    "name": "STRADA PROV.LE 34 - FER 1 DIR DISCESA",
+    "lat": 38.07211,
+    "lon": 15.48400,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1362&rnd=91"
+  },
+  {
+    "name": "STRADA PROV.LE 34 - FER 2 DIR SALITA",
+    "lat": 38.07471,
+    "lon": 15.48250,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=363&rnd=91"
+  },
+  {
+    "name": "STRADA PROV.LE 34 - FER 2 DIR DISCESA",
+    "lat": 38.07470,
+    "lon": 15.48240,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1363&rnd=91"
+  },
+  {
+    "name": "STRADA PROV.LE 34 - FER 3 DIR SALITA",
+    "lat": 38.07660,
+    "lon": 15.48140,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=364&rnd=91"
+  },
+  {
+    "name": "STRADA PROV.LE 34 - FER 3 DIR DISCESA",
+    "lat": 38.07660,
+    "lon": 15.48130,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1364&rnd=91"
+  },
+  {
+    "name": "BRIGA SUPERIORE DIR SALITA",
+    "lat": 38.07780,
+    "lon": 15.47380,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=366&rnd=91"
+  },
+  {
+    "name": "BRIGA SUPERIORE DIR DISCESA",
+    "lat": 38.07780,
+    "lon": 15.47370,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1366&rnd=91"
+  },
+  {
+    "name": "BRIGA SUPERIORE - CAPOLINEA",
+    "lat": 38.07853,
+    "lon": 15.47230,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=367&rnd=91"
   }
 ]
 
