@@ -1,17 +1,31 @@
-const map = L.map('map').setView([38.1938, 15.5540], 13);
-
-L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+// Layers base chiaro e scuro (dark più morbido, grigio scuro)
+const lightLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
   attribution: '&copy; OpenStreetMap & CARTO',
   subdomains: 'abcd',
   maxZoom: 19
-}).addTo(map);
+});
+
+const darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  attribution: '&copy; OpenStreetMap & CARTO',
+  subdomains: 'abcd',
+  maxZoom: 19
+});
+
+// Crea mappa con layer chiaro iniziale
+const map = L.map('map', {
+  center: [38.1938, 15.5540],
+  zoom: 13,
+  layers: [lightLayer]
+});
 
 const markerCluster = L.markerClusterGroup();
+map.addLayer(markerCluster);
+
 let stops = [];
 let markerMap = [];
 
 function normalize(str) {
-  return str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '');
+  return str.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
 }
 
 fetch('stops_fixed.json')
@@ -25,8 +39,6 @@ fetch('stops_fixed.json')
       markerCluster.addLayer(marker);
       markerMap.push(marker);
     });
-    map.addLayer(markerCluster);
-    document.getElementById('searchInput').addEventListener('input', onSearch);
   })
   .catch(err => console.error('Errore nel caricamento delle fermate:', err));
 
@@ -62,6 +74,8 @@ function onSearch(e) {
     map.fitBounds(group.getBounds().pad(0.2));
   }
 }
+
+document.getElementById('searchInput').addEventListener('input', onSearch);
 
 document.getElementById('locateBtn').addEventListener('click', function () {
   const btn = this;
@@ -99,7 +113,14 @@ document.getElementById('locateBtn').addEventListener('click', function () {
   });
 });
 
-// ✅ Attiva/disattiva modalità dark al click sulla luna
+// Toggle dark mode e cambio layer
 document.getElementById('darkToggle').addEventListener('click', () => {
   document.body.classList.toggle('dark');
+  if (document.body.classList.contains('dark')) {
+    map.removeLayer(lightLayer);
+    map.addLayer(darkLayer);
+  } else {
+    map.removeLayer(darkLayer);
+    map.addLayer(lightLayer);
+  }
 });
