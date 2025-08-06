@@ -97,9 +97,9 @@ document.getElementById('locateBtn').addEventListener('click', function () {
   }, () => {
     infoDiv.innerHTML = '❌ Errore nella geolocalizzazione';
   });
-  // Attiva/disattiva modalità dark al click sulla luna
-document.getElementById('darkToggle').addEventListener('click', () => {
-  document.body.classList.toggle('dark');
 });
 
+// ✅ Attiva/disattiva modalità dark al click sulla luna
+document.getElementById('darkToggle').addEventListener('click', () => {
+  document.body.classList.toggle('dark');
 });
