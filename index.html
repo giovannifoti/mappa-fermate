@@ -1,4 +1,3 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -41,7 +40,7 @@
       display: flex;
       align-items: center;
       gap: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
       transition: background 0.3s, color 0.3s;
     }
 
@@ -78,7 +77,7 @@
       padding: 6px 10px;
       font-size: 16px;
       border-radius: 999px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
       cursor: pointer;
       user-select: none;
       border: none;
@@ -97,7 +96,7 @@
       font-size: 13px;
       width: 250px;
       border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
       transition: background 0.3s, color 0.3s;
     }
 
@@ -120,37 +119,32 @@
       background: #fff;
       padding: 6px 10px;
       border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
       display: none;
       transition: background 0.3s, color 0.3s;
     }
 
-    /* DARK MODE */
-    body.dark {
-      background: #222;
-      color: #ddd;
+    /* GRAY MODE */
+    body.gray {
+      background: #ddd;
+      color: #333;
     }
 
-    body.dark .top-bar,
-    body.dark #darkToggle,
-    body.dark .suggestions,
-    body.dark .nearest-info {
-      background: #333;
-      color: #ddd;
+    body.gray .top-bar,
+    body.gray #darkToggle,
+    body.gray .suggestions,
+    body.gray .nearest-info {
+      background: #eee;
+      color: #333;
     }
 
-    body.dark .suggestions div:hover {
-      background: #444;
+    body.gray .suggestions div:hover {
+      background: #ddd;
     }
 
-    body.dark #searchInput {
-      background: #444;
-      color: #eee;
-    }
-
-    /* Schiarisci un po' i tiles della mappa dark */
-    body.dark .leaflet-tile-pane img {
-      filter: brightness(0.85);
+    body.gray #searchInput {
+      background: #ddd;
+      color: #333;
     }
   </style>
 
@@ -170,7 +164,7 @@
 
   <div id="suggestions" class="suggestions"></div>
   <div id="nearestStop" class="nearest-info"></div>
-  <button id="darkToggle" title="Attiva/disattiva dark mode">🌙</button>
+  <button id="darkToggle" title="Scala di grigio / normale">🌓</button>
   <div id="map"></div>
 
   <!-- Leaflet & MarkerCluster JS -->
@@ -180,11 +174,11 @@
   <!-- Il nostro script -->
   <script src="script.js"></script>
 
-  <!-- GoatCounter (opzionale) -->
+  <!-- GoatCounter (ripristinato) -->
   <script
     data-goatcounter="https://giovannifoti.goatcounter.com/count"
     async
-    src="//gc.zgo.at/count.js"
-  ></script>
+    src="//gc.zgo.at/count.js">
+  </script>
 </body>
 </html>

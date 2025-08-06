@@ -1,35 +1,45 @@
-// script.js
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Setup map & layers
   const lightLayer = L.tileLayer(
     'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
-    { attribution: '&copy; OpenStreetMap & CARTO', subdomains: 'abcd', maxZoom: 19 }
+    {
+      attribution: '&copy; OpenStreetMap & CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    }
   );
-  const darkLayer = L.tileLayer(
-    'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',
-    { attribution: '&copy; OpenStreetMap & CARTO', subdomains: 'abcd', maxZoom: 19 }
+
+  const grayLayer = L.tileLayer(
+    'https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png',
+    {
+      attribution: '&copy; OpenStreetMap contributors',
+      maxZoom: 19
+    }
   );
+
   const map = L.map('map', {
     center: [38.1938, 15.5540],
     zoom: 13,
     layers: [lightLayer]
   });
+
   const markerCluster = L.markerClusterGroup();
   map.addLayer(markerCluster);
 
-  // 2. Dark mode toggle
+  // 2. Dark/Gray mode toggle
   document.getElementById('darkToggle').addEventListener('click', () => {
-    const isDark = document.body.classList.toggle('dark');
-    if (isDark) {
+    const isGray = document.body.classList.toggle('gray');
+
+    if (isGray) {
       map.removeLayer(lightLayer);
-      map.addLayer(darkLayer);
+      map.addLayer(grayLayer);
     } else {
-      map.removeLayer(darkLayer);
+      map.removeLayer(grayLayer);
       map.addLayer(lightLayer);
     }
   });
 
-  // 3. Utilities
+  // 3. Utility
   let stops = [];
   const markers = [];
   function normalize(str) {
@@ -39,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/[\u0300-\u036f]/g, '');
   }
 
-  // 4. Load stops from JSON
+  // 4. Carica fermate
   fetch('./stops_fixed.json')
     .then(res => {
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -48,6 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       if (!Array.isArray(data)) throw new Error('JSON non è un array');
       stops = data;
+
       data.forEach(stop => {
         const m = L.marker([stop.lat, stop.lon], { title: stop.name });
         m.bindPopup(
@@ -64,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Impossibile caricare le fermate: controlla console');
     });
 
-  // 5. Search functionality
+  // 5. Ricerca con suggerimenti
   const input = document.getElementById('searchInput');
   const suggestions = document.getElementById('suggestions');
 
@@ -92,19 +103,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     markerCluster.clearLayers();
     matched.forEach(m => markerCluster.addLayer(m));
+
     if (matched.length) {
       const group = L.featureGroup(matched);
       map.fitBounds(group.getBounds().pad(0.2));
     }
   });
 
-  // 6. Locate nearest stop (con toggle)
+  // 6. Trova fermata più vicina (toggle)
   const locateBtn = document.getElementById('locateBtn');
   const infoBox = document.getElementById('nearestStop');
   let locating = false;
 
   locateBtn.addEventListener('click', () => {
-    // Se stiamo già mostrando, disattiva tutto
     if (locating) {
       locating = false;
       locateBtn.classList.remove('active');
@@ -112,7 +123,6 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // Altrimenti avvia ricerca
     locating = true;
     infoBox.style.display = 'block';
     infoBox.textContent = '📡 Caricamento...';
