@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -5,9 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Quando Passa - Fermate Autobus Messina</title>
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+  <!-- Leaflet & MarkerCluster CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+  />
 
   <style>
     html, body, #map {
@@ -17,7 +28,6 @@
       font-family: system-ui, sans-serif;
       transition: background 0.3s, color 0.3s;
     }
-
     .top-bar {
       position: absolute;
       top: 10px;
@@ -33,7 +43,6 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       transition: background 0.3s;
     }
-
     #searchInput {
       border: none;
       outline: none;
@@ -43,7 +52,6 @@
       background: #f0f0f0;
       width: 180px;
     }
-
     #locateBtn {
       background: #c00;
       color: white;
@@ -53,11 +61,9 @@
       cursor: pointer;
       font-size: 14px;
     }
-
     #locateBtn.active {
       background: #0c0;
     }
-
     #darkToggle {
       position: absolute;
       top: 10px;
@@ -72,7 +78,6 @@
       user-select: none;
       border: none;
     }
-
     .suggestions {
       position: absolute;
       top: 58px;
@@ -87,16 +92,13 @@
       border-radius: 6px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
-
     .suggestions div {
       padding: 6px 10px;
       cursor: pointer;
     }
-
     .suggestions div:hover {
       background-color: #eee;
     }
-
     .nearest-info {
       position: absolute;
       bottom: 10px;
@@ -108,12 +110,10 @@
       border-radius: 6px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
-
     body.dark {
       background: #111;
       color: #ddd;
     }
-
     body.dark .top-bar,
     body.dark #darkToggle,
     body.dark .suggestions,
@@ -121,11 +121,9 @@
       background: #222;
       color: #ddd;
     }
-
     body.dark .suggestions div:hover {
       background: #333;
     }
-
     body.dark #searchInput {
       background: #333;
       color: #eee;
@@ -137,7 +135,12 @@
 </head>
 <body>
   <div class="top-bar">
-    <input type="text" id="searchInput" placeholder="🔍 Cerca una fermata..." autocomplete="off" />
+    <input
+      type="text"
+      id="searchInput"
+      placeholder="🔍 Cerca una fermata..."
+      autocomplete="off"
+    />
     <button id="locateBtn" title="Trova la fermata più vicina">📍</button>
   </div>
 
@@ -146,47 +149,18 @@
   <div id="nearestStop" class="nearest-info"></div>
   <div id="map"></div>
 
+  <!-- Leaflet & MarkerCluster JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
-  <script>
-    // 🌗 Switch map tile layer light/dark
-    const lightLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; OpenStreetMap & CARTO',
-      subdomains: 'abcd',
-      maxZoom: 19
-    });
-
-    const darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; OpenStreetMap & CARTO',
-      subdomains: 'abcd',
-      maxZoom: 19
-    });
-
-    const map = L.map('map', {
-      center: [38.1938, 15.5540],
-      zoom: 13,
-      layers: [lightLayer]
-    });
-
-    const markerCluster = L.markerClusterGroup();
-    map.addLayer(markerCluster);
-
-    document.getElementById('darkToggle').addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-      if (document.body.classList.contains('dark')) {
-        map.removeLayer(lightLayer);
-        map.addLayer(darkLayer);
-      } else {
-        map.removeLayer(darkLayer);
-        map.addLayer(lightLayer);
-      }
-    });
-  </script>
-
+  <!-- Il nostro script -->
   <script src="script.js"></script>
 
-  <script data-goatcounter="https://giovannifoti.goatcounter.com/count"
-          async src="//gc.zgo.at/count.js"></script>
+  <!-- GoatCounter (opzionale) -->
+  <script
+    data-goatcounter="https://giovannifoti.goatcounter.com/count"
+    async
+    src="//gc.zgo.at/count.js"
+  ></script>
 </body>
 </html>
