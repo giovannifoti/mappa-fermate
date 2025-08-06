@@ -10,61 +10,121 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
   <style>
-    html, body, #map { height: 100%; margin: 0; padding: 0; font-family: sans-serif; }
+    html, body, #map {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
+
     .top-bar {
       position: absolute;
       top: 10px;
       left: 10px;
-      right: 10px;
       z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
       background: white;
-      padding: 6px 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      border-radius: 6px;
-    }
-    .top-controls {
+      border-radius: 999px;
+      padding: 5px 10px;
       display: flex;
       align-items: center;
+      gap: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: background 0.3s;
     }
+
     #searchInput {
-      flex: 1;
-      padding: 4px 6px;
+      border: none;
+      outline: none;
       font-size: 13px;
-      margin-right: 6px;
-      border-radius: 4px;
-      border: 1px solid #ccc;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f0f0f0;
+      width: 180px;
     }
+
     #locateBtn {
-      font-size: 14px;
-      padding: 4px 8px;
-      cursor: pointer;
       background: #c00;
       color: white;
       border: none;
-      border-radius: 4px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 14px;
     }
+
     #locateBtn.active {
       background: #0c0;
     }
+
+    #darkToggle {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 1000;
+      background: white;
+      padding: 6px 10px;
+      font-size: 16px;
+      border-radius: 999px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+
     .suggestions {
+      position: absolute;
+      top: 48px;
+      left: 10px;
+      z-index: 1000;
+      background: white;
       max-height: 140px;
       overflow-y: auto;
       font-size: 13px;
-      border-top: 1px solid #ccc;
+      width: 250px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
+
     .suggestions div {
-      padding: 3px 5px;
+      padding: 6px 10px;
       cursor: pointer;
     }
+
     .suggestions div:hover {
-      background-color: #f0f0f0;
+      background-color: #eee;
     }
+
     .nearest-info {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      z-index: 1000;
       font-size: 13px;
-      margin-top: 4px;
+      background: white;
+      padding: 6px 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    body.dark {
+      background: #111;
+      color: #ddd;
+    }
+
+    body.dark .top-bar,
+    body.dark #darkToggle,
+    body.dark .suggestions,
+    body.dark .nearest-info {
+      background: #222;
+      color: #ddd;
+    }
+
+    body.dark .suggestions div:hover {
+      background: #333;
+    }
+
+    body.dark #searchInput {
+      background: #333;
+      color: #eee;
     }
   </style>
 
@@ -73,13 +133,13 @@
 </head>
 <body>
   <div class="top-bar">
-    <div class="top-controls">
-      <input type="text" id="searchInput" placeholder="🔍 Cerca una fermata..." autocomplete="off" />
-      <button id="locateBtn" title="Trova la fermata più vicina">📍</button>
-    </div>
-    <div id="suggestions" class="suggestions"></div>
-    <div id="nearestStop" class="nearest-info"></div>
+    <input type="text" id="searchInput" placeholder="🔍 Cerca una fermata..." autocomplete="off" />
+    <button id="locateBtn" title="Trova la fermata più vicina">📍</button>
   </div>
+
+  <div id="darkToggle" title="Attiva/disattiva dark mode">🌙</div>
+  <div id="suggestions" class="suggestions"></div>
+  <div id="nearestStop" class="nearest-info"></div>
   <div id="map"></div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
