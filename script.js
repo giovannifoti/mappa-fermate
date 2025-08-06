@@ -48,7 +48,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       if (!Array.isArray(data)) throw new Error('JSON non è un array');
       stops = data;
-
       data.forEach(stop => {
         const m = L.marker([stop.lat, stop.lon], { title: stop.name });
         m.bindPopup(
@@ -73,17 +72,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const q = normalize(input.value.trim());
     suggestions.innerHTML = '';
 
-    // if empty, restore all
     if (!q) {
       markerCluster.clearLayers();
       markers.forEach(m => markerCluster.addLayer(m));
       return;
     }
 
-    // filter
     const matched = markers.filter(m => m.normalizedName.includes(q));
-
-    // show up to 10 suggestions
     matched.slice(0, 10).forEach(m => {
       const div = document.createElement('div');
       div.textContent = m.options.title;
@@ -95,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
       suggestions.appendChild(div);
     });
 
-    // update cluster & zoom to matched
     markerCluster.clearLayers();
     matched.forEach(m => markerCluster.addLayer(m));
     if (matched.length) {
@@ -104,21 +98,34 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 6. Locate nearest stop
-  document.getElementById('locateBtn').addEventListener('click', e => {
-    const info = document.getElementById('nearestStop');
-    const btn = e.currentTarget;
-    info.textContent = '📡 Caricamento...';
-    btn.classList.remove('active');
+  // 6. Locate nearest stop (con toggle)
+  const locateBtn = document.getElementById('locateBtn');
+  const infoBox = document.getElementById('nearestStop');
+  let locating = false;
+
+  locateBtn.addEventListener('click', () => {
+    // Se stiamo già mostrando, disattiva tutto
+    if (locating) {
+      locating = false;
+      locateBtn.classList.remove('active');
+      infoBox.style.display = 'none';
+      return;
+    }
+
+    // Altrimenti avvia ricerca
+    locating = true;
+    infoBox.style.display = 'block';
+    infoBox.textContent = '📡 Caricamento...';
 
     if (!navigator.geolocation) {
-      info.textContent = '❌ Geolocalizzazione non supportata';
+      infoBox.textContent = '❌ Geolocalizzazione non supportata';
+      locating = false;
       return;
     }
 
     navigator.geolocation.getCurrentPosition(
       ({ coords }) => {
-        btn.classList.add('active');
+        locateBtn.classList.add('active');
         const { latitude: latU, longitude: lonU } = coords;
         let nearest = null;
         let minDist = Infinity;
@@ -132,16 +139,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         if (nearest) {
-          info.innerHTML =
+          infoBox.innerHTML =
             `📍 <strong>${nearest.name}</strong><br>` +
             `<a href="${nearest.url}" target="_blank">Vai al link</a>`;
           map.setView([nearest.lat, nearest.lon], 17);
         } else {
-          info.textContent = '❌ Nessuna fermata trovata';
+          infoBox.textContent = '❌ Nessuna fermata trovata';
         }
       },
       () => {
-        info.textContent = '❌ Errore nella geolocalizzazione';
+        infoBox.textContent = '❌ Errore nella geolocalizzazione';
+        locating = false;
       }
     );
   });

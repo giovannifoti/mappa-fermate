@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quando Passa - Fermate Autobus Messina</title>
+  <title>Quando Passa – Fermate Autobus Messina</title>
 
   <!-- Leaflet & MarkerCluster CSS -->
   <link
@@ -28,21 +28,23 @@
       font-family: system-ui, sans-serif;
       transition: background 0.3s, color 0.3s;
     }
+
     .top-bar {
       position: absolute;
       top: 10px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 1000;
-      background: white;
+      background: #fff;
       border-radius: 999px;
       padding: 5px 10px;
       display: flex;
       align-items: center;
       gap: 6px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-      transition: background 0.3s;
+      transition: background 0.3s, color 0.3s;
     }
+
     #searchInput {
       border: none;
       outline: none;
@@ -52,24 +54,27 @@
       background: #f0f0f0;
       width: 180px;
     }
+
     #locateBtn {
       background: #c00;
-      color: white;
+      color: #fff;
       border: none;
       padding: 6px 10px;
       border-radius: 999px;
       cursor: pointer;
       font-size: 14px;
     }
+
     #locateBtn.active {
       background: #0c0;
     }
+
     #darkToggle {
       position: absolute;
       top: 10px;
       right: 10px;
       z-index: 1000;
-      background: white;
+      background: #fff;
       padding: 6px 10px;
       font-size: 16px;
       border-radius: 999px;
@@ -77,56 +82,75 @@
       cursor: pointer;
       user-select: none;
       border: none;
+      transition: background 0.3s, color 0.3s;
     }
+
     .suggestions {
       position: absolute;
       top: 58px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 1000;
-      background: white;
+      background: #fff;
       max-height: 140px;
       overflow-y: auto;
       font-size: 13px;
       width: 250px;
       border-radius: 6px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: background 0.3s, color 0.3s;
     }
+
     .suggestions div {
       padding: 6px 10px;
       cursor: pointer;
     }
+
     .suggestions div:hover {
       background-color: #eee;
     }
+
     .nearest-info {
       position: absolute;
-      bottom: 10px;
-      left: 10px;
+      top: 58px;
+      left: 50%;
+      transform: translateX(-50%);
       z-index: 1000;
       font-size: 13px;
-      background: white;
+      background: #fff;
       padding: 6px 10px;
       border-radius: 6px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      display: none;
+      transition: background 0.3s, color 0.3s;
     }
+
+    /* DARK MODE */
     body.dark {
-      background: #111;
+      background: #222;
       color: #ddd;
     }
+
     body.dark .top-bar,
     body.dark #darkToggle,
     body.dark .suggestions,
     body.dark .nearest-info {
-      background: #222;
+      background: #333;
       color: #ddd;
     }
+
     body.dark .suggestions div:hover {
-      background: #333;
+      background: #444;
     }
+
     body.dark #searchInput {
-      background: #333;
+      background: #444;
       color: #eee;
+    }
+
+    /* Schiarisci un po' i tiles della mappa dark */
+    body.dark .leaflet-tile-pane img {
+      filter: brightness(0.85);
     }
   </style>
 
@@ -144,9 +168,9 @@
     <button id="locateBtn" title="Trova la fermata più vicina">📍</button>
   </div>
 
-  <button id="darkToggle" title="Attiva/disattiva dark mode">🌙</button>
   <div id="suggestions" class="suggestions"></div>
   <div id="nearestStop" class="nearest-info"></div>
+  <button id="darkToggle" title="Attiva/disattiva dark mode">🌙</button>
   <div id="map"></div>
 
   <!-- Leaflet & MarkerCluster JS -->
