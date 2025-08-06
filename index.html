@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -124,27 +125,32 @@
       transition: background 0.3s, color 0.3s;
     }
 
-    /* GRAY MODE */
-    body.gray {
-      background: #ddd;
-      color: #333;
+    /* DARK MODE smorzato */
+    body.dark {
+      background: #222;
+      color: #ddd;
     }
 
-    body.gray .top-bar,
-    body.gray #darkToggle,
-    body.gray .suggestions,
-    body.gray .nearest-info {
-      background: #eee;
-      color: #333;
+    body.dark .top-bar,
+    body.dark #darkToggle,
+    body.dark .suggestions,
+    body.dark .nearest-info {
+      background: #444;
+      color: #eee;
     }
 
-    body.gray .suggestions div:hover {
-      background: #ddd;
+    body.dark .suggestions div:hover {
+      background: #555;
     }
 
-    body.gray #searchInput {
-      background: #ddd;
-      color: #333;
+    body.dark #searchInput {
+      background: #555;
+      color: #eee;
+    }
+
+    /* Filtro per smorzare i tile dark */
+    body.dark .leaflet-tile-pane img {
+      filter: brightness(0.7);
     }
   </style>
 
@@ -164,7 +170,7 @@
 
   <div id="suggestions" class="suggestions"></div>
   <div id="nearestStop" class="nearest-info"></div>
-  <button id="darkToggle" title="Scala di grigio / normale">🌓</button>
+  <button id="darkToggle" title="Attiva/disattiva dark mode">🌙</button>
   <div id="map"></div>
 
   <!-- Leaflet & MarkerCluster JS -->
