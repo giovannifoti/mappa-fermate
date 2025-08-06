@@ -2,187 +2,190 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mappe Fermate Bus Messina</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quando Passa - Fermate Autobus Messina</title>
 
-  <!-- Leaflet CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-sA+U9hE/U0IhxV1fTvJHkzwXSt6aX1T9vGUoDv7flAI="
-    crossorigin=""
-  />
-
-  <!-- Leaflet MarkerCluster CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
-  />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
   <style>
-    /* Stili base */
-    body {
+    html, body, #map {
+      height: 100%;
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      color: #222;
-      display: flex;
-      flex-direction: column;
-      height: 100vh;
+      padding: 0;
+      font-family: system-ui, sans-serif;
+      transition: background 0.3s, color 0.3s;
     }
 
-    header {
-      padding: 0.5em 1em;
-      background: #0077cc;
-      color: white;
+    .top-bar {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      background: white;
+      border-radius: 999px;
+      padding: 5px 10px;
       display: flex;
       align-items: center;
-      gap: 1em;
-      flex-wrap: wrap;
+      gap: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      transition: background 0.3s;
     }
 
-    header input#searchInput {
-      flex-grow: 1;
-      padding: 0.3em 0.5em;
-      font-size: 1em;
-      border-radius: 3px;
+    #searchInput {
       border: none;
-      max-width: 300px;
+      outline: none;
+      font-size: 13px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f0f0f0;
+      width: 180px;
     }
 
-    header button {
+    #locateBtn {
+      background: #c00;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 999px;
       cursor: pointer;
-      background: #005fa3;
-      border: none;
-      color: white;
-      padding: 0.4em 0.8em;
-      border-radius: 3px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
+      font-size: 14px;
     }
 
-    header button:hover {
-      background: #004580;
+    #locateBtn.active {
+      background: #0c0;
     }
 
-    header button#locateBtn.active {
-      background: #0a0;
-    }
-
-    header button#darkToggle {
-      font-size: 1.2em;
-      background: none;
-      border: none;
-      color: white;
-      user-select: none;
-    }
-
-    #suggestions {
-      background: white;
-      max-height: 10em;
-      overflow-y: auto;
-      border: 1px solid #ccc;
+    #darkToggle {
       position: absolute;
-      top: 3.5em;
-      left: 1em;
-      right: 1em;
+      top: 10px;
+      right: 10px;
       z-index: 1000;
-      border-radius: 3px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    }
-
-    #suggestions div {
-      padding: 0.3em 0.5em;
+      background: white;
+      padding: 6px 10px;
+      font-size: 16px;
+      border-radius: 999px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       cursor: pointer;
-      border-bottom: 1px solid #eee;
+      user-select: none;
+      border: none;
     }
 
-    #suggestions div:hover {
-      background: #eee;
+    .suggestions {
+      position: absolute;
+      top: 58px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1000;
+      background: white;
+      max-height: 140px;
+      overflow-y: auto;
+      font-size: 13px;
+      width: 250px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
     }
 
-    #nearestStop {
-      padding: 0.5em 1em;
-      background: #eee;
-      font-size: 0.9em;
-      min-height: 2em;
+    .suggestions div {
+      padding: 6px 10px;
+      cursor: pointer;
     }
 
-    #map {
-      flex-grow: 1;
+    .suggestions div:hover {
+      background-color: #eee;
     }
 
-    /* Dark mode più morbida */
+    .nearest-info {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      z-index: 1000;
+      font-size: 13px;
+      background: white;
+      padding: 6px 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
     body.dark {
+      background: #111;
+      color: #ddd;
+    }
+
+    body.dark .top-bar,
+    body.dark #darkToggle,
+    body.dark .suggestions,
+    body.dark .nearest-info {
       background: #222;
       color: #ddd;
     }
 
-    body.dark header {
+    body.dark .suggestions div:hover {
       background: #333;
-      color: #ddd;
     }
 
-    body.dark header input#searchInput {
-      background: #444;
+    body.dark #searchInput {
+      background: #333;
       color: #eee;
-      border: none;
-    }
-
-    body.dark #suggestions {
-      background: #333;
-      color: #ddd;
-      border-color: #555;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
-    }
-
-    body.dark #suggestions div:hover {
-      background: #555;
-    }
-
-    body.dark #nearestStop {
-      background: #333;
-      color: #ddd;
-    }
-
-    body.dark header button#locateBtn.active {
-      background: #0a0;
-      color: #ddd;
-    }
-
-    body.dark header button#darkToggle {
-      color: #ddd;
     }
   </style>
+
+  <link rel="icon" type="image/png" href="logo_sito.png" />
+  <meta name="theme-color" content="#003366" />
 </head>
 <body>
-  <header>
-    <input id="searchInput" placeholder="Cerca fermata..." autocomplete="off" />
-    <button id="locateBtn" title="Trova fermata più vicina">📍</button>
-    <button id="darkToggle" title="Toggle modalità dark">🌙</button>
-  </header>
-  <div id="suggestions"></div>
-  <div id="nearestStop"></div>
+  <div class="top-bar">
+    <input type="text" id="searchInput" placeholder="🔍 Cerca una fermata..." autocomplete="off" />
+    <button id="locateBtn" title="Trova la fermata più vicina">📍</button>
+  </div>
+
+  <button id="darkToggle" title="Attiva/disattiva dark mode">🌙</button>
+  <div id="suggestions" class="suggestions"></div>
+  <div id="nearestStop" class="nearest-info"></div>
   <div id="map"></div>
 
-  <!-- Leaflet JS -->
-  <script
-    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-oPUGH1bFz0xa4u8MFbLnV6M0j4F5dz6lq7wpY4tM0jI="
-    crossorigin=""
-  ></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
-  <!-- Leaflet MarkerCluster JS -->
-  <script
-    src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"
-  ></script>
+  <script>
+    // 🌗 Switch map tile layer light/dark
+    const lightLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap & CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    });
 
-  <!-- Tuo script -->
+    const darkLayer = L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+      attribution: '&copy; OpenStreetMap & CARTO',
+      subdomains: 'abcd',
+      maxZoom: 19
+    });
+
+    const map = L.map('map', {
+      center: [38.1938, 15.5540],
+      zoom: 13,
+      layers: [lightLayer]
+    });
+
+    const markerCluster = L.markerClusterGroup();
+    map.addLayer(markerCluster);
+
+    document.getElementById('darkToggle').addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      if (document.body.classList.contains('dark')) {
+        map.removeLayer(lightLayer);
+        map.addLayer(darkLayer);
+      } else {
+        map.removeLayer(darkLayer);
+        map.addLayer(lightLayer);
+      }
+    });
+  </script>
+
   <script src="script.js"></script>
+
   <script data-goatcounter="https://giovannifoti.goatcounter.com/count"
           async src="//gc.zgo.at/count.js"></script>
 </body>
