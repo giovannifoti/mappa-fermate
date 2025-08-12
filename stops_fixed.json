@@ -6382,6 +6382,120 @@
     "lat": 38.14184,
     "lon": 15.50038,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1429&rnd=91"
+  },
+  {
+    "name": "LARDER INF - SP39 KM2700 DIR SALITA",
+    "lat": 38.14331,
+    "lon": 15.49970,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=430&rnd=91"
+  },
+  {
+    "name": "LARDER INF - SP39 KM2700 DIR DISCESA",
+    "lat": 38.14320,
+    "lon": 15.49960,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1430&rnd=91"
+  },
+  {
+    "name": "LARDER SUP - SP39 KM3000 DIR DISCESA",
+    "lat": 38.14197,
+    "lon": 15.49737,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1431&rnd=91"
+  },
+  {
+    "name": "LARDER SUP - SP39 KM3300 DIR SALITA",
+    "lat": 38.14168,
+    "lon": 15.49525,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=432&rnd=91"
+  },
+  {
+    "name": "LARDER SUP - SP39 KM3700 DIR SALITA",
+    "lat": 38.13910,
+    "lon": 15.49496,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=434&rnd=91"
+  },
+  {
+    "name": "LARDER SUP - SP39 KM3700 DIR DISCESA",
+    "lat": 38.13903,
+    "lon": 15.49501,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1434&rnd=91"
+  },
+  {
+    "name": "LARDER SUP - SP39 KM3800 DIR SALITA",
+    "lat": 38.13820,
+    "lon": 15.49500,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=435&rnd=91"
+  },
+  {
+    "name": "LARDER SUP - SP39 KM3800 DIR DISCESA",
+    "lat": 38.13830,
+    "lon": 15.49510,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1435&rnd=91"
+  },
+  {
+    "name": "LARDER SUP - SP39 KM4000 DIR SALITA",
+    "lat": 38.13711,
+    "lon": 15.49400,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=436&rnd=91"
+  },
+  {
+    "name": "LARDER SUP - SP39 KM4000 DIR DISCESA",
+    "lat": 38.13700,
+    "lon": 15.49400,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1436&rnd=91"
+  },
+   {
+    "name": "LARDER SUP - SP39 KM4500 DIR SALITA",
+    "lat": 38.13590,
+    "lon": 15.49150,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=437&rnd=91"
+  },
+   {
+    "name": "LARDER SUP - SP39 KM4500 DIR DISCESA",
+    "lat": 38.13580,
+    "lon": 15.49140,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1437&rnd=91"
+  },
+   {
+    "name": "LARDER SUP - SP39 KM4900 DIR SALITA",
+    "lat": 38.13580,
+    "lon": 15.49060,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=438&rnd=91"
+  },
+   {
+    "name": "LARDER SUP - SP39 KM5000 DIR SALITA",
+    "lat": 38.13244,
+    "lon": 15.48962,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=992&rnd=91"
+  },
+   {
+    "name": "LARDER SUP - SP39 KM5000 DIR DISCESA",
+    "lat": 38.13241,
+    "lon": 15.48971,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1992&rnd=91"
+  },
+   {
+    "name": "LARDER SUP - SP39 KM5100 DIR SALITA",
+    "lat": 38.13338,
+    "lon": 15.48942,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=439&rnd=91"
+  },
+  {
+    "name": "LARDER SUP - SP39 KM5100 DIR DISCESA",
+    "lat": 38.13331,
+    "lon": 15.48948,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1439&rnd=91"
+  },
+  {
+    "name": "TIPOLDO - SP39 KM5700",
+    "lat": 38.13192,
+    "lon": 15.48605,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1440&rnd=91"
+  },
+  {
+    "name": "TIPOLDO - CAPOLINEA",
+    "lat": 38.13160,
+    "lon": 15.48490,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=441&rnd=91"
   }
 ]
 
