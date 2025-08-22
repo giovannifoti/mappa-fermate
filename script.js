@@ -98,21 +98,25 @@ function toggleFavorite(id) {
     })
     .catch(e => { console.error(e); alert('Errore nel caricamento delle fermate'); });
 
-    // Cattura click su tutte le stelline nei popup
+// Cattura click sulle stelle dei popup + animazione “pop”
 document.addEventListener('click', e => {
-  const el = e.target;
-  if (!el.classList.contains('popup-star')) return;
+  const el = e.target.closest('.popup-star');
+  if (!el) return;
 
   const id = el.dataset.id;
   toggleFavorite(id);
-  
-  // Aggiorna classe visiva
-  if (isFavorite(id)) {
-    el.classList.replace('fav-off', 'fav-on');
-  } else {
-    el.classList.replace('fav-on', 'fav-off');
-  }
+
+  // aggiorna colore
+  el.classList.toggle('fav-on',  isFavorite(id));
+  el.classList.toggle('fav-off', !isFavorite(id));
+
+  // animazione “pop”
+  el.classList.add('animate');
+  el.addEventListener('animationend', () => {
+    el.classList.remove('animate');
+  }, { once: true });
 });
+
 
 // Apertura popup preferiti
 document.getElementById('open-favorites').addEventListener('click', () => {

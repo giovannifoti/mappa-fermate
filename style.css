@@ -104,3 +104,38 @@ body, html {
 .popup-star.fav-off {
   color: #ccc;
 }
+/* — Badge “Preferiti” traslucido — */
+#open-favorites {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(4px);
+  border: none;
+  padding: 12px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* — Stati colore stelle nei popup — */
+.popup-star.fav-on  { color: gold; }
+.popup-star.fav-off { color: #ccc; }
+
+/* — Setup animazione “pop” — */
+@keyframes star-pop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+/* — Abilita trigger animazione su span — */
+.popup-star {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+
+.popup-star.animate {
+  animation: star-pop 0.3s ease;
+}
