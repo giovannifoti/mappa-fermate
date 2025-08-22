@@ -1,9 +1,10 @@
-
 body, html {
   margin: 0;
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
 }
+
+/* Top bar */
 .top-bar {
   position: fixed;
   top: 10px;
@@ -18,6 +19,7 @@ body, html {
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   align-items: center;
 }
+
 #searchInput {
   padding: 6px 10px;
   font-size: 14px;
@@ -25,6 +27,7 @@ body, html {
   border: 1px solid #ccc;
   width: 200px;
 }
+
 #locateBtn {
   padding: 6px 10px;
   background: #2563eb;
@@ -34,16 +37,7 @@ body, html {
   font-size: 14px;
   cursor: pointer;
 }
-.locate-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.nearest-info {
-  font-size: 12px;
-  margin-top: 4px;
-  text-align: center;
-}
+
 #map {
   position: absolute;
   top: 0;
@@ -51,22 +45,12 @@ body, html {
   width: 100%;
   z-index: 0;
 }
-#open-favorites {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background-color: gold;
-  border: none;
-  padding: 12px;
-  border-radius: 50%;
-  font-size: 20px;
-  cursor: pointer;
-  z-index: 1000;
-}
+
+/* Popup preferiti */
 #favorites-popup {
-  display: none;               /* nascosto di default */
+  display: none;
   position: fixed;
-  inset: 0;                    /* top:0; right:0; bottom:0; left:0; */
+  inset: 0;
   background: rgba(0,0,0,0.6);
   z-index: 1100;
 }
@@ -79,7 +63,21 @@ body, html {
   padding: 20px;
   border-radius: 8px;
   position: relative;
+  color: #000;
+  transition: background 0.3s, color 0.3s;
 }
+
+body.dark #favorites-popup .fav-popup-content {
+  background: #333;
+  color: #eee;
+}
+
+.fav-popup-content h2 {
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+/* Pulsante chiudi */
 #close-favorites {
   position: absolute;
   top: 10px;
@@ -87,6 +85,8 @@ body, html {
   font-size: 24px;
   cursor: pointer;
 }
+
+/* Lista preferiti */
 #favorites-list {
   list-style: none;
   padding: 0;
@@ -97,61 +97,52 @@ body, html {
   padding: 8px 0;
   border-bottom: 1px solid #eee;
 }
-.popup-star.fav-on {
-  color: gold;
+
+#favorites-list li a {
+  color: #003366;
+  text-decoration: none;
 }
 
-.popup-star.fav-off {
-  color: #ccc;
+body.dark #favorites-list li a {
+  color: #ffd54f;
 }
-/* — Badge “Preferiti” traslucido — */
-#open-favorites {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(4px);
+
+/* Bottone rimuovi fermata */
+#favorites-list li button.remove-fav {
+  color: #ff6666;
+  background: transparent;
   border: none;
-  padding: 12px;
-  border-radius: 50%;
-  font-size: 20px;
   cursor: pointer;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  margin-left: 8px;
 }
 
-/* — Stati colore stelle nei popup — */
-.popup-star.fav-on  { color: gold; }
-.popup-star.fav-off { color: #ccc; }
-
-/* — Setup animazione “pop” — */
-@keyframes star-pop {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.4); }
-  100% { transform: scale(1); }
-}
-
-/* — Abilita trigger animazione su span — */
-.popup-star {
-  display: inline-block;
-  transition: transform 0.2s ease;
-}
-
-.popup-star.animate {
-  animation: star-pop 0.3s ease;
-}
+/* Bottone apri popup */
 #open-favorites {
-  display: flex;              /* forza visibilità */
-  align-items: center;
-  justify-content: center;
   position: fixed;
   bottom: 16px;
   left: 16px;
   width: 48px;
   height: 48px;
   background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(4px);
   border: none;
   border-radius: 50%;
   font-size: 24px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 1000;
+}
+
+/* Stelle popup */
+.popup-star.fav-on  { color: gold; }
+.popup-star.fav-off { color: #ccc; }
+.popup-star { display: inline-block; transition: transform 0.2s ease; }
+.popup-star.animate { animation: star-pop 0.3s ease; }
+
+@keyframes star-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
 }

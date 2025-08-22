@@ -121,14 +121,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const ul = document.getElementById('favorites-list');
     ul.innerHTML = '';
 
-    // Suddivisione per zona
     const zones = { nord: [], centro: [], sud: [] };
 
     favorites.forEach(idStr => {
       const stop = stops.find(s => s.id != null && s.id.toString() === idStr);
       if (!stop) return;
 
-      // Logica semplice per zona: basata sulla latitudine
       let zone = 'centro';
       if (stop.lat > 38.2) zone = 'nord';
       else if (stop.lat < 38.17) zone = 'sud';
@@ -146,11 +144,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
       stopsArray.forEach(stop => {
         const li = document.createElement('li');
+
+        // Link fermata
         const a = document.createElement('a');
         a.href = stop.url;
         a.target = '_blank';
         a.textContent = stop.name;
         li.appendChild(a);
+
+        // Pulsante rimuovi
+        const btn = document.createElement('button');
+        btn.textContent = '❌';
+        btn.className = 'remove-fav';
+        btn.style.marginLeft = '8px';
+        btn.style.border = 'none';
+        btn.style.background = 'transparent';
+        btn.style.cursor = 'pointer';
+        btn.title = 'Rimuovi dai preferiti';
+        btn.addEventListener('click', () => {
+          toggleFavorite(stop.id);
+          renderFavoritesList();
+        });
+
+        li.appendChild(btn);
         ul.appendChild(li);
       });
     }
