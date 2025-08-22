@@ -29,19 +29,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. Favorites in localStorage
+  // 3. Favorites in localStorage (sempre stringhe)
   let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  function saveFavorites() {
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-  }
   function isFavorite(id) {
-    return favorites.includes(id);
+    return favorites.includes(id.toString());
   }
   function toggleFavorite(id) {
-    const idx = favorites.indexOf(id);
+    const str = id.toString();
+    const idx = favorites.indexOf(str);
     if (idx > -1) favorites.splice(idx, 1);
-    else favorites.push(id);
-    saveFavorites();
+    else favorites.push(str);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
   }
 
   // 4. Utility normalize
@@ -83,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Errore nel caricamento delle fermate');
     });
 
-  // 6. Click su stellina nei popup + animazione “pop”
+  // 6. Click su stellina nei popup + animazione “burst”
   document.addEventListener('click', e => {
     const el = e.target.closest('.popup-star');
     if (!el) return;
@@ -106,12 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('favorites-popup').style.display = 'none';
   });
 
-  // 8. Render lista preferiti
+  // 8. Render lista preferiti (usa id stringhe)
   function renderFavoritesList() {
     const ul = document.getElementById('favorites-list');
     ul.innerHTML = '';
-    favorites.forEach(id => {
-      const stop = stops.find(s => s.id === id);
+    favorites.forEach(idStr => {
+      const stop = stops.find(s => s.id.toString() === idStr);
       if (!stop) return;
       const li = document.createElement('li');
       li.textContent = stop.name;
@@ -189,4 +187,4 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     );
   });
-}); 
+});

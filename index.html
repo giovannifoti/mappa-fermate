@@ -156,21 +156,27 @@
       padding: 8px 0; border-bottom: 1px solid #eee;
     }
 
-    /* -------- STAR STATES & ANIMATION -------- */
-    .popup-star.fav-on  { color: gold; }
-    .popup-star.fav-off { color: #ccc; }
-    @keyframes star-pop {
-      0%   { transform: scale(1); }
-      50%  { transform: scale(1.4); }
-      100% { transform: scale(1); }
+    /* -------- STAR BURST ANIMATION -------- */
+    @keyframes star-burst {
+      0%   { transform: scale(1) rotate(0deg); }
+      20%  { transform: scale(1.6) rotate(-20deg); }
+      40%  { transform: scale(1.4) rotate(20deg); }
+      60%  { transform: scale(1.6) rotate(-20deg); }
+      100% { transform: scale(1) rotate(0deg); }
     }
+
     .popup-star {
       display: inline-block;
       transition: transform 0.2s ease;
     }
+
     .popup-star.animate {
-      animation: star-pop 0.3s ease;
+      animation: star-burst 0.6s ease-out;
     }
+
+    .popup-star.fav-on  { color: gold; }
+    .popup-star.fav-off { color: #ccc; }
+
   </style>
 
   <link rel="icon" type="image/png" href="logo_sito.png" />
