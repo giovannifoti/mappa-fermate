@@ -57,8 +57,13 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(data => {
       if (!Array.isArray(data)) throw new Error('JSON non è un array');
-      stops = data.map((s, idx) => ({...s, id: s.id || idx, zone: s.zone || 'centro'})); // assegna id se mancante
-      data.forEach(s => {
+
+      // Filtra elementi validi e assegna ID se mancante
+      stops = data
+        .filter(s => s && s.name && s.lat && s.lon)
+        .map((s, idx) => ({ ...s, id: s.id ?? idx, zone: s.zone ?? 'centro' }));
+
+      stops.forEach(s => {
         const m = L.marker([s.lat, s.lon], { title: s.name });
         const starClass = isFavorite(s.id) ? 'fav-on' : 'fav-off';
         const html = `
