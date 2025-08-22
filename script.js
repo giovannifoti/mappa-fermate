@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Layers
+
+  // -------------------- 1. Layers --------------------
   const lightLayer = L.tileLayer(
     'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
     { attribution: '&copy; OpenStreetMap & CARTO', subdomains: 'abcd', maxZoom: 19 }
@@ -14,10 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
     zoom: 13,
     layers: [lightLayer]
   });
+
   const markerCluster = L.markerClusterGroup();
   map.addLayer(markerCluster);
 
-  // 2. Dark toggle
+  // -------------------- 2. Dark toggle --------------------
   document.getElementById('darkToggle').addEventListener('click', () => {
     const isDark = document.body.classList.toggle('dark');
     if (isDark) {
@@ -29,11 +31,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. Favorites in localStorage (sempre stringhe)
-  let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  // -------------------- 3. Favorites (robusto) --------------------
+  let favorites = [];
+  try {
+    const stored = JSON.parse(localStorage.getItem('favorites'));
+    if (Array.isArray(stored)) favorites = stored.map(String);
+  } catch { favorites = []; }
+
   function isFavorite(id) {
     return favorites.includes(id.toString());
   }
+
   function toggleFavorite(id) {
     const str = id.toString();
     const idx = favorites.indexOf(str);
@@ -42,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }
 
-  // 4. Utility normalize
+  // -------------------- 4. Utility normalize --------------------
   let stops = [];
   const markers = [];
   function normalize(str) {
@@ -51,9 +59,12 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/[\u0300-\u036f]/g, '');
   }
 
-  // 5. Carica fermate e crea marker + popup con stellina
+  // -------------------- 5. Carica fermate --------------------
   fetch('./stops_fixed.json')
-    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(r => {
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    })
     .then(data => {
       if (!Array.isArray(data)) throw new Error('JSON non è un array');
       stops = data;
@@ -77,25 +88,23 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     })
     .catch(e => {
-      console.error(e);
-      alert('Errore nel caricamento delle fermate');
+      console.error('Errore caricamento fermate:', e);
+      alert(`Errore nel caricamento delle fermate: ${e.message}`);
     });
 
-  // 6. Click su stellina nei popup + animazione “burst”
+  // -------------------- 6. Click su stellina popup --------------------
   document.addEventListener('click', e => {
     const el = e.target.closest('.popup-star');
     if (!el) return;
     const id = el.dataset.id;
     toggleFavorite(id);
-    el.classList.toggle('fav-on',  isFavorite(id));
+    el.classList.toggle('fav-on', isFavorite(id));
     el.classList.toggle('fav-off', !isFavorite(id));
     el.classList.add('animate');
-    el.addEventListener('animationend', () => {
-      el.classList.remove('animate');
-    }, { once: true });
+    el.addEventListener('animationend', () => el.classList.remove('animate'), { once: true });
   });
 
-  // 7. Apri/chiudi popup “Preferiti”
+  // -------------------- 7. Popup preferiti --------------------
   document.getElementById('open-favorites').addEventListener('click', () => {
     renderFavoritesList();
     document.getElementById('favorites-popup').style.display = 'block';
@@ -104,7 +113,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('favorites-popup').style.display = 'none';
   });
 
-  // 8. Render lista preferiti (usa id stringhe)
   function renderFavoritesList() {
     const ul = document.getElementById('favorites-list');
     ul.innerHTML = '';
@@ -117,17 +125,20 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 9. Ricerca
+  // -------------------- 8. Ricerca --------------------
   const input = document.getElementById('searchInput');
   const suggestions = document.getElementById('suggestions');
+
   input.addEventListener('input', () => {
     const q = normalize(input.value.trim());
     suggestions.innerHTML = '';
+
+    markerCluster.clearLayers();
     if (!q) {
-      markerCluster.clearLayers();
       markers.forEach(m => markerCluster.addLayer(m));
       return;
     }
+
     const matched = markers.filter(m => m.normalizedName.includes(q));
     matched.slice(0, 10).forEach(m => {
       const div = document.createElement('div');
@@ -139,17 +150,16 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       suggestions.appendChild(div);
     });
-    markerCluster.clearLayers();
+
     matched.forEach(m => markerCluster.addLayer(m));
-    if (matched.length) {
-      map.fitBounds(L.featureGroup(matched).getBounds().pad(0.2));
-    }
+    if (matched.length) map.fitBounds(L.featureGroup(matched).getBounds().pad(0.2));
   });
 
-  // 10. Trova fermata più vicina
+  // -------------------- 9. Trova fermata più vicina --------------------
   const locateBtn = document.getElementById('locateBtn');
   const infoBox = document.getElementById('nearestStop');
   let locating = false;
+
   locateBtn.addEventListener('click', () => {
     if (locating) {
       locating = false;
@@ -160,11 +170,13 @@ document.addEventListener('DOMContentLoaded', () => {
     locating = true;
     infoBox.style.display = 'block';
     infoBox.textContent = '📡 Caricamento...';
+
     if (!navigator.geolocation) {
       infoBox.textContent = '❌ Geolocalizzazione non supportata';
       locating = false;
       return;
     }
+
     navigator.geolocation.getCurrentPosition(
       ({ coords }) => {
         locateBtn.classList.add('active');
@@ -187,4 +199,5 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     );
   });
+
 });
