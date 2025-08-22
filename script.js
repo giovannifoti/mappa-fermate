@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-  // -------------------- 1. Layers --------------------
+  // ---------------------- 1. Layers ----------------------
   const lightLayer = L.tileLayer(
     'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
     { attribution: '&copy; OpenStreetMap & CARTO', subdomains: 'abcd', maxZoom: 19 }
@@ -15,11 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
     zoom: 13,
     layers: [lightLayer]
   });
-
   const markerCluster = L.markerClusterGroup();
   map.addLayer(markerCluster);
 
-  // -------------------- 2. Dark toggle --------------------
+  // ---------------------- 2. Dark toggle ----------------------
   document.getElementById('darkToggle').addEventListener('click', () => {
     const isDark = document.body.classList.toggle('dark');
     if (isDark) {
@@ -29,22 +27,15 @@ document.addEventListener('DOMContentLoaded', () => {
       map.removeLayer(darkLayer);
       map.addLayer(lightLayer);
     }
+    renderFavoritesList(); // aggiorna colori popup
   });
 
-  // -------------------- 3. Favorites --------------------
-  let favorites = [];
-  try {
-    const stored = JSON.parse(localStorage.getItem('favorites'));
-    if (Array.isArray(stored)) favorites = stored.map(String);
-  } catch { favorites = []; }
-
+  // ---------------------- 3. Favorites in localStorage ----------------------
+  let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
   function isFavorite(id) {
-    if (id == null) return false;
     return favorites.includes(id.toString());
   }
-
   function toggleFavorite(id) {
-    if (id == null) return;
     const str = id.toString();
     const idx = favorites.indexOf(str);
     if (idx > -1) favorites.splice(idx, 1);
@@ -52,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
     localStorage.setItem('favorites', JSON.stringify(favorites));
   }
 
-  // -------------------- 4. Utility normalize --------------------
+  // ---------------------- 4. Utility normalize ----------------------
   let stops = [];
   const markers = [];
   function normalize(str) {
@@ -61,18 +52,13 @@ document.addEventListener('DOMContentLoaded', () => {
       .replace(/[\u0300-\u036f]/g, '');
   }
 
-  // -------------------- 5. Carica fermate --------------------
+  // ---------------------- 5. Carica fermate ----------------------
   fetch('./stops_fixed.json')
-    .then(r => {
-      if (!r.ok) throw new Error(`HTTP ${r.status}`);
-      return r.json();
-    })
+    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(data => {
       if (!Array.isArray(data)) throw new Error('JSON non è un array');
-
-      stops = data.map((s, index) => ({ ...s, id: index })); // Genera ID
-
-      stops.forEach(s => {
+      stops = data.map((s, idx) => ({...s, id: s.id || idx, zone: s.zone || 'centro'})); // assegna id se mancante
+      data.forEach(s => {
         const m = L.marker([s.lat, s.lon], { title: s.name });
         const starClass = isFavorite(s.id) ? 'fav-on' : 'fav-off';
         const html = `
@@ -92,23 +78,23 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     })
     .catch(e => {
-      console.error('Errore caricamento fermate:', e);
-      alert(`Errore nel caricamento delle fermate: ${e.message}`);
+      console.error(e);
+      alert('Errore nel caricamento delle fermate: ' + e.message);
     });
 
-  // -------------------- 6. Click stellina --------------------
+  // ---------------------- 6. Click su stellina popup ----------------------
   document.addEventListener('click', e => {
     const el = e.target.closest('.popup-star');
     if (!el) return;
     const id = el.dataset.id;
     toggleFavorite(id);
-    el.classList.toggle('fav-on', isFavorite(id));
+    el.classList.toggle('fav-on',  isFavorite(id));
     el.classList.toggle('fav-off', !isFavorite(id));
     el.classList.add('animate');
     el.addEventListener('animationend', () => el.classList.remove('animate'), { once: true });
   });
 
-  // -------------------- 7. Popup preferiti --------------------
+  // ---------------------- 7. Apri/chiudi popup preferiti ----------------------
   document.getElementById('open-favorites').addEventListener('click', () => {
     renderFavoritesList();
     document.getElementById('favorites-popup').style.display = 'block';
@@ -117,32 +103,29 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('favorites-popup').style.display = 'none';
   });
 
+  // ---------------------- 8. Render lista preferiti con zone e link ----------------------
   function renderFavoritesList() {
     const ul = document.getElementById('favorites-list');
     ul.innerHTML = '';
 
+    // raggruppa per zona
     const zones = { nord: [], centro: [], sud: [] };
-
-    favorites.forEach(idStr => {
-      const stop = stops.find(s => s.id != null && s.id.toString() === idStr);
-      if (!stop) return;
-
-      let zone = 'centro';
-      if (stop.lat > 38.2) zone = 'nord';
-      else if (stop.lat < 38.17) zone = 'sud';
-
-      zones[zone].push(stop);
+    stops.forEach(s => {
+      if (!s.id || !isFavorite(s.id)) return;
+      zones[s.zone || 'centro'].push(s);
     });
 
-    for (const [zone, stopsArray] of Object.entries(zones)) {
-      if (stopsArray.length === 0) continue;
+    Object.keys(zones).forEach(zoneKey => {
+      const stopsInZone = zones[zoneKey];
+      if (!stopsInZone.length) return;
 
+      // Titolo zona
       const h3 = document.createElement('h3');
-      h3.textContent = `Zona ${zone.toUpperCase()}`;
-      h3.style.textAlign = 'center';
+      h3.textContent = zoneKey.charAt(0).toUpperCase() + zoneKey.slice(1);
+      h3.style.color = document.body.classList.contains('dark') ? '#ffd54f' : '#003366';
       ul.appendChild(h3);
 
-      stopsArray.forEach(stop => {
+      stopsInZone.forEach(stop => {
         const li = document.createElement('li');
 
         // Link fermata
@@ -150,42 +133,41 @@ document.addEventListener('DOMContentLoaded', () => {
         a.href = stop.url;
         a.target = '_blank';
         a.textContent = stop.name;
+        a.style.color = document.body.classList.contains('dark') ? '#ffd54f' : '#003366';
         li.appendChild(a);
 
         // Pulsante rimuovi
         const btn = document.createElement('button');
         btn.textContent = '❌';
         btn.className = 'remove-fav';
-        btn.style.marginLeft = '8px';
-        btn.style.border = 'none';
-        btn.style.background = 'transparent';
-        btn.style.cursor = 'pointer';
-        btn.title = 'Rimuovi dai preferiti';
         btn.addEventListener('click', () => {
-          toggleFavorite(stop.id);
+          const idx = favorites.indexOf(stop.id.toString());
+          if (idx > -1) favorites.splice(idx, 1);
+          localStorage.setItem('favorites', JSON.stringify(favorites));
           renderFavoritesList();
         });
-
         li.appendChild(btn);
+
         ul.appendChild(li);
       });
-    }
+    });
+
+    // Titolo principale
+    const h2 = document.querySelector('#favorites-popup h2');
+    if (h2) h2.style.color = document.body.classList.contains('dark') ? '#ffd54f' : '#003366';
   }
 
-  // -------------------- 8. Ricerca --------------------
+  // ---------------------- 9. Ricerca ----------------------
   const input = document.getElementById('searchInput');
   const suggestions = document.getElementById('suggestions');
-
   input.addEventListener('input', () => {
     const q = normalize(input.value.trim());
     suggestions.innerHTML = '';
-
-    markerCluster.clearLayers();
     if (!q) {
+      markerCluster.clearLayers();
       markers.forEach(m => markerCluster.addLayer(m));
       return;
     }
-
     const matched = markers.filter(m => m.normalizedName.includes(q));
     matched.slice(0, 10).forEach(m => {
       const div = document.createElement('div');
@@ -197,16 +179,15 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       suggestions.appendChild(div);
     });
-
+    markerCluster.clearLayers();
     matched.forEach(m => markerCluster.addLayer(m));
     if (matched.length) map.fitBounds(L.featureGroup(matched).getBounds().pad(0.2));
   });
 
-  // -------------------- 9. Trova fermata più vicina --------------------
+  // ---------------------- 10. Trova fermata più vicina ----------------------
   const locateBtn = document.getElementById('locateBtn');
   const infoBox = document.getElementById('nearestStop');
   let locating = false;
-
   locateBtn.addEventListener('click', () => {
     if (locating) {
       locating = false;
@@ -217,13 +198,11 @@ document.addEventListener('DOMContentLoaded', () => {
     locating = true;
     infoBox.style.display = 'block';
     infoBox.textContent = '📡 Caricamento...';
-
     if (!navigator.geolocation) {
       infoBox.textContent = '❌ Geolocalizzazione non supportata';
       locating = false;
       return;
     }
-
     navigator.geolocation.getCurrentPosition(
       ({ coords }) => {
         locateBtn.classList.add('active');
@@ -246,5 +225,4 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     );
   });
-
 });

@@ -78,21 +78,26 @@ body.dark #favorites-popup .fav-popup-content {
 #favorites-popup h2 {
   text-align: center;
   margin-bottom: 16px;
-  color: #003366 !important; /* light mode */
+  color: #003366 !important;
   transition: color 0.3s;
 }
 
 body.dark #favorites-popup h2 {
-  color: #ffd54f !important; /* dark mode */
+  color: #ffd54f !important;
 }
 
-/* Pulsante chiudi */
-#close-favorites {
-  position: absolute;
-  top: 10px;
-  right: 14px;
-  font-size: 24px;
-  cursor: pointer;
+/* Titolo zona */
+#favorites-popup h3 {
+  text-align: center;
+  margin: 12px 0 4px 0;
+  color: #003366 !important;
+  font-size: 14px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+body.dark #favorites-popup h3 {
+  color: #ffd54f !important;
 }
 
 /* Lista preferiti */
@@ -105,41 +110,44 @@ body.dark #favorites-popup h2 {
 #favorites-list li {
   padding: 8px 0;
   border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 /* Link fermata */
 #favorites-popup li a {
-  color: #003366 !important;
   text-decoration: none;
+  color: #003366 !important;
   transition: color 0.3s;
+}
+
+#favorites-popup li a:hover {
+  text-decoration: underline;
+  color: #0055aa !important;
 }
 
 body.dark #favorites-popup li a {
   color: #ffd54f !important;
 }
 
-/* Pulsante rimuovi fermata */
+body.dark #favorites-popup li a:hover {
+  color: #ffe680 !important;
+}
+
+/* Pulsante rimuovi */
 #favorites-popup li button.remove-fav {
   color: #ff6666;
   background: transparent;
   border: none;
   cursor: pointer;
-  margin-left: 8px;
-  font-size: 14px;
+  font-size: 16px;
+  transition: transform 0.2s ease, color 0.2s ease;
 }
 
-/* Titoli zona */
-#favorites-popup h3 {
-  text-align: center;
-  margin: 12px 0 4px 0;
-  color: #003366 !important; /* light mode */
-  font-size: 14px;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-body.dark #favorites-popup h3 {
-  color: #ffd54f !important; /* dark mode */
+#favorites-popup li button.remove-fav:hover {
+  color: #ff0000;
+  transform: scale(1.2);
 }
 
 /* ---------------------- BOTTONE PREFERITI ---------------------- */
