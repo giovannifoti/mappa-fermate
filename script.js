@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // -------------------- 3. Favorites (robusto) --------------------
+  // -------------------- 3. Favorites --------------------
   let favorites = [];
   try {
     const stored = JSON.parse(localStorage.getItem('favorites'));
@@ -70,8 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       if (!Array.isArray(data)) throw new Error('JSON non è un array');
 
-      // Genera ID automatici per ogni fermata
-      stops = data.map((s, index) => ({ ...s, id: index }));
+      stops = data.map((s, index) => ({ ...s, id: index })); // Genera ID
 
       stops.forEach(s => {
         const m = L.marker([s.lat, s.lon], { title: s.name });
@@ -97,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
       alert(`Errore nel caricamento delle fermate: ${e.message}`);
     });
 
-  // -------------------- 6. Click su stellina popup --------------------
+  // -------------------- 6. Click stellina --------------------
   document.addEventListener('click', e => {
     const el = e.target.closest('.popup-star');
     if (!el) return;
@@ -121,13 +120,40 @@ document.addEventListener('DOMContentLoaded', () => {
   function renderFavoritesList() {
     const ul = document.getElementById('favorites-list');
     ul.innerHTML = '';
+
+    // Suddivisione per zona
+    const zones = { nord: [], centro: [], sud: [] };
+
     favorites.forEach(idStr => {
       const stop = stops.find(s => s.id != null && s.id.toString() === idStr);
       if (!stop) return;
-      const li = document.createElement('li');
-      li.textContent = stop.name;
-      ul.appendChild(li);
+
+      // Logica semplice per zona: basata sulla latitudine
+      let zone = 'centro';
+      if (stop.lat > 38.2) zone = 'nord';
+      else if (stop.lat < 38.17) zone = 'sud';
+
+      zones[zone].push(stop);
     });
+
+    for (const [zone, stopsArray] of Object.entries(zones)) {
+      if (stopsArray.length === 0) continue;
+
+      const h3 = document.createElement('h3');
+      h3.textContent = `Zona ${zone.toUpperCase()}`;
+      h3.style.textAlign = 'center';
+      ul.appendChild(h3);
+
+      stopsArray.forEach(stop => {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = stop.url;
+        a.target = '_blank';
+        a.textContent = stop.name;
+        li.appendChild(a);
+        ul.appendChild(li);
+      });
+    }
   }
 
   // -------------------- 8. Ricerca --------------------
