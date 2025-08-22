@@ -20,6 +20,7 @@
   />
 
   <style>
+    /* -------- MAP & BASICS -------- */
     html, body, #map {
       height: 100%;
       margin: 0;
@@ -30,8 +31,7 @@
 
     .top-bar {
       position: absolute;
-      top: 10px;
-      left: 50%;
+      top: 10px; left: 50%;
       transform: translateX(-50%);
       z-index: 1000;
       background: #fff;
@@ -41,186 +41,143 @@
       align-items: center;
       gap: 6px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      transition: background 0.3s, color 0.3s;
     }
 
     #searchInput {
-      border: none;
-      outline: none;
-      font-size: 13px;
-      padding: 6px 10px;
+      border: none; outline: none;
+      font-size: 13px; padding: 6px 10px;
       border-radius: 999px;
-      background: #f0f0f0;
-      width: 180px;
+      background: #f0f0f0; width: 180px;
     }
 
     #locateBtn {
-      background: #c00;
-      color: #fff;
-      border: none;
-      padding: 6px 10px;
-      border-radius: 999px;
-      cursor: pointer;
+      background: #c00; color: #fff;
+      border: none; padding: 6px 10px;
+      border-radius: 999px; cursor: pointer;
       font-size: 14px;
     }
-
-    #locateBtn.active {
-      background: #0c0;
-    }
+    #locateBtn.active { background: #0c0; }
 
     #darkToggle {
       position: absolute;
-      top: 10px;
-      right: 10px;
+      top: 10px; right: 10px;
       z-index: 1000;
-      background: #fff;
-      padding: 6px 10px;
-      font-size: 16px;
-      border-radius: 999px;
+      background: #fff; padding: 6px 10px;
+      font-size: 16px; border-radius: 999px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      cursor: pointer;
-      user-select: none;
-      border: none;
+      cursor: pointer; user-select: none; border: none;
       transition: background 0.3s, color 0.3s;
     }
 
     .suggestions {
       position: absolute;
-      top: 58px;
-      left: 50%;
+      top: 58px; left: 50%;
       transform: translateX(-50%);
       z-index: 1000;
-      background: #fff;
-      max-height: 140px;
-      overflow-y: auto;
-      font-size: 13px;
-      width: 250px;
-      border-radius: 6px;
+      background: #fff; max-height: 140px;
+      overflow-y: auto; font-size: 13px;
+      width: 250px; border-radius: 6px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      transition: background 0.3s, color 0.3s;
     }
-
     .suggestions div {
-      padding: 6px 10px;
-      cursor: pointer;
+      padding: 6px 10px; cursor: pointer;
     }
-
-    .suggestions div:hover {
-      background-color: #eee;
-    }
+    .suggestions div:hover { background-color: #eee; }
 
     .nearest-info {
       position: absolute;
-      top: 58px;
-      left: 50%;
+      top: 58px; left: 50%;
       transform: translateX(-50%);
-      z-index: 1000;
-      font-size: 13px;
-      background: #fff;
-      padding: 6px 10px;
-      border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      z-index: 1000; font-size: 13px;
+      background: #fff; padding: 6px 10px;
+      border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);
       display: none;
-      transition: background 0.3s, color 0.3s;
     }
 
-    /* DARK MODE “più chiaro” */
+    /* DARK MODE */
     body.dark {
-      background: #333;
-      color: #eee;
+      background: #333; color: #eee;
     }
-
     body.dark .top-bar,
     body.dark #darkToggle,
     body.dark .suggestions,
     body.dark .nearest-info {
-      background: #777;
-      color: #eee;
+      background: #777; color: #eee;
     }
-
-    body.dark .suggestions div:hover {
-      background: #888;
-    }
-
+    body.dark .suggestions div:hover { background: #888; }
     body.dark #searchInput {
-      background: #888;
-      color: #eee;
+      background: #888; color: #eee;
     }
-
-    /* Filtro per schiarire il dark basemap */
     body.dark .leaflet-tile-pane img {
       filter: brightness(1.5) contrast(0.8);
     }
-
-    /* Link “Vai al link” in giallo per dark mode */
     body.dark .nearest-info a {
-      color: #ffd54f;
-      text-decoration: underline;
+      color: #ffd54f; text-decoration: underline;
     }
 
-    /* Pulsante fissa in basso a sinistra */
-.fav-toggle {
-  position: fixed;
-  bottom: 20px;
-  left: 20px;
-  background: gold;
-  border: none;
-  padding: 10px;
-  border-radius: 50%;
-  font-size: 18px;
-  cursor: pointer;
-  z-index: 1000;
-}
+    /* -------- FAVORITES BUTTON -------- */
+    #open-favorites {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: fixed;
+      bottom: 16px; left: 16px;
+      width: 56px; height: 56px;
+      background: rgba(255,255,255,0.6);
+      backdrop-filter: blur(4px);
+      border: none; border-radius: 50%;
+      font-size: 28px; cursor: pointer;
+      z-index: 1000;
+    }
 
-/* Popup overlay */
-.fav-popup {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: 1100;
-}
+    /* -------- FAVORITES POPUP -------- */
+    #favorites-popup {
+      display: none;
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,0.6);
+      z-index: 1100;
+    }
+    .fav-popup-content {
+      background: #fff;
+      width: 90%; max-width: 320px;
+      margin: 10% auto; padding: 20px;
+      border-radius: 8px; position: relative;
+    }
+    #close-favorites {
+      position: absolute;
+      top: 8px; right: 12px;
+      font-size: 24px; cursor: pointer;
+    }
+    #favorites-list {
+      list-style: none; padding: 0;
+      margin-top: 12px;
+    }
+    #favorites-list li {
+      padding: 8px 0; border-bottom: 1px solid #eee;
+    }
 
-/* Contenuto centrale */
-.fav-popup-content {
-  background: #fff;
-  width: 90%;
-  max-width: 320px;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px;
-  position: relative;
-}
-
-/* Pulsante chiusura */
-.fav-close {
-  position: absolute;
-  top: 8px;
-  right: 12px;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-/* Lista internamente */
-#favorites-list {
-  list-style: none;
-  padding: 0;
-  margin: 10px 0 0;
-}
-
-#favorites-list li {
-  padding: 6px 0;
-  border-bottom: 1px solid #ddd;
-}
-
-
-
+    /* -------- STAR STATES & ANIMATION -------- */
+    .popup-star.fav-on  { color: gold; }
+    .popup-star.fav-off { color: #ccc; }
+    @keyframes star-pop {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.4); }
+      100% { transform: scale(1); }
+    }
+    .popup-star {
+      display: inline-block;
+      transition: transform 0.2s ease;
+    }
+    .popup-star.animate {
+      animation: star-pop 0.3s ease;
+    }
   </style>
 
   <link rel="icon" type="image/png" href="logo_sito.png" />
   <meta name="theme-color" content="#003366" />
 </head>
 <body>
+
   <div class="top-bar">
     <input
       type="text"
@@ -236,27 +193,17 @@
   <button id="darkToggle" title="Attiva/disattiva dark mode">🌙</button>
   <div id="map"></div>
 
-    <!-- sotto il div #map, prima dei tuoi script -->
+  <!-- Bottone preferiti -->
   <button id="open-favorites" aria-label="Mostra preferiti">⭐</button>
 
-  <div id="favorites-popup" class="fav-popup">
+  <!-- Popup preferiti -->
+  <div id="favorites-popup">
     <div class="fav-popup-content">
-      <span id="close-favorites" class="fav-close">&times;</span>
-      <h2>Fermate preferite</h2>
+      <span id="close-favorites">&times;</span>
+      <h2>Le tue fermate preferite</h2>
       <ul id="favorites-list"></ul>
     </div>
   </div>
-
-  <button
-  id="open-favorites"
-  aria-label="Apri preferiti"
-  style="position: fixed;
-         bottom: 16px;
-         left: 16px;
-         z-index: 1000;"
->⭐</button>
-
-
 
   <!-- Leaflet & MarkerCluster JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

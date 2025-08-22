@@ -1,4 +1,3 @@
-// script.js
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Layers
   const lightLayer = L.tileLayer(
@@ -30,138 +29,97 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // 3. Utility & normalize
+  // 3. Favorites in localStorage
+  let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+  function saveFavorites() {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }
+  function isFavorite(id) {
+    return favorites.includes(id);
+  }
+  function toggleFavorite(id) {
+    const idx = favorites.indexOf(id);
+    if (idx > -1) favorites.splice(idx, 1);
+    else favorites.push(id);
+    saveFavorites();
+  }
+
+  // 4. Utility normalize
   let stops = [];
   const markers = [];
-  // =====================
-// FAVORITI IN LOCALSTORAGE
-// =====================
-
-let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-function saveFavorites() {
-  localStorage.setItem('favorites', JSON.stringify(favorites));
-}
-
-function isFavorite(id) {
-  return favorites.includes(id);
-}
-
-function toggleFavorite(id) {
-  const idx = favorites.indexOf(id);
-  if (idx > -1) {
-    favorites.splice(idx, 1);
-  } else {
-    favorites.push(id);
-  }
-  saveFavorites();
-}
-
   function normalize(str) {
     return str.toLowerCase()
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '');
   }
 
-  // 4. Carica fermate
+  // 5. Carica fermate e crea marker + popup con stellina
   fetch('./stops_fixed.json')
     .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
     .then(data => {
       if (!Array.isArray(data)) throw new Error('JSON non è un array');
       stops = data;
       data.forEach(s => {
-  const m = L.marker([s.lat, s.lon], { title: s.name });
-
-  // Determina classe iniziale
-  const starClass = isFavorite(s.id) ? 'fav-on' : 'fav-off';
-
-  // Popup HTML con la stellina
-  const popupHtml = `
-    <div>
-      <b>${s.name}</b>
-      <span
-        class="popup-star ${starClass}"
-        data-id="${s.id}"
-        title="Aggiungi/rimuovi dai preferiti"
-        style="cursor: pointer; margin-left: 8px;"
-      >⭐</span>
-      <br><a href="${s.url}" target="_blank">Vedi dettagli</a>
-    </div>`;
-  
-  m.bindPopup(popupHtml);
-
-  m.normalizedName = normalize(s.name);
-  markers.push(m);
-  markerCluster.addLayer(m);
-});
-
-    })
-    .catch(e => { console.error(e); alert('Errore nel caricamento delle fermate'); });
-
-// –––––––––––––––––––––––––––––––––––––––––––––
-// Cattura click sulle stelle nei popup + animazione
-document.addEventListener('click', e => {
-  const el = e.target.closest('.popup-star');
-  if (!el) return;
-
-  console.log('⭐ cliccata stazione id=', el.dataset.id);  // DEBUG
-
-  // Toggle in localStorage
-  toggleFavorite(el.dataset.id);
-
-  // Cambia colore
-  el.classList.toggle('fav-on',  isFavorite(el.dataset.id));
-  el.classList.toggle('fav-off', !isFavorite(el.dataset.id));
-
-  // Esegui “pop” animation
-  el.classList.add('animate');
-  el.addEventListener('animationend', () => {
-    el.classList.remove('animate');
-  }, { once: true });
-});
-// –––––––––––––––––––––––––––––––––––––––––––––
-
-
-// Apertura popup preferiti
-document.getElementById('open-favorites').addEventListener('click', () => {
-  renderFavoritesList();
-  document.getElementById('favorites-popup').style.display = 'block';
-});
-
-// Chiusura popup preferiti
-document.getElementById('close-favorites').addEventListener('click', () => {
-  document.getElementById('favorites-popup').style.display = 'none';
-});
-
-  // =============================
-  // 5. Inizializza icone stelline
-  // =============================
-  window.addEventListener('load', () => {
-    stops.forEach(s => {
-      const selector = `.popup-star[data-id="${s.id}"]`;
-      document.querySelectorAll(selector).forEach(el => {
-        el.classList.toggle('fav-on',  isFavorite(s.id));
-        el.classList.toggle('fav-off', !isFavorite(s.id));
+        const m = L.marker([s.lat, s.lon], { title: s.name });
+        const starClass = isFavorite(s.id) ? 'fav-on' : 'fav-off';
+        const html = `
+          <div>
+            <b>${s.name}</b>
+            <span
+              class="popup-star ${starClass}"
+              data-id="${s.id}"
+              title="Aggiungi/rimuovi dai preferiti"
+            >⭐</span>
+            <br><a href="${s.url}" target="_blank">Vedi dettagli</a>
+          </div>`;
+        m.bindPopup(html);
+        m.normalizedName = normalize(s.name);
+        markers.push(m);
+        markerCluster.addLayer(m);
       });
+    })
+    .catch(e => {
+      console.error(e);
+      alert('Errore nel caricamento delle fermate');
     });
+
+  // 6. Click su stellina nei popup + animazione “pop”
+  document.addEventListener('click', e => {
+    const el = e.target.closest('.popup-star');
+    if (!el) return;
+    const id = el.dataset.id;
+    toggleFavorite(id);
+    el.classList.toggle('fav-on',  isFavorite(id));
+    el.classList.toggle('fav-off', !isFavorite(id));
+    el.classList.add('animate');
+    el.addEventListener('animationend', () => {
+      el.classList.remove('animate');
+    }, { once: true });
   });
 
-
-// Genera lista interna dei preferiti
-function renderFavoritesList() {
-  const ul = document.getElementById('favorites-list');
-  ul.innerHTML = '';
-
-  favorites.forEach(id => {
-    const stop = stops.find(s => s.id === id);
-    if (!stop) return;
-    const li = document.createElement('li');
-    li.textContent = stop.name;
-    ul.appendChild(li);
+  // 7. Apri/chiudi popup “Preferiti”
+  document.getElementById('open-favorites').addEventListener('click', () => {
+    renderFavoritesList();
+    document.getElementById('favorites-popup').style.display = 'block';
   });
-}
+  document.getElementById('close-favorites').addEventListener('click', () => {
+    document.getElementById('favorites-popup').style.display = 'none';
+  });
 
-  // 5. Ricerca
+  // 8. Render lista preferiti
+  function renderFavoritesList() {
+    const ul = document.getElementById('favorites-list');
+    ul.innerHTML = '';
+    favorites.forEach(id => {
+      const stop = stops.find(s => s.id === id);
+      if (!stop) return;
+      const li = document.createElement('li');
+      li.textContent = stop.name;
+      ul.appendChild(li);
+    });
+  }
+
+  // 9. Ricerca
   const input = document.getElementById('searchInput');
   const suggestions = document.getElementById('suggestions');
   input.addEventListener('input', () => {
@@ -190,11 +148,10 @@ function renderFavoritesList() {
     }
   });
 
-  // 6. Trova fermata più vicina (toggle)
+  // 10. Trova fermata più vicina
   const locateBtn = document.getElementById('locateBtn');
   const infoBox = document.getElementById('nearestStop');
   let locating = false;
-
   locateBtn.addEventListener('click', () => {
     if (locating) {
       locating = false;
@@ -217,9 +174,7 @@ function renderFavoritesList() {
         let nearest = null, minDist = Infinity;
         stops.forEach(s => {
           const d = map.distance([s.lat, s.lon], [latU, lonU]);
-          if (d < minDist) {
-            minDist = d; nearest = s;
-          }
+          if (d < minDist) { minDist = d; nearest = s; }
         });
         if (nearest) {
           infoBox.innerHTML = `📍 <strong>${nearest.name}</strong><br><a href="${nearest.url}" target="_blank">Vai al link</a>`;
@@ -234,4 +189,4 @@ function renderFavoritesList() {
       }
     );
   });
-});
+}); 
