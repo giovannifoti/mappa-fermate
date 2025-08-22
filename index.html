@@ -157,6 +157,64 @@
       color: #ffd54f;
       text-decoration: underline;
     }
+
+    /* Pulsante fissa in basso a sinistra */
+.fav-toggle {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: gold;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* Popup overlay */
+.fav-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 1100;
+}
+
+/* Contenuto centrale */
+.fav-popup-content {
+  background: #fff;
+  width: 90%;
+  max-width: 320px;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Pulsante chiusura */
+.fav-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+/* Lista internamente */
+#favorites-list {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+#favorites-list li {
+  padding: 6px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+
+
   </style>
 
   <link rel="icon" type="image/png" href="logo_sito.png" />
@@ -177,6 +235,18 @@
   <div id="nearestStop" class="nearest-info"></div>
   <button id="darkToggle" title="Attiva/disattiva dark mode">🌙</button>
   <div id="map"></div>
+
+    <!-- sotto il div #map, prima dei tuoi script -->
+  <button id="open-favorites" class="fav-toggle">⭐ Preferiti</button>
+
+  <div id="favorites-popup" class="fav-popup">
+    <div class="fav-popup-content">
+      <span id="close-favorites" class="fav-close">&times;</span>
+      <h2>Fermate preferite</h2>
+      <ul id="favorites-list"></ul>
+    </div>
+  </div>
+
 
   <!-- Leaflet & MarkerCluster JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

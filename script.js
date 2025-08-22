@@ -33,6 +33,30 @@ document.addEventListener('DOMContentLoaded', () => {
   // 3. Utility & normalize
   let stops = [];
   const markers = [];
+  // =====================
+// FAVORITI IN LOCALSTORAGE
+// =====================
+
+let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+function saveFavorites() {
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+}
+
+function isFavorite(id) {
+  return favorites.includes(id);
+}
+
+function toggleFavorite(id) {
+  const idx = favorites.indexOf(id);
+  if (idx > -1) {
+    favorites.splice(idx, 1);
+  } else {
+    favorites.push(id);
+  }
+  saveFavorites();
+}
+
   function normalize(str) {
     return str.toLowerCase()
       .normalize('NFD')
@@ -46,14 +70,88 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!Array.isArray(data)) throw new Error('JSON non è un array');
       stops = data;
       data.forEach(s => {
-        const m = L.marker([s.lat, s.lon], { title: s.name });
-        m.bindPopup(`<b>${s.name}</b><br><a href="${s.url}" target="_blank">Vedi dettagli</a>`);
-        m.normalizedName = normalize(s.name);
-        markers.push(m);
-        markerCluster.addLayer(m);
-      });
+  const m = L.marker([s.lat, s.lon], { title: s.name });
+
+  // Determina classe iniziale
+  const starClass = isFavorite(s.id) ? 'fav-on' : 'fav-off';
+
+  // Popup HTML con la stellina
+  const popupHtml = `
+    <div>
+      <b>${s.name}</b>
+      <span
+        class="popup-star ${starClass}"
+        data-id="${s.id}"
+        title="Aggiungi/rimuovi dai preferiti"
+        style="cursor: pointer; margin-left: 8px;"
+      >⭐</span>
+      <br><a href="${s.url}" target="_blank">Vedi dettagli</a>
+    </div>`;
+  
+  m.bindPopup(popupHtml);
+
+  m.normalizedName = normalize(s.name);
+  markers.push(m);
+  markerCluster.addLayer(m);
+});
+
     })
     .catch(e => { console.error(e); alert('Errore nel caricamento delle fermate'); });
+
+    // Cattura click su tutte le stelline nei popup
+document.addEventListener('click', e => {
+  const el = e.target;
+  if (!el.classList.contains('popup-star')) return;
+
+  const id = el.dataset.id;
+  toggleFavorite(id);
+  
+  // Aggiorna classe visiva
+  if (isFavorite(id)) {
+    el.classList.replace('fav-off', 'fav-on');
+  } else {
+    el.classList.replace('fav-on', 'fav-off');
+  }
+});
+
+// Apertura popup preferiti
+document.getElementById('open-favorites').addEventListener('click', () => {
+  renderFavoritesList();
+  document.getElementById('favorites-popup').style.display = 'block';
+});
+
+// Chiusura popup preferiti
+document.getElementById('close-favorites').addEventListener('click', () => {
+  document.getElementById('favorites-popup').style.display = 'none';
+});
+
+  // =============================
+  // 5. Inizializza icone stelline
+  // =============================
+  window.addEventListener('load', () => {
+    stops.forEach(s => {
+      const selector = `.popup-star[data-id="${s.id}"]`;
+      document.querySelectorAll(selector).forEach(el => {
+        el.classList.toggle('fav-on',  isFavorite(s.id));
+        el.classList.toggle('fav-off', !isFavorite(s.id));
+      });
+    });
+  });
+
+
+// Genera lista interna dei preferiti
+function renderFavoritesList() {
+  const ul = document.getElementById('favorites-list');
+  ul.innerHTML = '';
+
+  favorites.forEach(id => {
+    const stop = stops.find(s => s.id === id);
+    if (!stop) return;
+    const li = document.createElement('li');
+    li.textContent = stop.name;
+    ul.appendChild(li);
+  });
+}
 
   // 5. Ricerca
   const input = document.getElementById('searchInput');
