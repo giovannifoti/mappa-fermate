@@ -98,24 +98,28 @@ function toggleFavorite(id) {
     })
     .catch(e => { console.error(e); alert('Errore nel caricamento delle fermate'); });
 
-// Cattura click sulle stelle dei popup + animazione “pop”
+// –––––––––––––––––––––––––––––––––––––––––––––
+// Cattura click sulle stelle nei popup + animazione
 document.addEventListener('click', e => {
   const el = e.target.closest('.popup-star');
   if (!el) return;
 
-  const id = el.dataset.id;
-  toggleFavorite(id);
+  console.log('⭐ cliccata stazione id=', el.dataset.id);  // DEBUG
 
-  // aggiorna colore
-  el.classList.toggle('fav-on',  isFavorite(id));
-  el.classList.toggle('fav-off', !isFavorite(id));
+  // Toggle in localStorage
+  toggleFavorite(el.dataset.id);
 
-  // animazione “pop”
+  // Cambia colore
+  el.classList.toggle('fav-on',  isFavorite(el.dataset.id));
+  el.classList.toggle('fav-off', !isFavorite(el.dataset.id));
+
+  // Esegui “pop” animation
   el.classList.add('animate');
   el.addEventListener('animationend', () => {
     el.classList.remove('animate');
   }, { once: true });
 });
+// –––––––––––––––––––––––––––––––––––––––––––––
 
 
 // Apertura popup preferiti
