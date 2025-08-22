@@ -39,10 +39,12 @@ document.addEventListener('DOMContentLoaded', () => {
   } catch { favorites = []; }
 
   function isFavorite(id) {
+    if (id == null) return false;
     return favorites.includes(id.toString());
   }
 
   function toggleFavorite(id) {
+    if (id == null) return;
     const str = id.toString();
     const idx = favorites.indexOf(str);
     if (idx > -1) favorites.splice(idx, 1);
@@ -67,8 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .then(data => {
       if (!Array.isArray(data)) throw new Error('JSON non è un array');
-      stops = data;
-      data.forEach(s => {
+
+      // Genera ID automatici per ogni fermata
+      stops = data.map((s, index) => ({ ...s, id: index }));
+
+      stops.forEach(s => {
         const m = L.marker([s.lat, s.lon], { title: s.name });
         const starClass = isFavorite(s.id) ? 'fav-on' : 'fav-off';
         const html = `
@@ -117,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const ul = document.getElementById('favorites-list');
     ul.innerHTML = '';
     favorites.forEach(idStr => {
-      const stop = stops.find(s => s.id.toString() === idStr);
+      const stop = stops.find(s => s.id != null && s.id.toString() === idStr);
       if (!stop) return;
       const li = document.createElement('li');
       li.textContent = stop.name;
