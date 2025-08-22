@@ -1,10 +1,11 @@
+/* ---------------------- BASE ---------------------- */
 body, html {
   margin: 0;
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
 }
 
-/* Top bar */
+/* ---------------------- TOP BAR ---------------------- */
 .top-bar {
   position: fixed;
   top: 10px;
@@ -38,6 +39,7 @@ body, html {
   cursor: pointer;
 }
 
+/* ---------------------- MAP ---------------------- */
 #map {
   position: absolute;
   top: 0;
@@ -46,7 +48,7 @@ body, html {
   z-index: 0;
 }
 
-/* Popup preferiti */
+/* ---------------------- POPUP PREFERITI ---------------------- */
 #favorites-popup {
   display: none;
   position: fixed;
@@ -72,9 +74,16 @@ body.dark #favorites-popup .fav-popup-content {
   color: #eee;
 }
 
+/* Titolo principale */
 .fav-popup-content h2 {
   text-align: center;
   margin-bottom: 16px;
+  color: #003366; /* light mode */
+  transition: color 0.3s;
+}
+
+body.dark .fav-popup-content h2 {
+  color: #ffd54f; /* dark mode */
 }
 
 /* Pulsante chiudi */
@@ -98,25 +107,42 @@ body.dark #favorites-popup .fav-popup-content {
   border-bottom: 1px solid #eee;
 }
 
+/* Link fermata */
 #favorites-list li a {
   color: #003366;
   text-decoration: none;
+  transition: color 0.3s;
 }
 
 body.dark #favorites-list li a {
   color: #ffd54f;
 }
 
-/* Bottone rimuovi fermata */
+/* Pulsante rimuovi fermata */
 #favorites-list li button.remove-fav {
   color: #ff6666;
   background: transparent;
   border: none;
   cursor: pointer;
   margin-left: 8px;
+  font-size: 14px;
 }
 
-/* Bottone apri popup */
+/* Titoli zona */
+#favorites-list h3 {
+  text-align: center;
+  margin: 12px 0 4px 0;
+  color: #003366; /* light mode */
+  font-size: 14px;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+body.dark #favorites-list h3 {
+  color: #ffd54f; /* dark mode */
+}
+
+/* ---------------------- BOTTONE PREFERITI ---------------------- */
 #open-favorites {
   position: fixed;
   bottom: 16px;
@@ -135,7 +161,7 @@ body.dark #favorites-list li a {
   z-index: 1000;
 }
 
-/* Stelle popup */
+/* ---------------------- STELLE POPUP ---------------------- */
 .popup-star.fav-on  { color: gold; }
 .popup-star.fav-off { color: #ccc; }
 .popup-star { display: inline-block; transition: transform 0.2s ease; }
