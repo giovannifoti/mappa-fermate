@@ -75,15 +75,15 @@ body.dark #favorites-popup .fav-popup-content {
 }
 
 /* Titolo principale */
-.fav-popup-content h2 {
+#favorites-popup h2 {
   text-align: center;
   margin-bottom: 16px;
-  color: #003366; /* light mode */
+  color: #003366 !important; /* light mode */
   transition: color 0.3s;
 }
 
-body.dark .fav-popup-content h2 {
-  color: #ffd54f; /* dark mode */
+body.dark #favorites-popup h2 {
+  color: #ffd54f !important; /* dark mode */
 }
 
 /* Pulsante chiudi */
@@ -108,18 +108,18 @@ body.dark .fav-popup-content h2 {
 }
 
 /* Link fermata */
-#favorites-list li a {
-  color: #003366;
+#favorites-popup li a {
+  color: #003366 !important;
   text-decoration: none;
   transition: color 0.3s;
 }
 
-body.dark #favorites-list li a {
-  color: #ffd54f;
+body.dark #favorites-popup li a {
+  color: #ffd54f !important;
 }
 
 /* Pulsante rimuovi fermata */
-#favorites-list li button.remove-fav {
+#favorites-popup li button.remove-fav {
   color: #ff6666;
   background: transparent;
   border: none;
@@ -129,17 +129,17 @@ body.dark #favorites-list li a {
 }
 
 /* Titoli zona */
-#favorites-list h3 {
+#favorites-popup h3 {
   text-align: center;
   margin: 12px 0 4px 0;
-  color: #003366; /* light mode */
+  color: #003366 !important; /* light mode */
   font-size: 14px;
   font-weight: bold;
   transition: color 0.3s;
 }
 
-body.dark #favorites-list h3 {
-  color: #ffd54f; /* dark mode */
+body.dark #favorites-popup h3 {
+  color: #ffd54f !important; /* dark mode */
 }
 
 /* ---------------------- BOTTONE PREFERITI ---------------------- */
