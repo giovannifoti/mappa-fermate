@@ -6,30 +6,35 @@
   <title>Quando Passa – Fermate Autobus Messina</title>
 
   <!-- Leaflet & MarkerCluster CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
+  />
 
-  <!-- Il nostro CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <!-- CSS personalizzato minificato -->
+  <link rel="stylesheet" href="style.min.css" />
 
   <link rel="icon" type="image/png" href="logo_sito.png" />
   <meta name="theme-color" content="#003366" />
 </head>
 <body>
 
-  <!-- Barra superiore -->
   <div class="top-bar">
     <input type="text" id="searchInput" placeholder="🔍 Cerca una fermata..." autocomplete="off"/>
     <button id="locateBtn" title="Trova la fermata più vicina">📍</button>
   </div>
-  <button id="darkToggle" title="Attiva/disattiva dark mode">🌙</button>
 
-  <!-- Suggerimenti e info fermata più vicina -->
   <div id="suggestions" class="suggestions"></div>
   <div id="nearestStop" class="nearest-info"></div>
-
-  <!-- Mappa -->
+  <button id="darkToggle" title="Attiva/disattiva dark mode">🌙</button>
   <div id="map"></div>
 
   <!-- Bottone preferiti -->
@@ -45,11 +50,11 @@
   </div>
 
   <!-- Leaflet & MarkerCluster JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" defer></script>
 
-  <!-- Il nostro script -->
-  <script src="script.js"></script>
+  <!-- Script personalizzato -->
+  <script src="script.optimized.js" defer></script>
 
   <!-- GoatCounter -->
   <script data-goatcounter="https://giovannifoti.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
