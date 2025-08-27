@@ -7024,6 +7024,408 @@
     "lat": 38.16630,
     "lon": 15.52750,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=917&rnd=91"
+  },
+  {
+    "name": "ZIR",
+    "lat": 38.16338,
+    "lon": 15.53979,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=300&rnd=91"
+  },
+  {
+    "name": "STAD. CELESTE DIR SALITA",
+    "lat": 38.16431,
+    "lon": 15.53950,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1115&rnd=91"
+  },
+  {
+    "name": "STAD. CELESTE DIR DISCESA",
+    "lat": 38.16428,
+    "lon": 15.53920,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=115&rnd=91"
+  },
+  {
+    "name": "PAD. B",
+    "lat": 38.16409,
+    "lon": 15.53699,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1005&rnd=91"
+  },
+  {
+    "name": "PAD. B-A",
+    "lat": 38.16505,
+    "lon": 15.53815,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1002&rnd=91"
+  },
+  {
+    "name": "PAD. A-F",
+    "lat": 38.16572,
+    "lon": 15.53789,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1003&rnd=91"
+  },
+  {
+    "name": "PS. GINECOLOGICO",
+    "lat": 38.16500,
+    "lon": 15.53701,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1004&rnd=91"
+  },
+  {
+    "name": "PAD. F",
+    "lat": 38.16609,
+    "lon": 15.53700,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1006&rnd=91"
+  },
+  {
+    "name": "PAD. C",
+    "lat": 38.16651,
+    "lon": 15.53618,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1007&rnd=91"
+  },
+  {
+    "name": "PAD. G-H",
+    "lat": 38.16423,
+    "lon": 15.53470,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1009&rnd=91"
+  },
+  {
+    "name": "PAD. D",
+    "lat": 38.16671,
+    "lon": 15.53519,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1008&rnd=91"
+  },
+  {
+    "name": "AULARIO",
+    "lat": 38.16680,
+    "lon": 15.53150,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1010&rnd=91"
+  },
+  {
+    "name": "CENTRO CONGRESSI",
+    "lat": 38.16712,
+    "lon": 15.53029,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1011&rnd=91"
+  },
+  {
+    "name": "CLOPD",
+    "lat": 38.16762,
+    "lon": 15.52860,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1012&rnd=91"
+  },
+  {
+    "name": "V. ARROSTO - GIADINETTO",
+    "lat": 38.16612,
+    "lon": 15.53912,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=152&rnd=91"
+  },
+  {
+    "name": "OVEST POLICLINICO DIR SALITA",
+    "lat": 38.16615,
+    "lon": 15.53710,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=153&rnd=91"
+  },
+  {
+    "name": "V.LE GAZZI - ENTRATA OVEST POLICLINICO",
+    "lat": 38.16653,
+    "lon": 15.53664,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1153&rnd=91"
+  },
+  {
+    "name": "V. ROSSO DA MESSINA",
+    "lat": 38.16704,
+    "lon": 15.53412,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1155&rnd=91"
+  },
+  {
+    "name": "GAZZI - V. DEL CICLO DIR SALITA",
+    "lat": 38.16797,
+    "lon": 15.53437,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=192&rnd=91"
+  },
+  {
+    "name": "GAZZI - V. DEL CICLO DIR DISCESA",
+    "lat": 38.16797,
+    "lon": 15.53395,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1192&rnd=91"
+  },
+  {
+    "name": "VL PIRANDELLO FERMATA 1 DIR SALITA",
+    "lat": 38.16777,
+    "lon": 15.53371,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=156&rnd=91"
+  },
+  {
+    "name": "VL PIRANDELLO FERMATA 1 DIR DISCESA",
+    "lat": 38.16770,
+    "lon": 15.53360,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1156&rnd=91"
+  },
+  {
+    "name": "VL PIRANDELLO FERMATA 2 DIR SALITA",
+    "lat": 38.16889,
+    "lon": 15.53200,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=157&rnd=91"
+  },
+  {
+    "name": "VL PIRANDELLO FERMATA 2 DIR DISCESA",
+    "lat": 38.16890,
+    "lon": 15.53190,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1157&rnd=91"
+  },
+  {
+    "name": "V. ANFUSO - FER 1 DIR DISCESA",
+    "lat": 38.16951,
+    "lon": 15.53080,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1158&rnd=91"
+  },
+  {
+    "name": "V. ANFUSO - FER 1 DIR SALITA",
+    "lat": 38.16961,
+    "lon": 15.53070,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=158&rnd=91"
+  },
+  {
+    "name": "V. ANFUSO - FER 2 DIR SALITA",
+    "lat": 38.17044,
+    "lon": 15.52873,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=159&rnd=91"
+  },
+  {
+    "name": "V. ANFUSO - FER 2 DIR DISCESA",
+    "lat": 38.17030,
+    "lon": 15.52871,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1159&rnd=91"
+  },
+  {
+    "name": "V. ANFUSO - FER 3 DIR SALITA",
+    "lat": 38.17111,
+    "lon": 15.52710,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=160&rnd=91"
+  },
+  {
+    "name": "V. ANFUSO - FER 3 DIR DISCESA",
+    "lat": 38.17102,
+    "lon": 15.52703,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1160&rnd=91"
+  },
+  {
+    "name": "RIONE ALDISIO - ANFUSO",
+    "lat": 38.17171,
+    "lon": 15.52540,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1161&rnd=91"
+  },
+  {
+    "name": "ALDISIO - V.G GIOVANNI DIR SALITA",
+    "lat": 38.17221,
+    "lon": 15.52710,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=162&rnd=91"
+  },
+  {
+    "name": "ALDISIO - V.G GIOVANNI DIR DISCESA",
+    "lat": 38.17241,
+    "lon": 15.52680,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1163&rnd=91"
+  },
+  {
+    "name": "C.SE GESCAL - V.30Q DIR SALITA",
+    "lat": 38.17284,
+    "lon": 15.52632,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=173&rnd=91"
+  },
+  {
+    "name": "C.SE GESCAL - V.30Q DIR DISCESA",
+    "lat": 38.71270,
+    "lon": 15.52639,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1173&rnd=91"
+  },
+  {
+    "name": "C.SE GESCAL - STR. 30A",
+    "lat": 38.17247,
+    "lon": 15.52389,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1174&rnd=91"
+  },
+  {
+    "name": "GESCAL INC V.C ALLEGRA DIR SALITA",
+    "lat": 38.17301,
+    "lon": 15.52200,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=175&rnd=91"
+  },
+  {
+    "name": "GESCAL INC V.C ALLEGRA DIR DISCESA",
+    "lat": 38.17293,
+    "lon": 15.52203,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1175&rnd=91"
+  },
+  {
+    "name": "C.SE GESCAL - ST. 174A DIR SALITA",
+    "lat": 38.17261,
+    "lon": 15.52070,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=176&rnd=91"
+  },
+  {
+    "name": "C.SE GESCAL - ST. 174A DIR DISCESA",
+    "lat": 38.17260,
+    "lon": 15.52080,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1176&rnd=91"
+  },
+  {
+    "name": "C.SE GESCAL - INC. V.GESCAL DIR SALITA",
+    "lat": 38.17191,
+    "lon": 15.51975,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=177&rnd=91"
+  },
+  {
+    "name": "C.SE GESCAL - INC. V.GESCAL DIR DISCESA",
+    "lat": 38.17190,
+    "lon": 15.51990,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1177&rnd=91"
+  },
+  {
+    "name": "GESCAL - V.COMUN FER 2 DIR SALITA",
+    "lat": 38.17102,
+    "lon": 15.51783,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=178&rnd=91"
+  },
+  {
+    "name": "GESCAL - V.COMUN FER 2 DIR DISCESA",
+    "lat": 38.17090,
+    "lon": 15.51790,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1178&rnd=91"
+  },
+  {
+    "name": "GESCAL - V.COMUN FER 3 DIR SALITA",
+    "lat": 38.17049,
+    "lon": 15.51863,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=179&rnd=91"
+  },
+  {
+    "name": "GESCAL - V.COMUN FER 3 DIR DISCESA",
+    "lat": 38.17037,
+    "lon": 15.51878,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1179&rnd=91"
+  },
+  {
+    "name": "GESCAL - IN CDA BAGLIO DIR SALITA",
+    "lat": 38.16931,
+    "lon": 15.52033,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=180&rnd=91"
+  },
+  {
+    "name": "GESCAL - IN CDA BAGLIO DIR DISCESA",
+    "lat": 38.16924,
+    "lon": 15.52043,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1180&rnd=91"
+  },
+  {
+    "name": "S.FIL - S.GIOVANNELLO DIR SALITA",
+    "lat": 38.16928,
+    "lon": 15.51909,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=181&rnd=91"
+  },
+  {
+    "name": "S.FIL - S.GIOVANNELLO DIR DISCESA",
+    "lat": 38.16919,
+    "lon": 15.51914,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1181&rnd=91"
+  },
+  {
+    "name": "C.DA BAGLIO",
+    "lat": 38.16728,
+    "lon": 15.51983,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=930&rnd=91"
+  },
+  {
+    "name": "P.NO STELLA FERMATA 3",
+    "lat": 38.16668,
+    "lon": 15.51856,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=185&rnd=91"
+  },
+  {
+    "name": "P.NO STELLA FERMATA 2 DIR SALITA",
+    "lat": 38.16652,
+    "lon": 15.51880,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=184&rnd=91"
+  },
+  {
+    "name": "P.NO STELLA FERMATA 2 DIR DISCESA",
+    "lat": 38.16642,
+    "lon": 15.51879,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1184&rnd=91"
+  },
+  {
+    "name": "S.FILIPPO STELLA FERMATA 1 DIR SALITA",
+    "lat": 38.16637,
+    "lon": 15.51787,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=183&rnd=91"
+  },
+  {
+    "name": "S.FILIPPO STELLA FERMATA 1 DIR DISCESA",
+    "lat": 38.16642,
+    "lon": 15.51809,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1183&rnd=91"
+  },
+  {
+    "name": "S.FILIPPO - B.VIO STELLA DIR SALITA",
+    "lat": 38.16630,
+    "lon": 15.51592,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=182&rnd=91"
+  },
+  {
+    "name": "S.FILIPPO - B.VIO STELLA DIR DISCESA",
+    "lat": 38.16619,
+    "lon": 15.51598,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1182&rnd=91"
+  },
+  {
+    "name": "S.FILIPPO - CIMITERO DIR SALITA",
+    "lat": 38.16595,
+    "lon": 15.51388,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=186&rnd=91"
+  },
+  {
+    "name": "S.FILIPPO - CIMITERO DIR DISCESA",
+    "lat": 38.16579,
+    "lon": 15.51405,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1186&rnd=91"
+  },
+  {
+    "name": "S.FILIPPO - FERMATA 2 DIR SALITA",
+    "lat": 38.16593,
+    "lon": 15.51275,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=187&rnd=91"
+  },
+  {
+    "name": "S.FILIPPO - FERMATA 2 DIR DISCESA",
+    "lat": 38.16589,
+    "lon": 15.51260,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1187&rnd=91"
+  },
+  {
+    "name": "S.FILIPPO SUP. DIR SALITA",
+    "lat": 38.16608,
+    "lon": 15.50573,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=188&rnd=91"
+  },
+  {
+    "name": "S.FILIPPO SUP. DIR DISCESA",
+    "lat": 38.16608,
+    "lon": 15.50543,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1188&rnd=91"
+  },
+  {
+    "name": "S.FILIPPO SUP. FERMATA 2 DIR SALITA",
+    "lat": 38.16579,
+    "lon": 15.50389,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=189&rnd=91"
+  },
+  {
+    "name": "S.FILIPPO SUP. FERMATA 2 DIR DISCESA",
+    "lat": 38.16570,
+    "lon": 15.50399,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1189&rnd=91"
+  },
+  {
+    "name": "S.FILIPPO SUP. CAPOLINEA",
+    "lat": 38.16611,
+    "lon": 15.50121,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=190&rnd=91"
   }
 ]
 
