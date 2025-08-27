@@ -1,4 +1,4 @@
-/* ---------------------- BASE & VARIABILI ---------------------- */
+/* ---------------------- VARIABILI ---------------------- */
 :root {
   --clr-bg: #fff;
   --clr-text: #000;
@@ -20,13 +20,14 @@ body.dark {
   --clr-popup-text: #eee;
 }
 
+/* ---------------------- BASE ---------------------- */
 html, body {
   margin: 0;
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
   color: var(--clr-text);
-  transition: background 0.3s, color 0.3s;
   background: var(--clr-bg);
+  transition: background 0.3s, color 0.3s;
 }
 
 /* ---------------------- TOP BAR ---------------------- */
@@ -64,6 +65,8 @@ html, body {
   transition: background 0.3s;
 }
 #locateBtn.active { background: var(--clr-locate-active); }
+#locateBtn.loading { animation: pulse 1s infinite; }
+@keyframes pulse { 0%{opacity:1;}50%{opacity:0.6;}100%{opacity:1;} }
 #darkToggle {
   position: fixed;
   top: 10px;
@@ -117,15 +120,25 @@ html, body {
 }
 
 /* ---------------------- FAVORITES POPUP ---------------------- */
-#favorites-popup { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1100; }
+#favorites-popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1100;
+}
 .fav-popup-content {
   background: var(--clr-popup-bg);
   color: var(--clr-popup-text);
   width: 90%; max-width: 320px;
   margin: 10% auto; padding: 20px;
   border-radius: 8px; position: relative;
+  transition: background 0.3s, color 0.3s;
 }
 #close-favorites { position: absolute; top: 8px; right: 12px; font-size: 24px; cursor: pointer; }
+#favorites-popup h2, #favorites-popup h3 { text-align: center; transition: color 0.3s; }
+#favorites-popup h2 { margin-bottom: 16px; color: var(--clr-primary); }
+#favorites-popup h3 { margin: 12px 0 4px; font-size: 14px; font-weight: bold; color: var(--clr-primary); }
 #favorites-list { list-style: none; padding: 0; margin-top: 12px; }
 #favorites-list li { padding: 8px 0; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
 #favorites-list li a { text-decoration: none; color: var(--clr-primary); transition: color 0.3s; }
