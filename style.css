@@ -1,182 +1,306 @@
-/* ---------------------- BASE ---------------------- */
-body, html {
+/* ==============================
+   VARIABLES & COLOR THEMES
+   ============================== */
+:root {
+  --font-family: 'Segoe UI', sans-serif;
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+
+  --radius: 0.75rem;
+  --shadow-color: rgba(0, 0, 0, 0.15);
+  --shadow: 0 0.125rem 0.5rem var(--shadow-color);
+
+  --color-bg: #ffffff;
+  --color-fg: #000000;
+  --color-surface: rgba(255, 255, 255, 0.95);
+  --color-primary: #2563eb;
+  --color-accent: #003366;
+  --color-danger: #ff6666;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #333333;
+    --color-fg: #eeeeee;
+    --color-surface: rgba(50, 50, 50, 0.95);
+    --shadow-color: rgba(0, 0, 0, 0.6);
+    --color-primary: #0055aa;
+    --color-accent: #ffd54f;
+    --color-danger: #ff4444;
+  }
+}
+
+body.dark {
+  --color-bg: #333333;
+  --color-fg: #eeeeee;
+  --color-surface: rgba(50, 50, 50, 0.95);
+  --shadow-color: rgba(0, 0, 0, 0.6);
+  --color-primary: #ffd54f;
+  --color-accent: #ffd54f;
+  --color-danger: #ff4444;
+}
+
+/* ==============================
+   GLOBAL RESET & BASE STYLES
+   ============================== */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
+  padding: 0;
+}
+
+html, body {
   height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-/* ---------------------- TOP BAR ---------------------- */
-.top-bar {
-  position: fixed;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  display: flex;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 6px 10px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  align-items: center;
-}
-
-#searchInput {
-  padding: 6px 10px;
-  font-size: 14px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  width: 200px;
-}
-
-#locateBtn {
-  padding: 6px 10px;
-  background: #2563eb;
-  border: none;
-  color: white;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-/* ---------------------- MAP ---------------------- */
-#map {
-  position: absolute;
-  top: 0;
-  bottom: 0;
   width: 100%;
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  line-height: 1.5;
+}
+
+.map {
+  position: absolute;
+  inset: 0;
   z-index: 0;
 }
 
-/* ---------------------- POPUP PREFERITI ---------------------- */
-#favorites-popup {
+/* ==============================
+   TOP BAR
+   ============================== */
+.top-bar {
+  position: fixed;
+  top: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background-color: var(--color-surface);
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  z-index: 1000;
+}
+
+#searchInput {
+  flex: 1;
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--font-size-sm);
+  border: 1px solid #ccc;
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+
+#locateBtn {
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--font-size-sm);
+  background-color: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#locateBtn:hover,
+#locateBtn:focus {
+  background-color: #1e50c4;
+}
+
+#darkToggle {
+  padding: var(--space-xs) var(--space-md);
+  font-size: var(--font-size-sm);
+  background-color: var(--color-surface);
+  color: var(--color-fg);
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* ==============================
+   AUTOCOMPLETE & INFO POPUPS
+   ============================== */
+.suggestions,
+.nearest-info {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 250px;
+  max-height: 140px;
+  overflow-y: auto;
+  background-color: var(--color-surface);
+  color: var(--color-fg);
+  border-radius: calc(var(--radius) / 2);
+  box-shadow: var(--shadow);
+  font-size: var(--font-size-sm);
+  z-index: 1000;
+}
+
+.suggestions {
+  top: calc(var(--space-md) * 3.5);
+}
+
+.nearest-info {
+  top: calc(var(--space-md) * 3.5);
+  padding: var(--space-xs) var(--space-md);
+  display: none;
+}
+
+.suggestions div {
+  padding: var(--space-xs) var(--space-md);
+  cursor: pointer;
+}
+
+.suggestions div:hover,
+.suggestions div:focus {
+  background-color: var(--color-primary);
+  color: #fff;
+}
+
+/* ==============================
+   FAVORITES BUTTON
+   ============================== */
+.favorites-btn {
+  position: fixed;
+  bottom: var(--space-md);
+  left: var(--space-md);
+  width: 3rem;
+  height: 3rem;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(4px);
+  border: none;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* ==============================
+   FAVORITES POPUP
+   ============================== */
+.favorites-popup {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   z-index: 1100;
 }
 
 .fav-popup-content {
-  background: #fff;
+  background-color: var(--color-bg);
   width: 90%;
-  max-width: 320px;
+  max-width: 20rem;
   margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px;
+  padding: var(--space-md);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
   position: relative;
-  color: #000;
   transition: background 0.3s, color 0.3s;
 }
 
-body.dark #favorites-popup .fav-popup-content {
-  background: #333;
-  color: #eee;
+.close-btn {
+  position: absolute;
+  top: var(--space-xs);
+  right: var(--space-xs);
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: var(--color-fg);
 }
 
-/* Titolo principale */
-#favorites-popup h2 {
+.fav-popup-content h2,
+.fav-popup-content h3 {
   text-align: center;
-  margin-bottom: 16px;
-  color: #003366 !important;
+  margin-bottom: var(--space-md);
+  color: var(--color-accent);
   transition: color 0.3s;
 }
 
-body.dark #favorites-popup h2 {
-  color: #ffd54f !important;
-}
-
-/* Titolo zona */
-#favorites-popup h3 {
-  text-align: center;
-  margin: 12px 0 4px 0;
-  color: #003366 !important;
-  font-size: 14px;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-body.dark #favorites-popup h3 {
-  color: #ffd54f !important;
-}
-
-/* Lista preferiti */
 #favorites-list {
   list-style: none;
   padding: 0;
-  margin-top: 12px;
+  margin-top: var(--space-md);
 }
 
 #favorites-list li {
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: var(--space-xs) 0;
+  border-bottom: 1px solid #eee;
 }
 
-/* Link fermata */
-#favorites-popup li a {
+#favorites-list a {
   text-decoration: none;
-  color: #003366 !important;
+  color: var(--color-accent);
   transition: color 0.3s;
 }
 
-#favorites-popup li a:hover {
+#favorites-list a:hover {
   text-decoration: underline;
-  color: #0055aa !important;
+  color: #002244;
 }
 
-body.dark #favorites-popup li a {
-  color: #ffd54f !important;
-}
-
-body.dark #favorites-popup li a:hover {
-  color: #ffe680 !important;
-}
-
-/* Pulsante rimuovi */
-#favorites-popup li button.remove-fav {
-  color: #ff6666;
+.remove-fav {
   background: transparent;
   border: none;
+  color: var(--color-danger);
+  font-size: 1rem;
   cursor: pointer;
-  font-size: 16px;
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition: transform 0.2s, color 0.2s;
 }
 
-#favorites-popup li button.remove-fav:hover {
-  color: #ff0000;
+.remove-fav:hover {
   transform: scale(1.2);
+  color: #cc0000;
 }
 
-/* ---------------------- BOTTONE PREFERITI ---------------------- */
-#open-favorites {
-  position: fixed;
-  bottom: 16px;
-  left: 16px;
-  width: 48px;
-  height: 48px;
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(4px);
-  border: none;
-  border-radius: 50%;
-  font-size: 24px;
+/* ==============================
+   STAR BURST ANIMATION
+   ============================== */
+.popup-star {
+  display: inline-block;
+  transition: transform 0.2s ease;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
+  color: var(--color-accent);
 }
 
-/* ---------------------- STELLE POPUP ---------------------- */
-.popup-star.fav-on  { color: gold; }
-.popup-star.fav-off { color: #ccc; }
-.popup-star { display: inline-block; transition: transform 0.2s ease; }
-.popup-star.animate { animation: star-pop 0.3s ease; }
+.popup-star.animate {
+  animation: star-burst 0.6s ease-out;
+}
 
-@keyframes star-pop {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.4); }
-  100% { transform: scale(1); }
+@keyframes star-burst {
+  0%   { transform: scale(1) rotate(0deg); }
+  20%  { transform: scale(1.6) rotate(-20deg); }
+  40%  { transform: scale(1.4) rotate(20deg); }
+  60%  { transform: scale(1.6) rotate(-20deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+/* ==============================
+   SCREEN-READER ONLY
+   ============================== */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
