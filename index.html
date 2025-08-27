@@ -2,68 +2,121 @@
 <html lang="it">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Quando Passa – Fermate Autobus Messina</title>
 
   <!-- Leaflet & MarkerCluster CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
-
-  <!-- Foglio di stile ottimizzato -->
-  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
 
   <link rel="icon" type="image/png" href="logo_sito.png" />
   <meta name="theme-color" content="#003366" />
+
+  <style>
+    html, body, #map {
+      height: 100%; margin: 0; padding: 0;
+      font-family: system-ui, sans-serif;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Barra superiore */
+    .top-bar {
+      position: absolute;
+      top: 10px; left: 50%; transform: translateX(-50%);
+      z-index: 1000; display: flex; align-items: center; gap: 6px;
+      background: #fff; border-radius: 999px; padding: 5px 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+
+    #searchInput {
+      border: none; outline: none;
+      font-size: 13px; padding: 6px 10px;
+      border-radius: 999px; background: #f0f0f0; width: 180px;
+    }
+
+    /* Pulsante localizzazione */
+    #locateBtn {
+      background: #c00; color: #fff;
+      border: none; padding: 6px 10px;
+      border-radius: 999px; cursor: pointer; font-size: 14px;
+      transition: background 0.3s;
+    }
+    #locateBtn.active { background: #0c0; }
+    #locateBtn.loading { animation: pulse 1s infinite; }
+
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    /* Dark mode toggle */
+    #darkToggle {
+      position: absolute; top: 10px; right: 10px;
+      z-index: 1000; background: #fff; padding: 6px 10px;
+      font-size: 16px; border-radius: 999px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      cursor: pointer; border: none;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    /* Box suggerimenti */
+    .suggestions {
+      position: absolute; top: 58px; left: 50%; transform: translateX(-50%);
+      z-index: 1000; background: #fff; width: 250px;
+      max-height: 140px; overflow-y: auto;
+      border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      font-size: 13px;
+    }
+    .suggestions div { padding: 6px 10px; cursor: pointer; }
+    .suggestions div:hover { background: #eee; }
+
+    /* Fermata più vicina */
+    .nearest-info {
+      position: absolute; top: 58px; left: 50%; transform: translateX(-50%);
+      z-index: 1000; font-size: 13px;
+      background: #fff; padding: 6px 10px;
+      border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      display: none;
+    }
+    .nearest-info a { color: #003366; text-decoration: underline; }
+
+    /* Dark mode */
+    body.dark { background: #333; color: #eee; }
+    body.dark .top-bar,
+    body.dark #darkToggle,
+    body.dark .suggestions,
+    body.dark .nearest-info {
+      background: #555; color: #eee;
+    }
+    body.dark #searchInput { background: #777; color: #eee; }
+    body.dark .suggestions div:hover { background: #666; }
+    body.dark .nearest-info a { color: #ffd54f; }
+
+    body.dark .leaflet-tile-pane img {
+      filter: brightness(1.4) contrast(0.85);
+    }
+  </style>
 </head>
 <body>
-
-  <!-- Barra superiore -->
   <div class="top-bar">
-    <input
-      type="text"
-      id="searchInput"
-      placeholder="🔍 Cerca una fermata..."
-      autocomplete="off"
-      aria-label="Cerca una fermata"
-    />
-    <button id="locateBtn" title="Trova la fermata più vicina" aria-label="Trova la fermata più vicina">📍</button>
+    <input id="searchInput" type="text" placeholder="🔍 Cerca una fermata..." autocomplete="off" />
+    <button id="locateBtn" title="Trova la fermata più vicina">📍</button>
   </div>
 
-  <!-- Suggerimenti e fermata più vicina -->
   <div id="suggestions" class="suggestions"></div>
   <div id="nearestStop" class="nearest-info"></div>
 
-  <!-- Pulsante dark mode -->
-  <button id="darkToggle" title="Attiva/disattiva dark mode" aria-label="Attiva/disattiva dark mode">🌙</button>
-
-  <!-- Mappa -->
+  <button id="darkToggle">🌙</button>
   <div id="map"></div>
 
-  <!-- Bottone preferiti -->
-  <button id="open-favorites" aria-label="Mostra preferiti">⭐</button>
-
-  <!-- Popup preferiti -->
-  <div id="favorites-popup">
-    <div class="fav-popup-content">
-      <button id="close-favorites" aria-label="Chiudi preferiti">×</button>
-      <h2>Le tue fermate preferite</h2>
-      <ul id="favorites-list"></ul>
-    </div>
-  </div>
-
   <!-- Leaflet & MarkerCluster JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
-  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" defer></script>
-
-  <!-- Script principale -->
-  <script src="script.js" defer></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="script.js"></script>
 
   <!-- GoatCounter -->
-  <script
-    data-goatcounter="https://giovannifoti.goatcounter.com/count"
-    async
-    src="//gc.zgo.at/count.js">
-  </script>
+  <script data-goatcounter="https://giovannifoti.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
