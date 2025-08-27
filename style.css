@@ -1,8 +1,26 @@
+/* ---------------------- VARIABILI ---------------------- */
+:root {
+  --clr-bg: #fff;
+  --clr-text: #000;
+  --clr-primary: #003366;
+  --clr-primary-hover: #0055aa;
+  --clr-highlight: gold;
+  --clr-remove: #ff6666;
+}
+
+body.dark {
+  --clr-bg: #333;
+  --clr-text: #eee;
+  --clr-primary: #ffd54f;
+  --clr-primary-hover: #ffe680;
+}
+
 /* ---------------------- BASE ---------------------- */
-body, html {
+html, body {
   margin: 0;
   height: 100%;
   font-family: 'Segoe UI', sans-serif;
+  color: var(--clr-text);
 }
 
 /* ---------------------- TOP BAR ---------------------- */
@@ -14,36 +32,31 @@ body, html {
   z-index: 1000;
   display: flex;
   gap: 8px;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255,255,255,0.95);
   padding: 6px 10px;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   align-items: center;
 }
 
-#searchInput {
+#searchInput, #locateBtn {
   padding: 6px 10px;
   font-size: 14px;
   border-radius: 6px;
   border: 1px solid #ccc;
-  width: 200px;
 }
 
 #locateBtn {
-  padding: 6px 10px;
   background: #2563eb;
   border: none;
-  color: white;
-  border-radius: 6px;
-  font-size: 14px;
+  color: #fff;
   cursor: pointer;
 }
 
 /* ---------------------- MAP ---------------------- */
 #map {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  inset: 0;
   width: 100%;
   z-index: 0;
 }
@@ -58,46 +71,30 @@ body, html {
 }
 
 .fav-popup-content {
-  background: #fff;
+  background: var(--clr-bg);
   width: 90%;
   max-width: 320px;
   margin: 10% auto;
   padding: 20px;
   border-radius: 8px;
   position: relative;
-  color: #000;
+  color: var(--clr-text);
   transition: background 0.3s, color 0.3s;
 }
 
-body.dark #favorites-popup .fav-popup-content {
-  background: #333;
-  color: #eee;
-}
-
-/* Titolo principale */
-#favorites-popup h2 {
-  text-align: center;
-  margin-bottom: 16px;
-  color: #003366 !important;
-  transition: color 0.3s;
-}
-
-body.dark #favorites-popup h2 {
-  color: #ffd54f !important;
-}
-
-/* Titolo zona */
+/* Titoli */
+#favorites-popup h2,
 #favorites-popup h3 {
   text-align: center;
-  margin: 12px 0 4px 0;
-  color: #003366 !important;
-  font-size: 14px;
-  font-weight: bold;
   transition: color 0.3s;
+  color: var(--clr-primary);
 }
 
-body.dark #favorites-popup h3 {
-  color: #ffd54f !important;
+#favorites-popup h2 { margin-bottom: 16px; }
+#favorites-popup h3 {
+  margin: 12px 0 4px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 /* Lista preferiti */
@@ -118,26 +115,18 @@ body.dark #favorites-popup h3 {
 /* Link fermata */
 #favorites-popup li a {
   text-decoration: none;
-  color: #003366 !important;
+  color: var(--clr-primary);
   transition: color 0.3s;
 }
 
 #favorites-popup li a:hover {
   text-decoration: underline;
-  color: #0055aa !important;
-}
-
-body.dark #favorites-popup li a {
-  color: #ffd54f !important;
-}
-
-body.dark #favorites-popup li a:hover {
-  color: #ffe680 !important;
+  color: var(--clr-primary-hover);
 }
 
 /* Pulsante rimuovi */
-#favorites-popup li button.remove-fav {
-  color: #ff6666;
+#favorites-popup .remove-fav {
+  color: var(--clr-remove);
   background: transparent;
   border: none;
   cursor: pointer;
@@ -145,8 +134,8 @@ body.dark #favorites-popup li a:hover {
   transition: transform 0.2s ease, color 0.2s ease;
 }
 
-#favorites-popup li button.remove-fav:hover {
-  color: #ff0000;
+#favorites-popup .remove-fav:hover {
+  color: red;
   transform: scale(1.2);
 }
 
@@ -170,9 +159,12 @@ body.dark #favorites-popup li a:hover {
 }
 
 /* ---------------------- STELLE POPUP ---------------------- */
-.popup-star.fav-on  { color: gold; }
+.popup-star {
+  display: inline-block;
+  transition: transform 0.2s ease;
+}
+.popup-star.fav-on  { color: var(--clr-highlight); }
 .popup-star.fav-off { color: #ccc; }
-.popup-star { display: inline-block; transition: transform 0.2s ease; }
 .popup-star.animate { animation: star-pop 0.3s ease; }
 
 @keyframes star-pop {

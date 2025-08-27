@@ -6,219 +6,38 @@
   <title>Quando Passa – Fermate Autobus Messina</title>
 
   <!-- Leaflet & MarkerCluster CSS -->
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"
-  />
-  <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"
-  />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css"/>
 
-  <style>
-    /* -------- MAP & BASICS -------- */
-    html, body, #map {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, sans-serif;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .top-bar {
-      position: absolute;
-      top: 10px; left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000;
-      background: #fff;
-      border-radius: 999px;
-      padding: 5px 10px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
-
-    #searchInput {
-      border: none; outline: none;
-      font-size: 13px; padding: 6px 10px;
-      border-radius: 999px;
-      background: #f0f0f0; width: 180px;
-    }
-
-    #locateBtn {
-      background: #c00; color: #fff;
-      border: none; padding: 6px 10px;
-      border-radius: 999px; cursor: pointer;
-      font-size: 14px;
-    }
-    #locateBtn.active { background: #0c0; }
-
-    #darkToggle {
-      position: absolute;
-      top: 10px; right: 10px;
-      z-index: 1000;
-      background: #fff; padding: 6px 10px;
-      font-size: 16px; border-radius: 999px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      cursor: pointer; user-select: none; border: none;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .suggestions {
-      position: absolute;
-      top: 58px; left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000;
-      background: #fff; max-height: 140px;
-      overflow-y: auto; font-size: 13px;
-      width: 250px; border-radius: 6px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-    }
-    .suggestions div {
-      padding: 6px 10px; cursor: pointer;
-    }
-    .suggestions div:hover { background-color: #eee; }
-
-    .nearest-info {
-      position: absolute;
-      top: 58px; left: 50%;
-      transform: translateX(-50%);
-      z-index: 1000; font-size: 13px;
-      background: #fff; padding: 6px 10px;
-      border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-      display: none;
-    }
-
-    /* DARK MODE */
-    body.dark {
-      background: #333; color: #eee;
-    }
-    body.dark .top-bar,
-    body.dark #darkToggle,
-    body.dark .suggestions,
-    body.dark .nearest-info {
-      background: #777; color: #eee;
-    }
-    body.dark .suggestions div:hover { background: #888; }
-    body.dark #searchInput {
-      background: #888; color: #eee;
-    }
-    body.dark .leaflet-tile-pane img {
-      filter: brightness(1.5) contrast(0.8);
-    }
-    body.dark .nearest-info a {
-      color: #ffd54f; text-decoration: underline;
-    }
-
-    /* -------- FAVORITES BUTTON -------- */
-    #open-favorites {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: fixed;
-      bottom: 16px; left: 16px;
-      width: 56px; height: 56px;
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(4px);
-      border: none; border-radius: 50%;
-      font-size: 28px; cursor: pointer;
-      z-index: 1000;
-    }
-
-    /* Titolo centrato */
-.fav-popup-content h2 {
-  text-align: center;
-  margin-bottom: 16px;
-}
-
-/* Lista preferiti */
-#favorites-list li {
-  padding: 6px 0;
-  border-bottom: 1px solid #eee;
-}
-
-#favorites-list li a {
-  color: #003366;
-  text-decoration: none;
-}
-
-body.dark #favorites-list li a {
-  color: #ffd54f;
-}
-
-
-    /* -------- FAVORITES POPUP -------- */
-    #favorites-popup {
-      display: none;
-      position: fixed; inset: 0;
-      background: rgba(0,0,0,0.6);
-      z-index: 1100;
-    }
-    .fav-popup-content {
-      background: #fff;
-      width: 90%; max-width: 320px;
-      margin: 10% auto; padding: 20px;
-      border-radius: 8px; position: relative;
-    }
-    #close-favorites {
-      position: absolute;
-      top: 8px; right: 12px;
-      font-size: 24px; cursor: pointer;
-    }
-    #favorites-list {
-      list-style: none; padding: 0;
-      margin-top: 12px;
-    }
-    #favorites-list li {
-      padding: 8px 0; border-bottom: 1px solid #eee;
-    }
-
-    /* -------- STAR BURST ANIMATION -------- */
-    @keyframes star-burst {
-      0%   { transform: scale(1) rotate(0deg); }
-      20%  { transform: scale(1.6) rotate(-20deg); }
-      40%  { transform: scale(1.4) rotate(20deg); }
-      60%  { transform: scale(1.6) rotate(-20deg); }
-      100% { transform: scale(1) rotate(0deg); }
-    }
-
-    .popup-star {
-      display: inline-block;
-      transition: transform 0.2s ease;
-    }
-
-    .popup-star.animate {
-      animation: star-burst 0.6s ease-out;
-    }
-
-    .popup-star.fav-on  { color: gold; }
-    .popup-star.fav-off { color: #ccc; }
-
-  </style>
+  <!-- Foglio di stile ottimizzato -->
+  <link rel="stylesheet" href="style.css"/>
 
   <link rel="icon" type="image/png" href="logo_sito.png" />
   <meta name="theme-color" content="#003366" />
 </head>
 <body>
 
+  <!-- Barra superiore -->
   <div class="top-bar">
     <input
       type="text"
       id="searchInput"
       placeholder="🔍 Cerca una fermata..."
       autocomplete="off"
+      aria-label="Cerca una fermata"
     />
-    <button id="locateBtn" title="Trova la fermata più vicina">📍</button>
+    <button id="locateBtn" title="Trova la fermata più vicina" aria-label="Trova la fermata più vicina">📍</button>
   </div>
 
+  <!-- Suggerimenti e fermata più vicina -->
   <div id="suggestions" class="suggestions"></div>
   <div id="nearestStop" class="nearest-info"></div>
-  <button id="darkToggle" title="Attiva/disattiva dark mode">🌙</button>
+
+  <!-- Pulsante dark mode -->
+  <button id="darkToggle" title="Attiva/disattiva dark mode" aria-label="Attiva/disattiva dark mode">🌙</button>
+
+  <!-- Mappa -->
   <div id="map"></div>
 
   <!-- Bottone preferiti -->
@@ -227,18 +46,18 @@ body.dark #favorites-list li a {
   <!-- Popup preferiti -->
   <div id="favorites-popup">
     <div class="fav-popup-content">
-      <span id="close-favorites">&times;</span>
+      <button id="close-favorites" aria-label="Chiudi preferiti">×</button>
       <h2>Le tue fermate preferite</h2>
       <ul id="favorites-list"></ul>
     </div>
   </div>
 
   <!-- Leaflet & MarkerCluster JS -->
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+  <script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js" defer></script>
 
-  <!-- Il nostro script -->
-  <script src="script.js"></script>
+  <!-- Script principale -->
+  <script src="script.js" defer></script>
 
   <!-- GoatCounter -->
   <script
