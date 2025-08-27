@@ -6496,6 +6496,102 @@
     "lat": 38.13160,
     "lon": 15.48490,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=441&rnd=91"
+  },
+  {
+    "name": "TOR. ZAFFERIA - V.COMUNALE KM 0-150 DIR SALITA",
+    "lat": 38.14490,
+    "lon": 15.52380,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=442&rnd=91"
+  },
+  {
+    "name": "TOR. ZAFFERIA - V.COMUNALE KM 0-150 DIR DISCESA",
+    "lat": 38.14490,
+    "lon": 15.52370,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1442&rnd=91"
+  },
+  {
+    "name": "TOR. ZAFFERIA - V.COMUNALE KM 0-460 DIR SALITA",
+    "lat": 38.14640,
+    "lon": 15.52090,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=443&rnd=91"
+  },
+  {
+    "name": "TOR. ZAFFERIA - V.COMUNALE KM 0-650 DIR SALITA",
+    "lat": 38.14730,
+    "lon": 15.51900,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=444&rnd=91"
+  },
+  {
+    "name": "TOR. ZAFFERIA - V.COMUNALE KM 0-650 DIR DISCESA",
+    "lat": 38.14730,
+    "lon": 15.51890,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1444&rnd=91"
+  },
+  {
+    "name": "TOR. ZAFFERIA - V.COMUNALE KM 0-840 DIR SALITA",
+    "lat": 38.14770,
+    "lon": 15.51700,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=445&rnd=91"
+  },
+  {
+    "name": "TOR. ZAFFERIA - V.COMUNALE KM 0-840 DIR DISCESA",
+    "lat": 38.14760,
+    "lon": 15.51690,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1445&rnd=91"
+  },
+  {
+    "name": "TOR. ZAFFERIA - V.COMUNALE KM 0-980 DIR SALITA",
+    "lat": 38.14804,
+    "lon": 15.51515,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=446&rnd=91"
+  },
+  {
+    "name": "TOR. ZAFFERIA - V.COMUNALE KM 0-980 DIR DISCESA",
+    "lat": 38.14795,
+    "lon": 15.51505,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1446&rnd=91"
+  },
+  {
+    "name": "TOR. ZAFFERIA - V.COMUNALE KM 1-400 DIR SALITA",
+    "lat": 38.15002,
+    "lon": 15.51176,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=447&rnd=91"
+  },
+  {
+    "name": "TOR. ZAFFERIA - V.COMUNALE KM 1-400 DIR DISCESA",
+    "lat": 38.15002,
+    "lon": 15.51170,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1447&rnd=91"
+  },
+  {
+    "name": "ZAFFERIA - V.COMUNALE KM 1-800 DIR SALITA",
+    "lat": 38.15261,
+    "lon": 15.50870,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=448&rnd=91"
+  },
+  {
+    "name": "ZAFFERIA - CASE POPOLARI DIR SALITA",
+    "lat": 38.15349,
+    "lon": 15.50959,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=449&rnd=91"
+  },
+  {
+    "name": "ZAFFERIA - CASE POPOLARI DIR DISCESA",
+    "lat": 38.15344,
+    "lon": 15.50965,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1449&rnd=91"
+  },
+  {
+    "name": "ZAFFERIA - V.COMUNALE KM 2-000 DIR SALITA",
+    "lat": 38.15291,
+    "lon": 15.50720,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=450&rnd=91"
+  },
+  {
+    "name": "ZAFFERIA",
+    "lat": 38.15231,
+    "lon": 15.50640,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=451&rnd=91"
   }
 ]
 
