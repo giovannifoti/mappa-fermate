@@ -6802,6 +6802,138 @@
     "lat": 38.16361,
     "lon": 15.50900,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=469&rnd=91"
+  },
+  {
+    "name": "R. LIVATINO - V. 1A DIR SALITA",
+    "lat": 38.15260,
+    "lon": 15.52960,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=487&rnd=91"
+  },
+  {
+    "name": "R. LIVATINO - V. 1A DIR DISCESA",
+    "lat": 38.15250,
+    "lon": 15.52950,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1487&rnd=91"
+  },
+  {
+    "name": "R. LIVATINO - V. 17R DIR SALITA",
+    "lat": 38.15330,
+    "lon": 15.52880,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=488&rnd=91"
+  },
+  {
+    "name": "R. LIVATINO - V. 17R DIR DISCESA",
+    "lat": 38.15340,
+    "lon": 15.52869,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1488&rnd=91"
+  },
+  {
+    "name": "R. LIVATINO - V. GELSOMINI DIR SALITA",
+    "lat": 38.15470,
+    "lon": 15.52850,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1489&rnd=91"
+  },
+  {
+    "name": "CEP",
+    "lat": 38.15541,
+    "lon": 15.52670,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=490&rnd=91"
+  },
+  {
+    "name": "V. DEGLI AGRUMI DIR SALITA",
+    "lat": 38.15301,
+    "lon": 15.52687,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=491&rnd=91"
+  },
+  {
+    "name": "V. DEGLI AGRUMI DIR DISCESA",
+    "lat": 38.15300,
+    "lon": 15.52690,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1491&rnd=91"
+  },
+  {
+    "name": "V. DEGLI AGRUMI - PALARESCIFINA",
+    "lat": 38.15705,
+    "lon": 15.52355,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1995&rnd=91"
+  },
+  {
+    "name": "STAD. F. SCOGLIO",
+    "lat": 38.16058,
+    "lon": 15.51974,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=996&rnd=91"
+  },
+  {
+    "name": "V. CONTESSE 20",
+    "lat": 38.15340,
+    "lon": 15.53260,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=493&rnd=91"
+  },
+  {
+    "name": "V. CALISPERA 2 DIR SUD",
+    "lat": 38.15240,
+    "lon": 15.53330,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=494&rnd=91"
+  },
+  {
+    "name": "V. CALISPERA 2 DIR NORD",
+    "lat": 38.15231,
+    "lon": 15.53330,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1494&rnd=91"
+  },
+  {
+    "name": "V. CALISPERA - SCUOLA S.D'ACQUISTO DIR SUD",
+    "lat": 38.15119,
+    "lon": 15.53229,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=495&rnd=91"
+  },
+  {
+    "name": "V. CALISPERA - SCUOLA S.D'ACQUISTO DIR NORD",
+    "lat": 38.15095,
+    "lon": 15.53239,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1495&rnd=91"
+  },
+  {
+    "name": "V. CALISPERA 41 DIR SUD",
+    "lat": 38.15009,
+    "lon": 15.53160,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=496&rnd=91"
+  },
+  {
+    "name": "V. CALISPERA 41 DIR NORD",
+    "lat": 38.14999,
+    "lon": 15.53160,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1496&rnd=91"
+  },
+  {
+    "name": "V. BEATRICE 55 DIR SUD",
+    "lat": 38.14910,
+    "lon": 15.53300,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=497&rnd=91"
+  },
+  {
+    "name": "V. BEATRICE 55 DIR NORD",
+    "lat": 38.14900,
+    "lon": 15.53300,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1497&rnd=91"
+  },
+  {
+    "name": "V. BEATRICE 22 DIR SUD",
+    "lat": 38.15030,
+    "lon": 15.53339,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=498&rnd=91"
+  },
+  {
+    "name": "V. BEATRICE 22 DIR NORD",
+    "lat": 38.15019,
+    "lon": 15.53350,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1498&rnd=91"
+  },
+  {
+    "name": "VILL.UNRA",
+    "lat": 38.15130,
+    "lon": 15.53430,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=499&rnd=91"
   }
 ]
 
