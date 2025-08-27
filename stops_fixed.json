@@ -7426,6 +7426,342 @@
     "lat": 38.16611,
     "lon": 15.50121,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=190&rnd=91"
+  },
+  {
+    "name": "LARGO DIOGENE 5",
+    "lat": 38.17102,
+    "lon": 15.53310,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=193&rnd=91"
+  },
+  {
+    "name": "F. FUCILE - INC. V. 38B",
+    "lat": 38.17240,
+    "lon": 15.53330,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=194&rnd=91"
+  },
+  {
+    "name": "V.ARISTOTELE",
+    "lat": 38.17182,
+    "lon": 15.53461,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=925&rnd=91"
+  },
+  {
+    "name": "V. ANASSAGORA",
+    "lat": 38.17291,
+    "lon": 15.53479,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=927&rnd=91"
+  },
+  {
+    "name": "V.38F",
+    "lat": 38.17321,
+    "lon": 15.53260,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=928&rnd=91"
+  },
+  {
+    "name": "V.38F FERMATA 2",
+    "lat": 38.17311,
+    "lon": 15.53090,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=929&rnd=91"
+  },
+  {
+    "name": "FUCI - SC. A.LUCIANI",
+    "lat": 38.17221,
+    "lon": 15.53160,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=195&rnd=91"
+  },
+  {
+    "name": "FOND. FUCILE - V38A",
+    "lat": 38.17141,
+    "lon": 15.53159,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1196&rnd=91"
+  },
+  {
+    "name": "V. SOCRATE DIR SALITA",
+    "lat": 38.17115,
+    "lon": 15.53053,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=197&rnd=91"
+  },
+  {
+    "name": "V. SOCRATE DIR DISCESA",
+    "lat": 38.17108,
+    "lon": 15.53042,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1197&rnd=91"
+  },
+  {
+    "name": "V. SOCRATE - SC. MINUTOLI DIR SALITA",
+    "lat": 38.17229,
+    "lon": 15.52867,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=198&rnd=91"
+  },
+  {
+    "name": "V. SOCRATE - SC. MINUTOLI DIR DISCESA",
+    "lat": 38.17220,
+    "lon": 15.52861,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1198&rnd=91"
+  },
+  {
+    "name": "V. DEL SANTO 288 DIR SALITA",
+    "lat": 38.17317,
+    "lon": 15.52724,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=222&rnd=91"
+  },
+  {
+    "name": "V. DEL SANTO 288 DIR DISCESA",
+    "lat": 38.17307,
+    "lon": 15.52727,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1222&rnd=91"
+  },
+  {
+    "name": "BORDONARO - C.SE GIALLE CHIESA",
+    "lat": 38.17371,
+    "lon": 15.52399,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=199&rnd=91"
+  },
+  {
+    "name": "BORDONARO - CASE GIALLE DIR SALITA",
+    "lat": 38.17346,
+    "lon": 15.52352,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=164&rnd=91"
+  },
+  {
+    "name": "BORDONARO - CASE GIALLE DIR DISCESA",
+    "lat": 38.17322,
+    "lon": 15.52379,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1164&rnd=91"
+  },
+  {
+    "name": "BORDONARO - AUTOSTRADA DIR SALITA",
+    "lat": 38.17522,
+    "lon": 15.51930,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=166&rnd=91"
+  },
+  {
+    "name": "BORDONARO - AUTOSTRADA DIR DISCESA",
+    "lat": 38.17490,
+    "lon": 15.51954,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1166&rnd=91"
+  },
+  {
+    "name": "BORDONARO - V.COMUNALE DIR SALITA",
+    "lat": 38.17524,
+    "lon": 15.51734,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=168&rnd=91"
+  },
+  {
+    "name": "BORDONARO - V.COMUNALE DIR DISCESA",
+    "lat": 38.17510,
+    "lon": 15.51762,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1168&rnd=91"
+  },
+  {
+    "name": "BORDONARO - SEMIRAMIDE DIR SALITA",
+    "lat": 38.17473,
+    "lon": 15.51481,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=170&rnd=91"
+  },
+  {
+    "name": "BORDONARO - SEMIRAMIDE DIR DISCESA",
+    "lat": 38.17462,
+    "lon": 15.51505,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1170&rnd=91"
+  },
+  {
+    "name": "V. DEL SANTO 312",
+    "lat": 38.17362,
+    "lon": 15.52696,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=223&rnd=91"
+  },
+  {
+    "name": "V. DEL SANTO 384",
+    "lat": 38.17500,
+    "lon": 15.52592,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=224&rnd=91"
+  },
+  {
+    "name": "V. DEL SANTO 406",
+    "lat": 38.17572,
+    "lon": 15.52390,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=227&rnd=91"
+  },
+  {
+    "name": "V. DEL SANTO 442",
+    "lat": 38.17612,
+    "lon": 15.52269,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1228&rnd=91"
+  },
+  {
+    "name": "BORDONARO - V. COMUNALE 58",
+    "lat": 38.17656,
+    "lon": 15.52163,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1201&rnd=91"
+  },
+  {
+    "name": "BORDONARO - V. COMUNALE 84",
+    "lat": 38.17698,
+    "lon": 15.51969,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=230&rnd=91"
+  },
+  {
+    "name": "V. INC OGLIO VECCHIO DIR SALITA",
+    "lat": 38.17593,
+    "lon": 15.51717,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=203&rnd=91"
+  },
+  {
+    "name": "V. INC OGLIO VECCHIO DIR DISCESA",
+    "lat": 38.17590,
+    "lon": 15.51729,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1203&rnd=91"
+  },
+  {
+    "name": "BORDONARO",
+    "lat": 38.17541,
+    "lon": 15.51385,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=172&rnd=91"
+  },
+  {
+    "name": "BORDONARO - V. CIANCIOLO 90",
+    "lat": 38.17641,
+    "lon": 15.51355,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1204&rnd=91"
+  },
+  {
+    "name": "V. CUMIA 23 DIR DISCESA",
+    "lat": 38.17671,
+    "lon": 15.51260,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1232&rnd=91"
+  },
+  {
+    "name": "V. CUMIA 23 DIR SALITA",
+    "lat": 38.17670,
+    "lon": 15.51250,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=232&rnd=91"
+  },
+  {
+    "name": "V. CUMIA KM 1-000 DIR SALITA",
+    "lat": 38.17323,
+    "lon": 15.50810,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=233&rnd=91"
+  },
+  {
+    "name": "V. CUMIA KM 1-000 DIR DISCESA",
+    "lat": 38.17309,
+    "lon": 15.50809,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1233&rnd=91"
+  },
+  {
+    "name": "V. CUMIA KM 1-500",
+    "lat": 38.17395,
+    "lon": 15.50396,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1234&rnd=91"
+  },
+  {
+    "name": "V. CUMIA - P.Z CUMIA INFERIORE DIR SALITA",
+    "lat": 38.17490,
+    "lon": 15.50310,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=235&rnd=91"
+  },
+  {
+    "name": "V. CUMIA - P.Z CUMIA INFERIORE DIR DISCESA",
+    "lat": 38.17489,
+    "lon": 15.50299,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1235&rnd=91"
+  },
+  {
+    "name": "V. CUMIA KM 1-900 DIR SALITA",
+    "lat": 38.17412,
+    "lon": 15.50260,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=236&rnd=91"
+  },
+  {
+    "name": "V. CUMIA KM 1-900 DIR DISCESA",
+    "lat": 38.17410,
+    "lon": 15.50271,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1236&rnd=91"
+  },
+  {
+    "name": "V. CUMIA KM 2-600 DIR SALITA",
+    "lat": 38.17200,
+    "lon": 15.50236,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=237&rnd=91"
+  },
+  {
+    "name": "V. CUMIA KM 2-600 DIR DISCESA",
+    "lat": 38.17207,
+    "lon": 15.50238,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1237&rnd=91"
+  },
+  {
+    "name": "V. CUMIA KM 3-000 DIR SALITA",
+    "lat": 38.17139,
+    "lon": 15.50165,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=238&rnd=91"
+  },
+  {
+    "name": "V. CUMIA KM 3-000 DIR DISCESA",
+    "lat": 38.17150,
+    "lon": 15.50159,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1238&rnd=91"
+  },
+  {
+    "name": "V. CUMIA KM 3-200 DIR SALITA",
+    "lat": 38.17253,
+    "lon": 15.50158,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=239&rnd=91"
+  },
+  {
+    "name": "V. CUMIA KM 3-350 DIR SALITA",
+    "lat": 38.17271,
+    "lon": 15.50000,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=240&rnd=91"
+  },
+  {
+    "name": "V. CUMIA KM 3-350 DIR DISCESA",
+    "lat": 38.17270,
+    "lon": 15.49990,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1240&rnd=91"
+  },
+  {
+    "name": "CUMIA SUPERIORE",
+    "lat": 38.17331,
+    "lon": 15.49831,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=241&rnd=91"
+  },
+  {
+    "name": "BORDONARO - V. CIANCIOLO 120 DIR SALITA",
+    "lat": 38.17701,
+    "lon": 15.51240,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=205&rnd=91"
+  },
+  {
+    "name": "BORDONARO - V. CIANCIOLO 120 DIR DISCESA",
+    "lat": 38.17690,
+    "lon": 15.51240,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1205&rnd=91"
+  },
+  {
+    "name": "BORDONARO - V. CIANCIOLO 178 DIR SALITA",
+    "lat": 38.17784,
+    "lon": 15.51077,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=206&rnd=91"
+  },
+  {
+    "name": "BORDONARO - V. CIANCIOLO 73 DIR SALITA",
+    "lat": 38.17981,
+    "lon": 15.51030,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=207&rnd=91"
+  },
+  {
+    "name": "BORDONARO - V. CIANCIOLO 73 DIR DISCESA",
+    "lat": 38.17970,
+    "lon": 15.51029,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1207&rnd=91"
+  },
+  {
+    "name": "BORDONARO SUPERIORE",
+    "lat": 38.18150,
+    "lon": 15.50760,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=208&rnd=91"
   }
 ]
 
