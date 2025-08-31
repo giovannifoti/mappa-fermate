@@ -7050,6 +7050,12 @@
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1005&rnd=91"
   },
   {
+    "name": "PAD. L",
+    "lat": 38.16200,
+    "lon": 15.53710,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1001&rnd=91"
+  },
+  {
     "name": "PAD. B-A",
     "lat": 38.16505,
     "lon": 15.53815,
@@ -8536,5 +8542,29 @@
     "lat": 38.23609,
     "lon": 15.55490,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=999&rnd=91"
+  },
+  {
+    "name": "V. NAZIONALE 285 - CH. S. MAURO",
+    "lat": 38.06145,
+    "lon": 15.47888,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=967&rnd=91"
+  },
+  {
+    "name": "V. ROSSO DA MESSINA",
+    "lat": 38.16724,
+    "lon": 15.53505,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=155&rnd=91"
+  },
+  {
+    "name": "SCUOLA CASTANEA",
+    "lat": 38.26462,
+    "lon": 15.52218,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=3004&rnd=91"
+  },
+  {
+    "name": "CAVALCAVIA",
+    "lat": 38.18353,
+    "lon": 15.56121,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=3000&rnd=91"
   }
 ]
