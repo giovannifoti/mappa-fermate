@@ -8112,112 +8112,268 @@
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=801&rnd=91"
   },
   {
-    "name": "CALAMONA SS113 - PINETA",
+    "name": "P.NO TORR. SS113 - KM 23-400",
+    "lat": 38.29220,
+    "lon": 15.51906,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=802&rnd=91"
+  },
+  {
+    "name": "P.NO TORR. SS113 - KM 23-700",
+    "lat": 38.29170,
+    "lon": 15.51660,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=803&rnd=91"
+  },
+  {
+    "name": "CALAMONA SS113 - PINETA DIR CENTRO",
     "lat": 38.29023,
     "lon": 15.51646,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1804&rnd=91"
   },
   {
-    "name": "CALAMONA SS113 KM 24-500",
+    "name": "CALAMONA SS113 - PINETA",
+    "lat": 38.29016,
+    "lon": 15.51646,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=804&rnd=91"
+  },
+  {
+    "name": "CALAMONA SS113 KM 24-500 DIR CENTRO",
     "lat": 38.28908,
     "lon": 15.51597324732532,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1805&rnd=91"
   },
   {
-    "name": "CALAMONA SS113 KM 25-300",
+    "name": "CALAMONA SS113 KM 24-500 ",
+    "lat": 38.28909,
+    "lon": 15.51609,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=805&rnd=91"
+  },
+  {
+    "name": "CALAMONA SS113 KM 25-300 DIR CENTRO",
     "lat": 38.28892,
     "lon": 15.50837,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1806&rnd=91"
   },
   {
-    "name": "S. SABA SS113 Km 25-600",
+    "name": "CALAMONA SS113 KM 25-300 ",
+    "lat": 38.28900,
+    "lon": 15.50838,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=806&rnd=91"
+  },
+  {
+    "name": "S. SABA SS113 Km 25-600 DIR CENTRO",
     "lat": 38.28759,
     "lon": 15.50680,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1807&rnd=91"
   },
   {
-    "name": "S. SABA SS113 Km 25-800",
+    "name": "S. SABA SS113 Km 25-600",
+    "lat": 38.28769,
+    "lon": 15.50680,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=807&rnd=91"
+  },
+  {
+    "name": "S. SABA SS113 Km 25-800 DIR CENTRO",
     "lat": 38.28637,
     "lon": 15.50553,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1808&rnd=91"
   },
   {
-    "name": "S.SABA SS113 - DISCESA MARE",
+    "name": "S. SABA SS113 Km 25-800",
+    "lat": 38.28647,
+    "lon": 15.50553,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=808&rnd=91"
+  },
+  {
+    "name": "S.SABA SS113 - DISCESA MARE DIR CENTRO",
     "lat": 38.28447,
     "lon": 15.50354,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1809&rnd=91"
   },
   {
-    "name": "S.SABA SS113 - DISCESA PAESE",
+    "name": "S.SABA SS113 - DISCESA MARE",
+    "lat": 38.28460,
+    "lon": 15.50359,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=809&rnd=91"
+  },
+  {
+    "name": "S.SABA SS113 - DISCESA PAESE DIR CENTRO",
     "lat": 38.28259,
     "lon": 15.50020,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1810&rnd=91"
   },
   {
-    "name": "S.SABA SS113 - CONT. MUSARRA",
+    "name": "S.SABA SS113 - DISCESA PAESE",
+    "lat": 38.28267,
+    "lon": 15.50021,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=810&rnd=91"
+  },
+  {
+    "name": "S.SABA SS113 - CONT. MUSARRA DIR CENTRO",
     "lat": 38.28059,
     "lon": 15.49650,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1811&rnd=91"
   },
   {
-    "name": "S.SABA SS113 - CONT. CORRIDORE",
+    "name": "S.SABA SS113 - CONT. MUSARRA",
+    "lat": 38.28069,
+    "lon": 15.49650,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=811&rnd=91"
+  },
+  {
+    "name": "S.SABA SS113 - CONT. CORRIDORE DIR CENTRO",
     "lat": 38.27921,
     "lon": 15.49448,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1812&rnd=91"
   },
   {
-    "name": "S.SABA SS113 - KM 27-350",
+    "name": "S.SABA SS113 - CONT. CORRIDORE",
+    "lat": 38.27929,
+    "lon": 15.49447,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=812&rnd=91"
+  },
+  {
+    "name": "S.SABA SS113 - KM 27-350 DIR CENTRO",
     "lat": 38.27759,
     "lon": 15.49200,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1813&rnd=91"
   },
   {
-    "name": "RODIA SS113 - KM 27-800",
+    "name": "S.SABA SS113 - KM 27-350",
+    "lat": 38.27769,
+    "lon": 15.49200,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=813&rnd=91"
+  },
+  {
+    "name": "S.SABA SS113 - KM 27-500",
+    "lat": 38.27681,
+    "lon": 15.49096,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=814&rnd=91"
+  },
+  {
+    "name": "RODIA SS113 - KM 27-800 DIR CENTRO",
     "lat": 38.27509,
     "lon": 15.48870,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1815&rnd=91"
   },
   {
-    "name": "RODIA SS113 - KM 28-300",
+    "name": "RODIA SS113 - KM 27-800",
+    "lat": 38.27519,
+    "lon": 15.48870,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=815&rnd=91"
+  },
+  {
+    "name": "RODIA SS113 - KM 28-000 DIR CENTRO",
+    "lat": 38.27380,
+    "lon": 15.48697,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=816&rnd=91"
+  },
+  {
+    "name": "RODIA SS113 - KM 28-300 DIR CENTRO",
     "lat": 38.27168,
     "lon": 15.48453,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1817&rnd=91"
   },
   {
-    "name": "RODIA SS113 - KM 28-500",
+    "name": "RODIA SS113 - KM 28-300",
+    "lat": 38.27177,
+    "lon": 15.48453,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=817&rnd=91"
+  },
+  {
+    "name": "RODIA SS113 - KM 28-500 DIR CENTRO",
     "lat": 38.27059,
     "lon": 15.48320,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1818&rnd=91"
   },
   {
-    "name": "RODIA SS113 - KM 28-850 FARMACIA",
+    "name": "RODIA SS113 - KM 28-500",
+    "lat": 38.27069,
+    "lon": 15.48320,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=818&rnd=91"
+  },
+  {
+    "name": "RODIA SS113 - KM 28-850 FARMACIA DIR CENTRO",
     "lat": 38.26783,
     "lon": 15.48084,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1819&rnd=91"
   },
   {
-    "name": "RODIA SS113 - KM 29-200",
+    "name": "RODIA SS113 - KM 28-850 FARMACIA ",
+    "lat": 38.26780,
+    "lon": 15.48076,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=819&rnd=91"
+  },
+  {
+    "name": "RODIA SS113 - KM 29-200 DIR CENTRO",
     "lat": 38.26682,
     "lon": 15.47797,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1820&rnd=91"
   },
   {
-    "name": "MARMORA SS113 - P.TEDI MARMORA",
+    "name": "RODIA SS113 - KM 29-200",
+    "lat": 38.26689,
+    "lon": 15.47801,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=820&rnd=91"
+  },
+  {
+    "name": "MARMORA SS113 - P.TEDI MARMORA DIR CENTRO",
     "lat": 38.265415,
     "lon": 15.474355,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1821&rnd=91"
   },
   {
-    "name": "ACQUALADRONE - V.LUNGOMARE 189",
+    "name": "MARMORA SS113 - P.TEDI MARMORA",
+    "lat": 38.26550,
+    "lon": 15.47439,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=821&rnd=91"
+  },
+  {
+    "name": "ACQUALADRONE - V.LUNGOMARE 13",
+    "lat": 38.29629,
+    "lon": 15.55550,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=843&rnd=91"
+  },
+  {
+    "name": "ACQUALADRONE - V.LUNGOMARE 189 DIR CENTRO",
     "lat": 38.29769,
     "lon": 15.55380,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1844&rnd=91"
   },
   {
-    "name": "S. D'ALCONTRES - 327",
+    "name": "ACQUALADRONE - V.LUNGOMARE 189",
+    "lat": 38.29779,
+    "lon": 15.55380,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=844&rnd=91"
+  },
+  {
+    "name": "ACQUALADRONE - V.LUNGOMARE 249",
+    "lat": 38.29879,
+    "lon": 15.55210,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=845&rnd=91"
+  },
+  {
+    "name": "ACQUALADRONE",
+    "lat": 38.29979,
+    "lon": 15.55010,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=846&rnd=91"
+  },
+  {
+    "name": "S. D'ALCONTRES - 327 DIR DISCESA",
     "lat": 38.257002,
     "lon": 15.603544,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1868&rnd=91"
+  },
+  {
+    "name": "S. D'ALCONTRES - 327 DIR SALITA",
+    "lat": 38.25711,
+    "lon": 15.60268,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=868&rnd=91"
+  },
+  {
+    "name": "TORR.ENTE GUARDIA FER 2",
+    "lat": 38.25229,
+    "lon": 15.56980,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=875&rnd=91"
   },
   {
     "name": "V. S. RAINIERI - FER. 1",
@@ -8226,10 +8382,28 @@
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1879&rnd=91"
   },
   {
+    "name": "V. S. RAINIERI - FER. 1",
+    "lat": 38.18529,
+    "lon": 15.56420,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=879&rnd=91"
+  },
+  {
     "name": "V. S. RAINERI - FER. 2",
     "lat": 38.18989,
     "lon": 15.56870,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1880&rnd=91"
+  },
+  {
+    "name": "V. S. RAINERI - FER. 2",
+    "lat": 38.18999,
+    "lon": 15.56870,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=880&rnd=91"
+  },
+  {
+    "name": "V. S. RAINERI - BASE MILITARE",
+    "lat": 38.19279,
+    "lon": 15.57170,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=881&rnd=91"
   },
   {
     "name": "TORRI MORANDI",
@@ -8350,5 +8524,17 @@
     "lat": 38.24549,
     "lon": 15.45030,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=690&rnd=91"
+  },
+  {
+    "name": "V. NAZIONALE 56 - S.MARGHERITA",
+    "lat": 38.07819,
+    "lon": 15.49370,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=972&rnd=91"
+  },
+  {
+    "name": "V. PIETRO NENNI",
+    "lat": 38.23609,
+    "lon": 15.55490,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=999&rnd=91"
   }
 ]
