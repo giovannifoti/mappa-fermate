@@ -7924,5 +7924,431 @@
     "lat": 38.17332,
     "lon": 15.52919,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1221&rnd=91"
+  },
+  {
+    "name": "V. GELONE 9",
+    "lat": 38.18816,
+    "lon": 15.54290,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=506&rnd=91"
+  },
+  {
+    "name": "V. GELONE - P.ZZA CH. DEL ROSARIO",
+    "lat": 38.18873,
+    "lon": 15.54179,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=507&rnd=91"
+  },
+  {
+    "name": "V. MONTEPISELLI 33",
+    "lat": 38.19030,
+    "lon": 15.54084,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=508&rnd=91"
+  },
+  {
+    "name": "V. MONTEPISELLI 23",
+    "lat": 38.19124,
+    "lon": 15.53969,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=&rnd=91"
+  },
+  {
+    "name": "V. DEL CARMINA",
+    "lat": 38.15599,
+    "lon": 15.53930,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1014&rnd=91"
+  },
+  {
+    "name": "GIAMP. SP33 KM 0-900 DIR NORD",
+    "lat": 38.06319,
+    "lon": 15.47450,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1348&rnd=91"
+  },
+  {
+    "name": "GIAMP. SP33 KM 0-900 DIR SUD",
+    "lat": 38.06319,
+    "lon": 15.47460,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=348&rnd=91"
+  },
+  {
+    "name": "LARDERIA SUP. - SP39 KM 3-500 DIR DISCESA",
+    "lat": 38.13979,
+    "lon": 15.49580,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1433&rnd=91"
+  },
+  {
+    "name": "LARDERIA SUP. - SP39 KM 3-500 DIR SALIRA",
+    "lat": 38.13979,
+    "lon": 15.49590,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=433&rnd=91"
+  },
+  {
+    "name": "LARDERIA SUP - SP39 KM 4-900 DIR DISCESA",
+    "lat": 38.13375,
+    "lon": 15.49064,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1438&rnd=91"
+  },
+  {
+    "name": "LARDERIA SUP - SP39 KM 4-900 DIR SALITA",
+    "lat": 38.13979,
+    "lon": 15.49060,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=438&rnd=91"
+  },
+  {
+    "name": "V. G. A. BOSURGI - LARGO CITOLA DIR DISCESA",
+    "lat": 38.22849,
+    "lon": 15.55650,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1539&rnd=91"
+  },
+  {
+    "name": "V. G. A. BOSURGI - LARGO CITOLA DIR SALITA",
+    "lat": 38.22849,
+    "lon": 15.55660,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=539&rnd=91"
+  },
+  {
+    "name": "TORR.ENTE GUARDIA FER 1 DIR DISCESA",
+    "lat": 38.25129,
+    "lon": 15.58760,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1705&rnd=91"
+  },
+  {
+    "name": "TORR.ENTE GUARDIA FER 1 DIR SALITA",
+    "lat": 38.25129,
+    "lon": 15.58750,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=705&rnd=91"
+  },
+  {
+    "name": "SP45 FARO SUPERIORE - V. LECCE 46 DIR CENTRO",
+    "lat": 38.26344,
+    "lon": 15.58169,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1713&rnd=91"
+  },
+  {
+    "name": "SP45 FARO SUPERIORE - V. LECCE 46",
+    "lat": 38.26339,
+    "lon": 15.58180,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=713&rnd=91"
+  },
+  {
+    "name": "SP45 FARO SUPERIORE - V. LECCE DIR CENTRO",
+    "lat": 38.26277,
+    "lon": 15.57989,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1714&rnd=91"
+  },
+  {
+    "name": "SP45 FARO SUPERIORE - V. LECCE",
+    "lat": 38.26278,
+    "lon": 15.58008,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=714&rnd=91"
+  },
+  {
+    "name": "SP45 FARO SUPERIORE - CIMITERO DIR CENTRO",
+    "lat": 38.26174,
+    "lon": 15.58033,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1715&rnd=91"
+  },
+  {
+    "name": "SP45 FARO SUPERIORE - CIMITERO",
+    "lat": 38.26169,
+    "lon": 15.58040,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=715&rnd=91"
+  },
+  {
+    "name": "SP45 CURCURACI - C.SA SARDELLA DIR CENTRO",
+    "lat": 38.26182,
+    "lon": 15.57737,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1716&rnd=91"
+  },
+  {
+    "name": "SP45 CURCURACI - C.SA SARDELLA",
+    "lat": 38.26182,
+    "lon": 15.57755,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=716&rnd=91"
+  },
+  {
+    "name": "SP45 CURCURACI DIR CENTRO",
+    "lat": 38.26245,
+    "lon": 15.57546,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1717&rnd=91"
+  },
+  {
+    "name": "SP45 CURCURACI",
+    "lat": 38.26237,
+    "lon": 15.57549,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=717&rnd=91"
+  },
+  {
+    "name": "SP45 CURCURACI - COMP. SICIM 8 DIR CENTRO",
+    "lat": 38.26229,
+    "lon": 15.57210,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1718&rnd=91"
+  },
+  {
+    "name": "SP45 CURCURACI - COMP. SICIM 8",
+    "lat": 38.26229,
+    "lon": 15.57549,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=718&rnd=91"
+  },
+  {
+    "name": "SP45 CURCUARI - B.VIO MAROTTA DIR CENTRO",
+    "lat": 38.26095,
+    "lon": 15.56894,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1719&rnd=91"
+  },
+  {
+    "name": "SP45 CURCUARI - B.VIO MAROTTA",
+    "lat": 38.26089,
+    "lon": 15.56900,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=719&rnd=91"
+  },
+  {
+    "name": "P.NO TORR. SS113 - KM 23-000 DIR CENTRO",
+    "lat": 38.29289,
+    "lon": 15.52390,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1801&rnd=91"
+  },
+  {
+    "name": "P.NO TORR. SS113 - KM 23-000",
+    "lat": 38.29299,
+    "lon": 15.52400,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=801&rnd=91"
+  },
+  {
+    "name": "CALAMONA SS113 - PINETA",
+    "lat": 38.29023,
+    "lon": 15.51646,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1804&rnd=91"
+  },
+  {
+    "name": "CALAMONA SS113 KM 24-500",
+    "lat": 38.28908,
+    "lon": 15.51597324732532,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1805&rnd=91"
+  },
+  {
+    "name": "CALAMONA SS113 KM 25-300",
+    "lat": 38.28892,
+    "lon": 15.50837,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1806&rnd=91"
+  },
+  {
+    "name": "S. SABA SS113 Km 25-600",
+    "lat": 38.28759,
+    "lon": 15.50680,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1807&rnd=91"
+  },
+  {
+    "name": "S. SABA SS113 Km 25-800",
+    "lat": 38.28637,
+    "lon": 15.50553,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1808&rnd=91"
+  },
+  {
+    "name": "S.SABA SS113 - DISCESA MARE",
+    "lat": 38.28447,
+    "lon": 15.50354,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1809&rnd=91"
+  },
+  {
+    "name": "S.SABA SS113 - DISCESA PAESE",
+    "lat": 38.28259,
+    "lon": 15.50020,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1810&rnd=91"
+  },
+  {
+    "name": "S.SABA SS113 - CONT. MUSARRA",
+    "lat": 38.28059,
+    "lon": 15.49650,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1811&rnd=91"
+  },
+  {
+    "name": "S.SABA SS113 - CONT. CORRIDORE",
+    "lat": 38.27921,
+    "lon": 15.49448,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1812&rnd=91"
+  },
+  {
+    "name": "S.SABA SS113 - KM 27-350",
+    "lat": 38.27759,
+    "lon": 15.49200,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1813&rnd=91"
+  },
+  {
+    "name": "RODIA SS113 - KM 27-800",
+    "lat": 38.27509,
+    "lon": 15.48870,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1815&rnd=91"
+  },
+  {
+    "name": "RODIA SS113 - KM 28-300",
+    "lat": 38.27168,
+    "lon": 15.48453,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1817&rnd=91"
+  },
+  {
+    "name": "RODIA SS113 - KM 28-500",
+    "lat": 38.27059,
+    "lon": 15.48320,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1818&rnd=91"
+  },
+  {
+    "name": "RODIA SS113 - KM 28-850 FARMACIA",
+    "lat": 38.26783,
+    "lon": 15.48084,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1819&rnd=91"
+  },
+  {
+    "name": "RODIA SS113 - KM 29-200",
+    "lat": 38.26682,
+    "lon": 15.47797,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1820&rnd=91"
+  },
+  {
+    "name": "MARMORA SS113 - P.TEDI MARMORA",
+    "lat": 38.265415,
+    "lon": 15.474355,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1821&rnd=91"
+  },
+  {
+    "name": "ACQUALADRONE - V.LUNGOMARE 189",
+    "lat": 38.29769,
+    "lon": 15.55380,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1844&rnd=91"
+  },
+  {
+    "name": "S. D'ALCONTRES - 327",
+    "lat": 38.257002,
+    "lon": 15.603544,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1868&rnd=91"
+  },
+  {
+    "name": "V. S. RAINIERI - FER. 1",
+    "lat": 38.185199,
+    "lon": 15.564200,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1879&rnd=91"
+  },
+  {
+    "name": "V. S. RAINERI - FER. 2",
+    "lat": 38.18989,
+    "lon": 15.56870,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1880&rnd=91"
+  },
+  {
+    "name": "TORRI MORANDI",
+    "lat": 38.26896,
+    "lon": 15.64591,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=2003&rnd=91"
+  },
+  {
+    "name": "PILONE",
+    "lat": 38.26591,
+    "lon": 15.65011,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=2004&rnd=91"
+  },
+  {
+    "name": "HORCYNYS ORCA",
+    "lat": 38.268096130464365,
+    "lon": 15.651610456404145,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=2005&rnd=91"
+  },
+  {
+    "name": "STR. PANORAMICA DELLO STRETTO",
+    "lat": 38.26501,
+    "lon": 15.60818,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=2850&rnd=91"
+  },
+  {
+    "name": "SS 113 - MADONNINA",
+    "lat": 38.24326,
+    "lon": 15.44768,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=3011&rnd=91"
+  },
+  {
+    "name": "SS 113 - 88 V. T.",
+    "lat": 38.24318,
+    "lon": 15.44778,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=4011&rnd=91"
+  },
+  {
+    "name": "V. NAZIONALE 1 V.T DIR SUD",
+    "lat": 38.24208,
+    "lon": 15.44640,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=3012&rnd=91"
+  },
+  {
+    "name": "V. NAZIONALE 1 V.T DIR NORD",
+    "lat": 38.24195,
+    "lon": 15.44640,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=4012&rnd=91"
+  },
+  {
+    "name": "VIA NAZIONALE - VIA MARINA V.T DIR SUD",
+    "lat": 38.24088,
+    "lon": 15.44200,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=3013&rnd=91"
+  },
+  {
+    "name": "VIA NAZIONALE - VIA MARINA V.T DIR NORD",
+    "lat": 38.24080,
+    "lon": 15.44210,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=4013&rnd=91"
+  },
+  {
+    "name": "VIA NAZIONALE - VIA ZIZZO V.T DIR SUD",
+    "lat": 38.24047,
+    "lon": 15.43885,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=3014&rnd=91"
+  },
+  {
+    "name": "VIA NAZIONALE - VIA ZIZZO V.T DIR NORD",
+    "lat": 38.24038,
+    "lon": 15.43891,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=4014&rnd=91"
+  },
+  {
+    "name": "VIA NAZIONALE - UNICEF",
+    "lat": 38.23712,
+    "lon": 15.43497,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=3015&rnd=91"
+  },
+  {
+    "name": "VIA NAZIONALE - ENI",
+    "lat": 38.23763,
+    "lon": 15.43554,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=4015&rnd=91"
+  },
+  {
+    "name": "VIA NAZIONALE - V.STUR DIR SUD",
+    "lat": 38.23606,
+    "lon": 15.43221,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=3016&rnd=91"
+  },
+  {
+    "name": "VIA NAZIONALE - V.STUR DIR NORD",
+    "lat": 38.23597,
+    "lon": 15.43228,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=4016&rnd=91"
+  },
+  {
+    "name": "CAPOLINEA V.T",
+    "lat": 38.235977,
+    "lon": 15.430970,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=3017&rnd=91"
+  },
+  {
+    "name": "V.NAZIONALE 267",
+    "lat": 38.23928,
+    "lon": 15.43660,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=3024&rnd=91"
+  },
+  {
+    "name": "V.NAZIONALE 276",
+    "lat": 38.23929,
+    "lon": 15.43675,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=4024&rnd=91"
+  },
+  {
+    "name": "PONTE GALLO",
+    "lat": 38.24549,
+    "lon": 15.45030,
+    "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=690&rnd=91"
   }
 ]
