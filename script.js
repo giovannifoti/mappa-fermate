@@ -74,7 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
               data-id="${s.id}"
               title="Aggiungi/rimuovi dai preferiti"
             >⭐</span>
-            <br><a href="${s.url}" target="_blank">Vedi dettagli</a>
+            <br>
+            <a href="${s.url}" target="_blank">Vedi dettagli</a>
+            <br>
+            <a href="https://maps.google.com/?daddr=${s.lat},${s.lon}" target="_blank" class="directions-btn">Portami qui</a>
           </div>`;
         m.bindPopup(html);
         m.normalizedName = normalize(s.name);

@@ -48,6 +48,29 @@ body, html {
   z-index: 0;
 }
 
+/* ---------------------- POPUP (Leaflet) ---------------------- */
+.leaflet-popup-content {
+  max-width: 280px; /* più largo per contenere il pulsante */
+}
+
+/* Pulsante "Portami qui" */
+.directions-btn {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  background-color: #2563eb;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 13px;
+  transition: background-color 0.3s;
+}
+
+.directions-btn:hover {
+  background-color: #1e40af;
+}
+
 /* ---------------------- POPUP PREFERITI ---------------------- */
 #favorites-popup {
   display: none;
