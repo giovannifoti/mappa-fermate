@@ -58,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
     .then(data => {
       if (!Array.isArray(data)) throw new Error('JSON non è un array');
 
-      // Filtra elementi validi e assegna ID se mancante
       stops = data
         .filter(s => s && s.name && s.lat && s.lon)
         .map((s, idx) => ({ ...s, id: s.id ?? idx, zone: s.zone ?? 'centro' }));
@@ -66,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
       stops.forEach(s => {
         const m = L.marker([s.lat, s.lon], { title: s.name });
         const starClass = isFavorite(s.id) ? 'fav-on' : 'fav-off';
+        const mapsLink = `https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lon}`;
         const html = `
           <div>
             <b>${s.name}</b>
@@ -75,9 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
               title="Aggiungi/rimuovi dai preferiti"
             >⭐</span>
             <br>
-            <a href="${s.url}" target="_blank">Vedi dettagli</a>
-            <br>
-            <a href="https://maps.google.com/?daddr=${s.lat},${s.lon}" target="_blank" class="directions-btn">Portami qui</a>
+            <div style="display:flex; justify-content:space-between; font-size:12px; margin-top:4px;">
+              <a href="${s.url}" target="_blank">ℹ️ Vedi dettagli</a>
+              <a href="${mapsLink}" target="_blank">📍 Portami qui</a>
+            </div>
           </div>`;
         m.bindPopup(html);
         m.normalizedName = normalize(s.name);
@@ -116,7 +117,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const ul = document.getElementById('favorites-list');
     ul.innerHTML = '';
 
-    // raggruppa per zona
     const zones = { nord: [], centro: [], sud: [] };
     stops.forEach(s => {
       if (!s.id || !isFavorite(s.id)) return;
@@ -127,7 +127,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const stopsInZone = zones[zoneKey];
       if (!stopsInZone.length) return;
 
-      // Titolo zona
       const h3 = document.createElement('h3');
       h3.textContent = zoneKey.charAt(0).toUpperCase() + zoneKey.slice(1);
       h3.style.color = document.body.classList.contains('dark') ? '#ffd54f' : '#003366';
@@ -136,7 +135,6 @@ document.addEventListener('DOMContentLoaded', () => {
       stopsInZone.forEach(stop => {
         const li = document.createElement('li');
 
-        // Link fermata
         const a = document.createElement('a');
         a.href = stop.url;
         a.target = '_blank';
@@ -144,7 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
         a.style.color = document.body.classList.contains('dark') ? '#ffd54f' : '#003366';
         li.appendChild(a);
 
-        // Pulsante rimuovi
         const btn = document.createElement('button');
         btn.textContent = '❌';
         btn.className = 'remove-fav';
@@ -160,7 +157,6 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Titolo principale
     const h2 = document.querySelector('#favorites-popup h2');
     if (h2) h2.style.color = document.body.classList.contains('dark') ? '#ffd54f' : '#003366';
   }
@@ -221,7 +217,14 @@ document.addEventListener('DOMContentLoaded', () => {
           if (d < minDist) { minDist = d; nearest = s; }
         });
         if (nearest) {
-          infoBox.innerHTML = `📍 <strong>${nearest.name}</strong><br><a href="${nearest.url}" target="_blank">Vai al link</a>`;
+          const mapsLink = `https://www.google.com/maps/dir/?api=1&destination=${nearest.lat},${nearest.lon}`;
+          infoBox.innerHTML = `
+            📍 <strong>${nearest.name}</strong><br>
+            <div style="display:flex; justify-content:space-between; font-size:12px; margin-top:4px;">
+              <a href="${nearest.url}" target="_blank">ℹ️ Vedi dettagli</a>
+              <a href="${mapsLink}" target="_blank">📍 Portami qui</a>
+            </div>
+          `;
           map.setView([nearest.lat, nearest.lon], 17);
         } else {
           infoBox.textContent = '❌ Nessuna fermata trovata';
