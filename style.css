@@ -205,7 +205,7 @@ body.dark #favorites-popup li a:hover {
 }
 /* ---------------------- FONT BASE ---------------------- */
 body, html {
-  font-family: 'Bebas Neue', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 /* ---------------------- LINK NEI POPUP ---------------------- */
@@ -218,5 +218,14 @@ body, html {
 .leaflet-popup-content a:hover {
   text-decoration: underline; /* sottolinea solo al passaggio */
   color: #1e40af;             /* blu più scuro */
+}
+/* Rimuove sottolineato da tutti i link */
+a {
+  text-decoration: none;
+}
+
+/* Mantiene il colore coerente e un hover carino */
+a:hover {
+  text-decoration: underline; /* se lo vuoi al passaggio del mouse */
 }
 
