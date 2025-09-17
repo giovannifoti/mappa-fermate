@@ -59,6 +59,7 @@ html, body, #map {
 }
 .suggestions div {
   padding: 6px 10px; cursor: pointer;
+  text-decoration: none; /* rimuove sottolineatura */
 }
 .suggestions div:hover { background-color: #eee; }
 
@@ -80,13 +81,13 @@ html, body, #map {
   margin-top: 4px;
 }
 
-.nearest-info a {
-  text-decoration: none;
+.nearest-info a, .leaflet-popup-content a {
+  text-decoration: none; /* rimuove sottolineatura ovunque */
   font-weight: 500;
   color: #2563eb;
   white-space: nowrap;
 }
-.nearest-info a:hover { text-decoration: underline; color: #1e40af; }
+.nearest-info a:hover, .leaflet-popup-content a:hover { color: #1e40af; text-decoration: underline; }
 
 /* DARK MODE */
 body.dark {
@@ -138,9 +139,16 @@ body.dark #favorites-list li a { color: #ffd54f; }
 #favorites-list li button.remove-fav { background:transparent; border:none; color:#ff6666; cursor:pointer; font-size:16px; transition: transform 0.2s ease,color 0.2s ease; }
 #favorites-list li button.remove-fav:hover { color:#ff0000; transform:scale(1.2); }
 
-/* STELLE POPUP */
+/* STELLE POPUP ANIMAZIONE */
 .popup-star.fav-on  { color: gold; }
 .popup-star.fav-off { color: #ccc; }
 .popup-star { display: inline-block; transition: transform 0.2s ease; }
-.popup-star.animate { animation: star-pop 0.3s ease; }
-@keyframes star-pop { 0% { transform: scale(1);} 50% { transform: scale(1.4);} 100% { transform: scale(1);} }
+.popup-star.animate { animation: star-burst 0.6s ease-out; }
+
+@keyframes star-burst {
+  0%   { transform: scale(1) rotate(0deg); }
+  20%  { transform: scale(1.6) rotate(-20deg); }
+  40%  { transform: scale(1.4) rotate(20deg); }
+  60%  { transform: scale(1.6) rotate(-20deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
