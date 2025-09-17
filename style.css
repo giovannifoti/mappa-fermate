@@ -228,4 +228,22 @@ a {
 a:hover {
   text-decoration: underline; /* se lo vuoi al passaggio del mouse */
 }
+/* Forza Montserrat e rimuove sottolineato nei popup Leaflet */
+.leaflet-popup-content,
+.leaflet-popup-content a {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.leaflet-popup-content a {
+  text-decoration: none !important;  /* niente sottolineato fisso */
+  color: #2563eb;                    /* blu moderno */
+  font-weight: 500;
+}
+
+.leaflet-popup-content a:hover {
+  text-decoration: underline;        /* sottolinea solo al passaggio */
+  color: #1e40af;                    /* blu più scuro */
+}
 
