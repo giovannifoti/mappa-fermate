@@ -1,249 +1,146 @@
-/* ---------------------- BASE ---------------------- */
-body, html {
-  margin: 0;
+/* -------- MAP & BASICS -------- */
+html, body, #map {
   height: 100%;
-  font-family: 'Segoe UI', sans-serif;
-}
-
-/* ---------------------- TOP BAR ---------------------- */
-.top-bar {
-  position: fixed;
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1000;
-  display: flex;
-  gap: 8px;
-  background: rgba(255, 255, 255, 0.95);
-  padding: 6px 10px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-  align-items: center;
-}
-
-#searchInput {
-  padding: 6px 10px;
-  font-size: 14px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  width: 200px;
-}
-
-#locateBtn {
-  padding: 6px 10px;
-  background: #2563eb;
-  border: none;
-  color: white;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-/* ---------------------- MAP ---------------------- */
-#map {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: 0;
-}
-
-/* ---------------------- POPUP (Leaflet) ---------------------- */
-.leaflet-popup-content {
-  max-width: 280px; /* più largo per contenere il pulsante */
-}
-
-/* Pulsante "Portami qui" */
-.directions-btn {
-  display: inline-block;
-  margin-top: 8px;
-  padding: 6px 12px;
-  background-color: #2563eb;
-  color: #fff;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: bold;
-  font-size: 13px;
-  transition: background-color 0.3s;
-}
-
-.directions-btn:hover {
-  background-color: #1e40af;
-}
-
-/* ---------------------- POPUP PREFERITI ---------------------- */
-#favorites-popup {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.6);
-  z-index: 1100;
-}
-
-.fav-popup-content {
-  background: #fff;
-  width: 90%;
-  max-width: 320px;
-  margin: 10% auto;
-  padding: 20px;
-  border-radius: 8px;
-  position: relative;
-  color: #000;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
   transition: background 0.3s, color 0.3s;
 }
 
-body.dark #favorites-popup .fav-popup-content {
-  background: #333;
-  color: #eee;
-}
-
-/* Titolo principale */
-#favorites-popup h2 {
-  text-align: center;
-  margin-bottom: 16px;
-  color: #003366 !important;
-  transition: color 0.3s;
-}
-
-body.dark #favorites-popup h2 {
-  color: #ffd54f !important;
-}
-
-/* Titolo zona */
-#favorites-popup h3 {
-  text-align: center;
-  margin: 12px 0 4px 0;
-  color: #003366 !important;
-  font-size: 14px;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-body.dark #favorites-popup h3 {
-  color: #ffd54f !important;
-}
-
-/* Lista preferiti */
-#favorites-list {
-  list-style: none;
-  padding: 0;
-  margin-top: 12px;
-}
-
-#favorites-list li {
-  padding: 8px 0;
-  border-bottom: 1px solid #eee;
+.top-bar {
+  position: absolute;
+  top: 10px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: #fff;
+  border-radius: 999px;
+  padding: 5px 10px;
   display: flex;
   align-items: center;
+  gap: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+#searchInput {
+  border: none; outline: none;
+  font-size: 13px; padding: 6px 10px;
+  border-radius: 999px;
+  background: #f0f0f0; width: 180px;
+}
+
+#locateBtn {
+  background: #c00; color: #fff;
+  border: none; padding: 6px 10px;
+  border-radius: 999px; cursor: pointer;
+  font-size: 14px;
+}
+#locateBtn.active { background: #0c0; }
+
+#darkToggle {
+  position: absolute;
+  top: 10px; right: 10px;
+  z-index: 1000;
+  background: #fff; padding: 6px 10px;
+  font-size: 16px; border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  cursor: pointer; user-select: none; border: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.suggestions {
+  position: absolute;
+  top: 58px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: #fff; max-height: 140px;
+  overflow-y: auto; font-size: 13px;
+  width: 250px; border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.suggestions div {
+  padding: 6px 10px; cursor: pointer;
+}
+.suggestions div:hover { background-color: #eee; }
+
+.nearest-info {
+  position: absolute;
+  top: 58px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000; font-size: 13px;
+  background: #fff; padding: 10px 12px;
+  border-radius: 8px; box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  display: none;
+  max-width: 300px;
+}
+
+.nearest-info div.links {
+  display: flex;
   justify-content: space-between;
+  font-size: 12px;
+  margin-top: 4px;
 }
 
-/* Link fermata */
-#favorites-popup li a {
+.nearest-info a {
   text-decoration: none;
-  color: #003366 !important;
-  transition: color 0.3s;
+  font-weight: 500;
+  color: #2563eb;
+  white-space: nowrap;
 }
+.nearest-info a:hover { text-decoration: underline; color: #1e40af; }
 
-#favorites-popup li a:hover {
-  text-decoration: underline;
-  color: #0055aa !important;
+/* DARK MODE */
+body.dark {
+  background: #333; color: #eee;
 }
-
-body.dark #favorites-popup li a {
-  color: #ffd54f !important;
+body.dark .top-bar,
+body.dark #darkToggle,
+body.dark .suggestions,
+body.dark .nearest-info {
+  background: #777; color: #eee;
 }
+body.dark .suggestions div:hover { background: #888; }
+body.dark #searchInput { background: #888; color: #eee; }
+body.dark .leaflet-tile-pane img { filter: brightness(1.5) contrast(0.8); }
 
-body.dark #favorites-popup li a:hover {
-  color: #ffe680 !important;
-}
-
-/* Pulsante rimuovi */
-#favorites-popup li button.remove-fav {
-  color: #ff6666;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  transition: transform 0.2s ease, color 0.2s ease;
-}
-
-#favorites-popup li button.remove-fav:hover {
-  color: #ff0000;
-  transform: scale(1.2);
-}
-
-/* ---------------------- BOTTONE PREFERITI ---------------------- */
+/* FAVORITES BUTTON */
 #open-favorites {
-  position: fixed;
-  bottom: 16px;
-  left: 16px;
-  width: 48px;
-  height: 48px;
-  background: rgba(255,255,255,0.6);
-  backdrop-filter: blur(4px);
-  border: none;
-  border-radius: 50%;
-  font-size: 24px;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
+  position: fixed;
+  bottom: 16px; left: 16px;
+  width: 56px; height: 56px;
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(4px);
+  border: none; border-radius: 50%;
+  font-size: 28px; cursor: pointer;
   z-index: 1000;
 }
 
-/* ---------------------- STELLE POPUP ---------------------- */
+/* POPUP FAVORITI */
+#favorites-popup {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: 1100;
+}
+.fav-popup-content {
+  background: #fff;
+  width: 90%; max-width: 320px;
+  margin: 10% auto; padding: 20px;
+  border-radius: 8px; position: relative;
+}
+#close-favorites { position: absolute; top: 8px; right: 12px; font-size: 24px; cursor: pointer; }
+#favorites-list { list-style: none; padding: 0; margin-top: 12px; }
+#favorites-list li { padding: 8px 0; border-bottom: 1px solid #eee; display:flex; justify-content:space-between; align-items:center; }
+#favorites-list li a { text-decoration: none; color:#003366; font-weight:500; }
+body.dark #favorites-list li a { color: #ffd54f; }
+#favorites-list li button.remove-fav { background:transparent; border:none; color:#ff6666; cursor:pointer; font-size:16px; transition: transform 0.2s ease,color 0.2s ease; }
+#favorites-list li button.remove-fav:hover { color:#ff0000; transform:scale(1.2); }
+
+/* STELLE POPUP */
 .popup-star.fav-on  { color: gold; }
 .popup-star.fav-off { color: #ccc; }
 .popup-star { display: inline-block; transition: transform 0.2s ease; }
 .popup-star.animate { animation: star-pop 0.3s ease; }
-
-@keyframes star-pop {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.4); }
-  100% { transform: scale(1); }
-}
-/* ---------------------- FONT BASE ---------------------- */
-body, html {
-  font-family: 'Montserrat', sans-serif;
-}
-
-/* ---------------------- LINK NEI POPUP ---------------------- */
-.leaflet-popup-content a {
-  text-decoration: none;   /* rimuove sottolineato */
-  font-weight: 500;        /* leggermente più marcato */
-  color: #2563eb;          /* blu moderno */
-}
-
-.leaflet-popup-content a:hover {
-  text-decoration: underline; /* sottolinea solo al passaggio */
-  color: #1e40af;             /* blu più scuro */
-}
-/* Rimuove sottolineato da tutti i link */
-a {
-  text-decoration: none;
-}
-
-/* Mantiene il colore coerente e un hover carino */
-a:hover {
-  text-decoration: underline; /* se lo vuoi al passaggio del mouse */
-}
-/* Forza Montserrat e rimuove sottolineato nei popup Leaflet */
-.leaflet-popup-content,
-.leaflet-popup-content a {
-  font-family: 'Montserrat', sans-serif !important;
-  font-size: 14px;
-  line-height: 1.4;
-}
-
-.leaflet-popup-content a {
-  text-decoration: none !important;  /* niente sottolineato fisso */
-  color: #2563eb;                    /* blu moderno */
-  font-weight: 500;
-}
-
-.leaflet-popup-content a:hover {
-  text-decoration: underline;        /* sottolinea solo al passaggio */
-  color: #1e40af;                    /* blu più scuro */
-}
-
+@keyframes star-pop { 0% { transform: scale(1);} 50% { transform: scale(1.4);} 100% { transform: scale(1);} }
