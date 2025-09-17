@@ -203,3 +203,20 @@ body.dark #favorites-popup li a:hover {
   50% { transform: scale(1.4); }
   100% { transform: scale(1); }
 }
+/* ---------------------- FONT BASE ---------------------- */
+body, html {
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+/* ---------------------- LINK NEI POPUP ---------------------- */
+.leaflet-popup-content a {
+  text-decoration: none;   /* rimuove sottolineato */
+  font-weight: 500;        /* leggermente più marcato */
+  color: #2563eb;          /* blu moderno */
+}
+
+.leaflet-popup-content a:hover {
+  text-decoration: underline; /* sottolinea solo al passaggio */
+  color: #1e40af;             /* blu più scuro */
+}
+
