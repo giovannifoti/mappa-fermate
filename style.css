@@ -178,11 +178,14 @@ body.dark #favorites-list li a { color: #ffd54f; }
   box-shadow: 0 0 6px rgba(0,0,0,0.3);
 }
 
-/* Cerchio di accuratezza trasparente come Google Maps */
+/* Pallino blu + alone */
 .leaflet-user-circle {
-  stroke: #2563eb;
-  stroke-opacity: 0.6;
-  stroke-width: 2;
-  fill: #2563eb;
-  fill-opacity: 0.15;
+  stroke-dasharray: 4;
+  animation: pulse-blue 2s infinite;
+}
+
+@keyframes pulse-blue {
+  0% { stroke-opacity: 0.6; fill-opacity: 0.2; }
+  50% { stroke-opacity: 0.2; fill-opacity: 0.1; }
+  100% { stroke-opacity: 0.6; fill-opacity: 0.2; }
 }
