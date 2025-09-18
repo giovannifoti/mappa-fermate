@@ -193,33 +193,45 @@ document.addEventListener('DOMContentLoaded', () => {
   const infoBox = document.getElementById('nearestStop');
   let locating = false;
   let userMarker = null;
+  let accuracyCircle = null;
+  let watchId = null;
+
+  const initialCenter = [38.1938, 15.5540];
+  const initialZoom = 13;
 
   locateBtn.addEventListener('click', () => {
     if (locating) {
+      // 🔴 Disattiva localizzazione
       locating = false;
       locateBtn.classList.remove('active');
       infoBox.style.display = 'none';
-      if (userMarker) {
-        map.removeLayer(userMarker);
-        userMarker = null;
-      }
+
+      if (userMarker) { map.removeLayer(userMarker); userMarker = null; }
+      if (accuracyCircle) { map.removeLayer(accuracyCircle); accuracyCircle = null; }
+      if (watchId) { navigator.geolocation.clearWatch(watchId); watchId = null; }
+
+      // Torna alla posizione iniziale
+      map.setView(initialCenter, initialZoom);
       return;
     }
+
+    // 🟢 Attiva localizzazione
     locating = true;
     infoBox.style.display = 'block';
     infoBox.textContent = '📡 Caricamento...';
+
     if (!navigator.geolocation) {
       infoBox.textContent = '❌ Geolocalizzazione non supportata';
       locating = false;
       return;
     }
 
-    navigator.geolocation.watchPosition(
+    watchId = navigator.geolocation.watchPosition(
       ({ coords }) => {
         locateBtn.classList.add('active');
-        const { latitude: latU, longitude: lonU } = coords;
+        const { latitude: latU, longitude: lonU, accuracy } = coords;
 
-        // mostra il pallino blu sulla mappa
+        // marker blu
         if (!userMarker) {
           userMarker = L.marker([latU, lonU], {
             icon: L.divIcon({
@@ -230,6 +242,23 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           userMarker.setLatLng([latU, lonU]);
         }
+
+        // cerchio di accuratezza
+        if (!accuracyCircle) {
+          accuracyCircle = L.circle([latU, lonU], {
+            radius: accuracy,
+            color: '#2563eb',
+            fillColor: '#2563eb',
+            fillOpacity: 0.15,
+            weight: 1
+          }).addTo(map);
+        } else {
+          accuracyCircle.setLatLng([latU, lonU]);
+          accuracyCircle.setRadius(accuracy);
+        }
+
+        // centra la mappa sulla posizione attuale
+        map.panTo([latU, lonU]);
 
         // trova fermata più vicina
         let nearest = null, minDist = Infinity;
@@ -247,7 +276,6 @@ document.addEventListener('DOMContentLoaded', () => {
               <a href="${mapsLink}" target="_blank">📍 Portami qui</a>
             </div>
           `;
-          map.setView([latU, lonU], 15);
         } else {
           infoBox.textContent = '❌ Nessuna fermata trovata';
         }
@@ -259,4 +287,5 @@ document.addEventListener('DOMContentLoaded', () => {
       { enableHighAccuracy: true }
     );
   });
+
 });
