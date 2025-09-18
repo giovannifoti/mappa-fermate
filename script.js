@@ -17,6 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const markerCluster = L.markerClusterGroup();
   map.addLayer(markerCluster);
 
+  let userMarker = null;
+  let accuracyCircle = null;
+  let nearestMarkerPopup = null;
+
   // ---------------------- 2. Dark toggle ----------------------
   document.getElementById('darkToggle').addEventListener('click', () => {
     const isDark = document.body.classList.toggle('dark');
@@ -188,15 +192,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (matched.length) map.fitBounds(L.featureGroup(matched).getBounds().pad(0.2));
   });
 
-  // ---------------------- 10. Trova fermata più vicina con marker blu ----------------------
+  // ---------------------- 10. Trova fermata più vicina con stellina ----------------------
   const locateBtn = document.getElementById('locateBtn');
   const infoBox = document.getElementById('nearestStop');
   let locating = false;
-  let userMarker = null;
-  let accuracyCircle = null;
-  const initialCenter = map.getCenter();
-  const initialZoom = map.getZoom();
-
+  let initialCenter = map.getCenter();
   locateBtn.addEventListener('click', () => {
     if (locating) {
       locating = false;
@@ -204,12 +204,14 @@ document.addEventListener('DOMContentLoaded', () => {
       infoBox.style.display = 'none';
       if (userMarker) map.removeLayer(userMarker);
       if (accuracyCircle) map.removeLayer(accuracyCircle);
-      map.setView(initialCenter, initialZoom);
+      if (nearestMarkerPopup) map.removeLayer(nearestMarkerPopup);
+      map.setView(initialCenter, 13);
       return;
     }
     locating = true;
     infoBox.style.display = 'block';
     infoBox.textContent = '📡 Caricamento...';
+
     if (!navigator.geolocation) {
       infoBox.textContent = '❌ Geolocalizzazione non supportata';
       locating = false;
@@ -218,8 +220,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navigator.geolocation.getCurrentPosition(
       ({ coords }) => {
-        locateBtn.classList.add('active');
         const { latitude: latU, longitude: lonU, accuracy } = coords;
+        locateBtn.classList.add('active');
 
         // Marker pallino blu
         if (!userMarker) {
@@ -245,30 +247,38 @@ document.addEventListener('DOMContentLoaded', () => {
           accuracyCircle.setRadius(accuracy);
         }
 
-        // Mostra fermata più vicina
+        // Trova fermata più vicina
         let nearest = null, minDist = Infinity;
         stops.forEach(s => {
           const d = map.distance([s.lat, s.lon], [latU, lonU]);
           if (d < minDist) { minDist = d; nearest = s; }
         });
+
         if (nearest) {
+          const starClass = isFavorite(nearest.id) ? 'fav-on' : 'fav-off';
           const mapsLink = `https://www.google.com/maps/dir/?api=1&destination=${nearest.lat},${nearest.lon}`;
           infoBox.innerHTML = `
-            📍 <strong>${nearest.name}</strong><br>
+            <b>${nearest.name}</b>
+            <span class="popup-star ${starClass}" data-id="${nearest.id}" title="Aggiungi/rimuovi dai preferiti">⭐</span>
             <div style="display:flex; justify-content:space-between; font-size:12px; margin-top:4px;">
               <a href="${nearest.url}" target="_blank">ℹ️ Vedi dettagli</a>
               <a href="${mapsLink}" target="_blank">📍 Portami qui</a>
             </div>
           `;
+
+          // Popup sulla mappa
+          if (nearestMarkerPopup) map.removeLayer(nearestMarkerPopup);
+          nearestMarkerPopup = L.marker([nearest.lat, nearest.lon]).addTo(map);
+          nearestMarkerPopup.bindPopup(infoBox.innerHTML).openPopup();
+
           map.setView([latU, lonU], 17);
         } else {
           infoBox.textContent = '❌ Nessuna fermata trovata';
         }
       },
-      (err) => {
+      () => {
         infoBox.textContent = '❌ Errore nella geolocalizzazione';
         locating = false;
-        console.error(err);
       },
       { enableHighAccuracy: true }
     );
