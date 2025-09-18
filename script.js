@@ -223,12 +223,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Aggiorna/crea marker blu
         if (!userMarker) {
-          userMarker = L.circleMarker([latU, lonU], {
-            radius: 6,
-            color: "#0066ff",
-            fillColor: "#3399ff",
-            fillOpacity: 0.9
-          }).addTo(map);
+         userMarker = L.marker(latlng, {
+  icon: L.divIcon({
+    className: 'user-location-dot',
+    iconSize: [16, 16]
+  })
+}).addTo(map);
+
         } else {
           userMarker.setLatLng([latU, lonU]);
         }
