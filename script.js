@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
       map.removeLayer(darkLayer);
       map.addLayer(lightLayer);
     }
-    renderFavoritesList(); // aggiorna colori popup
+    renderFavoritesList();
   });
 
   // ---------------------- 3. Favorites in localStorage ----------------------
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('favorites-popup').style.display = 'none';
   });
 
-  // ---------------------- 8. Render lista preferiti con zone e link ----------------------
+  // ---------------------- 8. Render lista preferiti ----------------------
   function renderFavoritesList() {
     const ul = document.getElementById('favorites-list');
     ul.innerHTML = '';
@@ -193,20 +193,18 @@ document.addEventListener('DOMContentLoaded', () => {
   const infoBox = document.getElementById('nearestStop');
   let locating = false;
   let userMarker = null;
-  let userCircle = null;
-  let watchId = null;
 
   locateBtn.addEventListener('click', () => {
     if (locating) {
       locating = false;
       locateBtn.classList.remove('active');
       infoBox.style.display = 'none';
-      if (userMarker) { map.removeLayer(userMarker); userMarker = null; }
-      if (userCircle) { map.removeLayer(userCircle); userCircle = null; }
-      if (watchId) { navigator.geolocation.clearWatch(watchId); watchId = null; }
+      if (userMarker) {
+        map.removeLayer(userMarker);
+        userMarker = null;
+      }
       return;
     }
-
     locating = true;
     infoBox.style.display = 'block';
     infoBox.textContent = '📡 Caricamento...';
@@ -216,43 +214,30 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    watchId = navigator.geolocation.watchPosition(
+    navigator.geolocation.watchPosition(
       ({ coords }) => {
         locateBtn.classList.add('active');
-        const { latitude: latU, longitude: lonU, accuracy } = coords;
+        const { latitude: latU, longitude: lonU } = coords;
 
-        // Aggiorna/crea marker blu
+        // mostra il pallino blu sulla mappa
         if (!userMarker) {
-         userMarker = L.marker(latlng, {
-  icon: L.divIcon({
-    className: 'user-location-dot',
-    iconSize: [16, 16]
-  })
-}).addTo(map);
-
+          userMarker = L.marker([latU, lonU], {
+            icon: L.divIcon({
+              className: 'user-location-dot',
+              iconSize: [16, 16]
+            })
+          }).addTo(map);
         } else {
           userMarker.setLatLng([latU, lonU]);
         }
 
-        // Aggiorna/crea cerchio di accuratezza
-        if (!userCircle) {
-          userCircle = L.circle([latU, lonU], {
-            radius: accuracy,
-            color: "#3399ff",
-            fillColor: "#3399ff",
-            fillOpacity: 0.15
-          }).addTo(map);
-        } else {
-          userCircle.setLatLng([latU, lonU]);
-          userCircle.setRadius(accuracy);
-        }
-
-        // Trova fermata più vicina
+        // trova fermata più vicina
         let nearest = null, minDist = Infinity;
         stops.forEach(s => {
           const d = map.distance([s.lat, s.lon], [latU, lonU]);
           if (d < minDist) { minDist = d; nearest = s; }
         });
+
         if (nearest) {
           const mapsLink = `https://www.google.com/maps/dir/?api=1&destination=${nearest.lat},${nearest.lon}`;
           infoBox.innerHTML = `
@@ -262,7 +247,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <a href="${mapsLink}" target="_blank">📍 Portami qui</a>
             </div>
           `;
-          map.setView([latU, lonU], 16);
+          map.setView([latU, lonU], 15);
         } else {
           infoBox.textContent = '❌ Nessuna fermata trovata';
         }
