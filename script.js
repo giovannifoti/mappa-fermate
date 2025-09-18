@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
       map.removeLayer(darkLayer);
       map.addLayer(lightLayer);
     }
-    renderFavoritesList();
+    renderFavoritesList(); // aggiorna colori popup
   });
 
   // ---------------------- 3. Favorites in localStorage ----------------------
@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('favorites-popup').style.display = 'none';
   });
 
-  // ---------------------- 8. Render lista preferiti ----------------------
+  // ---------------------- 8. Render lista preferiti con zone e link ----------------------
   function renderFavoritesList() {
     const ul = document.getElementById('favorites-list');
     ul.innerHTML = '';
@@ -188,85 +188,69 @@ document.addEventListener('DOMContentLoaded', () => {
     if (matched.length) map.fitBounds(L.featureGroup(matched).getBounds().pad(0.2));
   });
 
-  // ---------------------- 10. Trova fermata più vicina + posizione utente ----------------------
+  // ---------------------- 10. Trova fermata più vicina con marker blu ----------------------
   const locateBtn = document.getElementById('locateBtn');
   const infoBox = document.getElementById('nearestStop');
   let locating = false;
   let userMarker = null;
   let accuracyCircle = null;
-  let watchId = null;
-
-  const initialCenter = [38.1938, 15.5540];
-  const initialZoom = 13;
+  const initialCenter = map.getCenter();
+  const initialZoom = map.getZoom();
 
   locateBtn.addEventListener('click', () => {
     if (locating) {
-      // 🔴 Disattiva localizzazione
       locating = false;
       locateBtn.classList.remove('active');
       infoBox.style.display = 'none';
-
-      if (userMarker) { map.removeLayer(userMarker); userMarker = null; }
-      if (accuracyCircle) { map.removeLayer(accuracyCircle); accuracyCircle = null; }
-      if (watchId) { navigator.geolocation.clearWatch(watchId); watchId = null; }
-
-      // Torna alla posizione iniziale
+      if (userMarker) map.removeLayer(userMarker);
+      if (accuracyCircle) map.removeLayer(accuracyCircle);
       map.setView(initialCenter, initialZoom);
       return;
     }
-
-    // 🟢 Attiva localizzazione
     locating = true;
     infoBox.style.display = 'block';
     infoBox.textContent = '📡 Caricamento...';
-
     if (!navigator.geolocation) {
       infoBox.textContent = '❌ Geolocalizzazione non supportata';
       locating = false;
       return;
     }
 
-    watchId = navigator.geolocation.watchPosition(
+    navigator.geolocation.getCurrentPosition(
       ({ coords }) => {
         locateBtn.classList.add('active');
         const { latitude: latU, longitude: lonU, accuracy } = coords;
 
-        // marker blu
+        // Marker pallino blu
         if (!userMarker) {
-          userMarker = L.marker([latU, lonU], {
-            icon: L.divIcon({
-              className: 'user-location-dot',
-              iconSize: [16, 16]
-            })
+          userMarker = L.circleMarker([latU, lonU], {
+            radius: 8,
+            color: '#2563eb',
+            fillColor: '#2563eb',
+            fillOpacity: 1,
+            weight: 2
           }).addTo(map);
         } else {
           userMarker.setLatLng([latU, lonU]);
         }
 
-        // cerchio di accuratezza
+        // Cerchio di accuratezza
         if (!accuracyCircle) {
           accuracyCircle = L.circle([latU, lonU], {
             radius: accuracy,
-            color: '#2563eb',
-            fillColor: '#2563eb',
-            fillOpacity: 0.15,
-            weight: 1
+            className: 'leaflet-user-circle'
           }).addTo(map);
         } else {
           accuracyCircle.setLatLng([latU, lonU]);
           accuracyCircle.setRadius(accuracy);
         }
 
-        // centra la mappa sulla posizione attuale
-        map.panTo([latU, lonU]);
-
-        // trova fermata più vicina
+        // Mostra fermata più vicina
         let nearest = null, minDist = Infinity;
         stops.forEach(s => {
           const d = map.distance([s.lat, s.lon], [latU, lonU]);
           if (d < minDist) { minDist = d; nearest = s; }
         });
-
         if (nearest) {
           const mapsLink = `https://www.google.com/maps/dir/?api=1&destination=${nearest.lat},${nearest.lon}`;
           infoBox.innerHTML = `
@@ -276,16 +260,17 @@ document.addEventListener('DOMContentLoaded', () => {
               <a href="${mapsLink}" target="_blank">📍 Portami qui</a>
             </div>
           `;
+          map.setView([latU, lonU], 17);
         } else {
           infoBox.textContent = '❌ Nessuna fermata trovata';
         }
       },
-      () => {
+      (err) => {
         infoBox.textContent = '❌ Errore nella geolocalizzazione';
         locating = false;
+        console.error(err);
       },
       { enableHighAccuracy: true }
     );
   });
-
 });

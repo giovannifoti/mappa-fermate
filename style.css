@@ -168,3 +168,21 @@ body.dark #favorites-list li a { color: #ffd54f; }
   50% { transform: scale(1.2); box-shadow: 0 0 12px rgba(26,115,232,0.9); }
   100% { transform: scale(1); box-shadow: 0 0 6px rgba(26,115,232,0.6); }
 }
+/* Marker blu stile Google Maps per la posizione utente */
+.user-location-dot {
+  width: 16px;
+  height: 16px;
+  background: #2563eb;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(0,0,0,0.3);
+}
+
+/* Cerchio di accuratezza trasparente come Google Maps */
+.leaflet-user-circle {
+  stroke: #2563eb;
+  stroke-opacity: 0.6;
+  stroke-width: 2;
+  fill: #2563eb;
+  fill-opacity: 0.15;
+}
