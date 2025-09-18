@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
               <a href="${mapsLink}" target="_blank" class="popup-link">📍 Portami qui</a>
             </div>
           `;
-          map.setView([nearest.lat, nearest.lon], 17);
+          map.setView([latU, lonU], 17);
         } else {
           infoBox.textContent = '❌ Nessuna fermata trovata';
         }
