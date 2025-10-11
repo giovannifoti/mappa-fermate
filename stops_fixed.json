@@ -229,14 +229,14 @@
   }, 
   {
     "name": "V. CONSOLARE POMPEA 1929 DIR LAGO",
-    "lat": 38.26224521083938,
-    "lon": 15.618089610236815,
+    "lat": 38.26210939091048, 
+    "lon": 15.618097557970735,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=765&rnd=84"
   },   
   {
     "name": "V. CONSOLARE POMPEA 1929 DIR CENTRO",
-    "lat": 38.26211179503126,
-    "lon": 15.618105932808044,
+    "lat": 38.262200619957696,
+    "lon": 15.618101078815725,
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1765&rnd=84"
   },
   {
@@ -445,14 +445,14 @@
   },
   {
     "name": "GANZIRRI V. PETRARO DIR LAGO",
-    "lat": 38.25962,
-    "lon": 15.60961, 
+    "lat": 38.25961041601024,
+    "lon": 15.609601187885826, 
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=762&rnd=84"
   },
   {
     "name": "GANZIRRI V. PETRARO DIR CENTRO",
-    "lat": 38.25960,
-    "lon": 15.60950, 
+    "lat": 38.2596016389093,
+    "lon": 15.609492202522189, 
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1762&rnd=84"
   },
   {
@@ -463,14 +463,14 @@
   },
   {
     "name": "GANZIRRI ORTOPEDICO DIR LAGO",
-    "lat": 38.26131,
-    "lon": 15.61500, 
+    "lat": 38.261262283998,
+    "lon": 15.615127665096693, 
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=764&rnd=84"
   },
   {
     "name": "GANZIRRI ORTOPEDICO DIR CENTRO",
-    "lat": 38.26131,
-    "lon": 15.61514, 
+    "lat": 38.26131204589093,
+    "lon": 15.614995633409462, 
     "url": "https://www.atmmessinaspa.it/smartpoles2.php?palina=1764&rnd=84"
   },
   {
