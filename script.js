@@ -1,5 +1,57 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // ---------------------- 1. Layers ----------------------
+  const FAVORITES_KEY = 'favorites';
+  const THEME_KEY = 'theme';
+  const MAX_SUGGESTIONS = 12;
+  const ZONE_LABELS = { nord: 'Nord', centro: 'Centro', sud: 'Sud' };
+  const ZONE_ORDER = ['nord', 'centro', 'sud'];
+
+  const dom = {
+    input: document.getElementById('searchInput'),
+    clearSearch: document.getElementById('clearSearch'),
+    suggestions: document.getElementById('suggestions'),
+    locateBtn: document.getElementById('locateBtn'),
+    infoBox: document.getElementById('nearestStop'),
+    darkToggle: document.getElementById('darkToggle'),
+    favoriteFilterBtn: document.getElementById('favoriteFilterBtn'),
+    favoritesBtn: document.getElementById('open-favorites'),
+    favoritesPopup: document.getElementById('favorites-popup'),
+    closeFavorites: document.getElementById('close-favorites'),
+    favoritesList: document.getElementById('favorites-list'),
+    favoritesSummary: document.getElementById('favorites-summary'),
+    clearFavorites: document.getElementById('clear-favorites'),
+    mapStatus: document.getElementById('mapStatus')
+  };
+
+  let statusTimer = null;
+  let searchTimer = null;
+  let favoritesOnly = false;
+  let locationVisible = false;
+  let locationLoading = false;
+  let userMarker = null;
+  let accuracyCircle = null;
+  let lastUserLatLng = null;
+
+  let stops = [];
+  const stopsById = new Map();
+  const stopsByLegacyId = new Map();
+  const usedStopIds = new Set();
+  const favorites = readFavoriteSet();
+
+  function setStatus(message, timeout = 2200) {
+    window.clearTimeout(statusTimer);
+    dom.mapStatus.textContent = message || '';
+    dom.mapStatus.classList.toggle('is-visible', Boolean(message));
+
+    if (message && timeout > 0) {
+      statusTimer = window.setTimeout(() => setStatus(''), timeout);
+    }
+  }
+
+  if (!window.L || !L.markerClusterGroup) {
+    setStatus('Impossibile caricare la mappa. Controlla la connessione.', 6000);
+    return;
+  }
+
   const lightLayer = L.tileLayer(
     'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
     { attribution: '&copy; OpenStreetMap & CARTO', subdomains: 'abcd', maxZoom: 19 }
@@ -10,279 +62,785 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   const initialCenter = [38.1938, 15.5540];
+  const initialDark = getStoredTheme() === 'dark' ||
+    (!getStoredTheme() && window.matchMedia?.('(prefers-color-scheme: dark)').matches);
+
+  document.body.classList.toggle('dark', Boolean(initialDark));
+
   const map = L.map('map', {
     center: initialCenter,
     zoom: 13,
-    layers: [lightLayer]
+    layers: [initialDark ? darkLayer : lightLayer],
+    preferCanvas: true,
+    zoomControl: false
   });
-  const markerCluster = L.markerClusterGroup();
+
+  L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+  const markerCluster = L.markerClusterGroup({
+    chunkedLoading: true,
+    chunkInterval: 80,
+    chunkDelay: 30,
+    disableClusteringAtZoom: 18,
+    showCoverageOnHover: false,
+    maxClusterRadius: zoom => (zoom < 14 ? 64 : 40)
+  });
   map.addLayer(markerCluster);
 
-  // ---------------------- 2. Dark toggle ----------------------
-  document.getElementById('darkToggle').addEventListener('click', () => {
-    const isDark = document.body.classList.toggle('dark');
-    if (isDark) {
+  applyTheme(Boolean(initialDark), false);
+  loadStops();
+
+  dom.darkToggle.addEventListener('click', () => {
+    applyTheme(!document.body.classList.contains('dark'));
+  });
+
+  dom.input.addEventListener('input', () => {
+    dom.clearSearch.hidden = dom.input.value.length === 0;
+    window.clearTimeout(searchTimer);
+    searchTimer = window.setTimeout(() => applyFilters({ fit: true }), 120);
+  });
+
+  dom.input.addEventListener('focus', () => {
+    const query = normalize(dom.input.value.trim());
+    if (query) renderSuggestions(query, getFilteredStops(query));
+  });
+
+  dom.clearSearch.addEventListener('click', () => {
+    dom.input.value = '';
+    dom.clearSearch.hidden = true;
+    closeSuggestions();
+    applyFilters();
+    dom.input.focus();
+  });
+
+  dom.favoriteFilterBtn.addEventListener('click', () => {
+    favoritesOnly = !favoritesOnly;
+    updateFavoriteFilterButton();
+    applyFilters({ fit: false });
+    setStatus(favoritesOnly ? 'Mostro solo i preferiti' : 'Mostro tutte le fermate');
+  });
+
+  dom.locateBtn.addEventListener('click', locateUser);
+  dom.favoritesBtn.addEventListener('click', openFavoritesPopup);
+  dom.closeFavorites.addEventListener('click', closeFavoritesPopup);
+  dom.clearFavorites.addEventListener('click', clearAllFavorites);
+
+  dom.favoritesPopup.addEventListener('click', event => {
+    if (event.target === dom.favoritesPopup) closeFavoritesPopup();
+  });
+
+  document.addEventListener('click', event => {
+    const star = event.target.closest('.popup-star');
+    if (star) {
+      const stop = getStopFromTrigger(star);
+      if (stop) {
+        const isNowFavorite = toggleFavorite(stop);
+        star.classList.add('animate');
+        star.addEventListener('animationend', () => star.classList.remove('animate'), { once: true });
+        setStatus(isNowFavorite ? 'Aggiunta ai preferiti' : 'Rimossa dai preferiti');
+      }
+      return;
+    }
+
+    const openButton = event.target.closest('[data-open-stop]');
+    if (openButton) {
+      const stop = stopsById.get(openButton.dataset.openStop);
+      if (stop) {
+        if (openButton.closest('#suggestions')) {
+          dom.input.value = stop.name;
+          dom.clearSearch.hidden = false;
+          closeSuggestions();
+        }
+        if (openButton.closest('#favorites-popup')) closeFavoritesPopup();
+        openStop(stop);
+      }
+      return;
+    }
+
+    if (event.target.closest('[data-close-nearest]')) {
+      clearLocation();
+      return;
+    }
+
+    if (!event.target.closest('.top-bar') && !event.target.closest('#suggestions')) {
+      closeSuggestions();
+    }
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    closeSuggestions();
+    if (dom.favoritesPopup.classList.contains('is-open')) closeFavoritesPopup();
+    if (dom.infoBox.classList.contains('is-open')) clearLocation();
+  });
+
+  window.addEventListener('resize', debounce(() => map.invalidateSize(), 180));
+  window.addEventListener('orientationchange', () => {
+    window.setTimeout(() => map.invalidateSize(), 250);
+  });
+
+  if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./sw.js').catch(() => {});
+    });
+  }
+
+  function loadStops() {
+    setStatus('Carico fermate...', 0);
+
+    fetch('./stops_fixed.json')
+      .then(response => {
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+      .then(data => {
+        if (!Array.isArray(data)) throw new Error('Il file fermate non contiene una lista valida');
+
+        stops = data
+          .map(enrichStop)
+          .filter(Boolean);
+
+        const markers = stops.map(createMarker);
+        markerCluster.addLayers(markers);
+        applyFilters();
+        setStatus(`${stops.length.toLocaleString('it-IT')} fermate caricate`);
+      })
+      .catch(error => {
+        console.error(error);
+        setStatus('Errore nel caricamento delle fermate.', 6000);
+      });
+  }
+
+  function enrichStop(stop, index) {
+    if (!stop || !stop.name) return null;
+
+    const lat = Number(stop.lat);
+    const lon = Number(stop.lon);
+    if (!Number.isFinite(lat) || !Number.isFinite(lon)) return null;
+
+    const code = extractStopCode(stop.url);
+    const baseId = code ? `palina-${code}` : `idx-${index}`;
+    const id = makeUniqueStopId(baseId);
+    const name = String(stop.name).trim();
+
+    return {
+      ...stop,
+      id,
+      legacyId: index,
+      code,
+      name,
+      lat,
+      lon,
+      url: String(stop.url || ''),
+      zone: getZone(stop, lat),
+      normalizedName: normalize(name)
+    };
+  }
+
+  function createMarker(stop) {
+    const marker = L.marker([stop.lat, stop.lon], {
+      title: stop.name,
+      keyboard: true
+    });
+
+    marker.bindPopup(() => buildPopupHtml(stop), {
+      maxWidth: 280
+    });
+
+    stop.marker = marker;
+    stopsById.set(stop.id, stop);
+    stopsByLegacyId.set(String(stop.legacyId), stop);
+    return marker;
+  }
+
+  function applyFilters({ fit = false } = {}) {
+    if (!stops.length) return;
+
+    const query = normalize(dom.input.value.trim());
+    const filteredStops = getFilteredStops(query);
+
+    markerCluster.clearLayers();
+    if (filteredStops.length) {
+      markerCluster.addLayers(filteredStops.map(stop => stop.marker));
+    }
+
+    renderSuggestions(query, filteredStops);
+    updateFavoriteFilterButton();
+
+    if (fit && query.length >= 2 && filteredStops.length > 0 && filteredStops.length <= 250) {
+      const bounds = L.latLngBounds(filteredStops.map(stop => [stop.lat, stop.lon])).pad(0.18);
+      map.fitBounds(bounds, { maxZoom: 16, animate: true });
+    }
+
+    if (query && filteredStops.length === 0) {
+      setStatus('Nessuna fermata trovata');
+    } else if (favoritesOnly && filteredStops.length === 0) {
+      setStatus('Non hai ancora preferiti');
+    }
+  }
+
+  function getFilteredStops(query) {
+    const activeQuery = query || '';
+    const filtered = stops.filter(stop => {
+      if (favoritesOnly && !isFavoriteStop(stop)) return false;
+      return !activeQuery || stop.normalizedName.includes(activeQuery);
+    });
+
+    if (!activeQuery) {
+      return filtered.sort((a, b) => a.name.localeCompare(b.name, 'it'));
+    }
+
+    return filtered.sort((a, b) => compareSearchResult(a, b, activeQuery));
+  }
+
+  function renderSuggestions(query, results) {
+    dom.suggestions.replaceChildren();
+
+    if (!query) {
+      closeSuggestions();
+      return;
+    }
+
+    const fragment = document.createDocumentFragment();
+    const meta = document.createElement('div');
+    meta.className = results.length ? 'suggestions-meta' : 'empty-state';
+    meta.textContent = results.length === 1 ? '1 risultato' : `${results.length} risultati`;
+    fragment.appendChild(meta);
+
+    results.slice(0, MAX_SUGGESTIONS).forEach(stop => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'suggestion-item';
+      button.dataset.openStop = stop.id;
+      button.setAttribute('role', 'option');
+
+      const name = document.createElement('span');
+      name.className = 'suggestion-name';
+      name.textContent = stop.name;
+
+      const extra = document.createElement('span');
+      extra.className = 'suggestion-extra';
+      extra.textContent = getSuggestionMeta(stop);
+
+      button.append(name, extra);
+      fragment.appendChild(button);
+    });
+
+    dom.suggestions.appendChild(fragment);
+    dom.suggestions.classList.add('is-open');
+  }
+
+  function closeSuggestions() {
+    dom.suggestions.classList.remove('is-open');
+    dom.suggestions.replaceChildren();
+  }
+
+  function locateUser() {
+    if (locationVisible || locationLoading) {
+      clearLocation();
+      return;
+    }
+
+    if (!stops.length) {
+      setStatus('Le fermate sono ancora in caricamento.');
+      return;
+    }
+
+    if (!navigator.geolocation) {
+      setStatus('Geolocalizzazione non supportata.', 4200);
+      return;
+    }
+
+    locationLoading = true;
+    updateLocateButton();
+    setStatus('Cerco la tua posizione...', 0);
+
+    navigator.geolocation.getCurrentPosition(
+      ({ coords }) => handlePosition(coords),
+      handleLocationError,
+      {
+        enableHighAccuracy: true,
+        maximumAge: 60000,
+        timeout: 10000
+      }
+    );
+  }
+
+  function handlePosition(coords) {
+    const { latitude, longitude, accuracy } = coords;
+    const userLatLng = [latitude, longitude];
+    const nearestStops = getNearestStops(userLatLng, 5);
+
+    lastUserLatLng = userLatLng;
+    locationLoading = false;
+    locationVisible = true;
+    updateLocateButton();
+    setStatus('Fermata più vicina trovata');
+
+    if (!userMarker) {
+      userMarker = L.circleMarker(userLatLng, {
+        radius: 8,
+        color: '#ffffff',
+        fillColor: '#2563eb',
+        fillOpacity: 1,
+        weight: 3,
+        interactive: false
+      }).addTo(map);
+    } else {
+      userMarker.setLatLng(userLatLng);
+    }
+
+    const radius = Math.max(Number(accuracy) || 0, 40);
+    if (!accuracyCircle) {
+      accuracyCircle = L.circle(userLatLng, {
+        radius,
+        color: '#2563eb',
+        opacity: 0.4,
+        fillColor: '#2563eb',
+        fillOpacity: 0.15,
+        weight: 1,
+        interactive: false,
+        className: 'leaflet-user-circle'
+      }).addTo(map);
+    } else {
+      accuracyCircle.setLatLng(userLatLng);
+      accuracyCircle.setRadius(radius);
+    }
+
+    if (nearestStops.length) {
+      renderNearestPanel(nearestStops, radius);
+      const nearest = nearestStops[0].stop;
+      const bounds = L.latLngBounds([userLatLng, [nearest.lat, nearest.lon]]).pad(0.35);
+      map.fitBounds(bounds, { maxZoom: 17, animate: true });
+      renderSuggestions(normalize(dom.input.value.trim()), getFilteredStops(normalize(dom.input.value.trim())));
+    }
+  }
+
+  function handleLocationError(error) {
+    locationLoading = false;
+    locationVisible = false;
+    updateLocateButton();
+
+    const message = error.code === error.PERMISSION_DENIED
+      ? 'Permesso posizione negato.'
+      : 'Posizione non disponibile.';
+    setStatus(message, 4200);
+  }
+
+  function clearLocation() {
+    locationLoading = false;
+    locationVisible = false;
+    lastUserLatLng = null;
+    updateLocateButton();
+    dom.infoBox.classList.remove('is-open');
+    dom.infoBox.replaceChildren();
+
+    if (userMarker) {
+      map.removeLayer(userMarker);
+      userMarker = null;
+    }
+
+    if (accuracyCircle) {
+      map.removeLayer(accuracyCircle);
+      accuracyCircle = null;
+    }
+  }
+
+  function renderNearestPanel(nearestStops, accuracy) {
+    const nearest = nearestStops[0];
+    const stop = nearest.stop;
+    const otherRows = nearestStops
+      .slice(1, 4)
+      .map(entry => {
+        const rowStop = entry.stop;
+        return `
+          <button type="button" class="nearest-row" data-open-stop="${escapeHtml(rowStop.id)}">
+            <span>${escapeHtml(rowStop.name)}</span>
+            <strong>${formatDistance(entry.distance)}</strong>
+          </button>
+        `;
+      })
+      .join('');
+
+    dom.infoBox.innerHTML = `
+      <div class="nearest-header">
+        <div>
+          <p class="nearest-kicker">Fermata più vicina</p>
+        </div>
+        <div class="nearest-header-actions">
+          ${favoriteButtonHtml(stop)}
+          <button type="button" class="mini-close" data-close-nearest aria-label="Chiudi fermata più vicina">&times;</button>
+        </div>
+      </div>
+      <button type="button" class="nearest-main" data-open-stop="${escapeHtml(stop.id)}">
+        <strong>${escapeHtml(stop.name)}</strong>
+        <span>${formatDistance(nearest.distance)} da te · accuratezza ${formatDistance(accuracy)}</span>
+      </button>
+      <div class="popup-actions">
+        ${detailsLinkHtml(stop)}
+        ${mapsLinkHtml(stop)}
+      </div>
+      ${otherRows ? `<div class="nearby-list">${otherRows}</div>` : ''}
+    `;
+    dom.infoBox.classList.add('is-open');
+  }
+
+  function getNearestStops(userLatLng, limit) {
+    return stops
+      .map(stop => ({
+        stop,
+        distance: map.distance([stop.lat, stop.lon], userLatLng)
+      }))
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, limit);
+  }
+
+  function openFavoritesPopup() {
+    renderFavoritesList();
+    dom.favoritesPopup.classList.add('is-open');
+    dom.favoritesPopup.setAttribute('aria-hidden', 'false');
+    dom.closeFavorites.focus();
+  }
+
+  function closeFavoritesPopup() {
+    dom.favoritesPopup.classList.remove('is-open');
+    dom.favoritesPopup.setAttribute('aria-hidden', 'true');
+  }
+
+  function renderFavoritesList() {
+    const favoriteStops = stops
+      .filter(isFavoriteStop)
+      .sort((a, b) => {
+        const zoneDiff = ZONE_ORDER.indexOf(a.zone) - ZONE_ORDER.indexOf(b.zone);
+        return zoneDiff || a.name.localeCompare(b.name, 'it');
+      });
+
+    dom.favoritesList.replaceChildren();
+    dom.favoritesSummary.textContent = favoriteStops.length === 1
+      ? '1 fermata salvata'
+      : `${favoriteStops.length} fermate salvate`;
+    dom.clearFavorites.hidden = favoriteStops.length === 0;
+
+    if (!favoriteStops.length) {
+      const empty = document.createElement('p');
+      empty.className = 'empty-state';
+      empty.textContent = 'Nessuna fermata preferita.';
+      dom.favoritesList.appendChild(empty);
+      return;
+    }
+
+    const grouped = groupByZone(favoriteStops);
+    ZONE_ORDER.forEach(zone => {
+      if (!grouped[zone]?.length) return;
+
+      const section = document.createElement('section');
+      section.className = 'favorites-zone';
+
+      const title = document.createElement('h3');
+      title.textContent = ZONE_LABELS[zone];
+      section.appendChild(title);
+
+      grouped[zone].forEach(stop => {
+        const row = document.createElement('div');
+        row.className = 'favorite-row';
+
+        const main = document.createElement('button');
+        main.type = 'button';
+        main.className = 'favorite-main';
+        main.dataset.openStop = stop.id;
+
+        const name = document.createElement('strong');
+        name.textContent = stop.name;
+
+        const meta = document.createElement('span');
+        meta.textContent = stop.code ? `Palina ${stop.code}` : ZONE_LABELS[stop.zone];
+
+        main.append(name, meta);
+
+        const remove = document.createElement('button');
+        remove.type = 'button';
+        remove.className = 'remove-fav';
+        remove.textContent = '×';
+        remove.setAttribute('aria-label', `Rimuovi ${stop.name} dai preferiti`);
+        remove.addEventListener('click', event => {
+          event.stopPropagation();
+          setFavorite(stop, false);
+          refreshFavoriteElements(stop);
+          renderFavoritesList();
+          applyFilters();
+          setStatus('Rimossa dai preferiti');
+        });
+
+        row.append(main, remove);
+        section.appendChild(row);
+      });
+
+      dom.favoritesList.appendChild(section);
+    });
+  }
+
+  function clearAllFavorites() {
+    favorites.clear();
+    saveFavorites();
+    refreshAllFavoriteElements();
+    renderFavoritesList();
+    applyFilters();
+    setStatus('Preferiti svuotati');
+  }
+
+  function toggleFavorite(stop) {
+    const shouldFavorite = !isFavoriteStop(stop);
+    setFavorite(stop, shouldFavorite);
+    refreshFavoriteElements(stop);
+    if (dom.favoritesPopup.classList.contains('is-open')) renderFavoritesList();
+    if (favoritesOnly) applyFilters();
+    return shouldFavorite;
+  }
+
+  function setFavorite(stop, shouldFavorite) {
+    favorites.delete(String(stop.legacyId));
+    favorites.delete(String(stop.id));
+    if (shouldFavorite) favorites.add(String(stop.id));
+    saveFavorites();
+  }
+
+  function isFavoriteStop(stop) {
+    return favorites.has(String(stop.id)) || favorites.has(String(stop.legacyId));
+  }
+
+  function refreshFavoriteElements(stop) {
+    const active = isFavoriteStop(stop);
+    document.querySelectorAll('.popup-star').forEach(element => {
+      if (element.dataset.id !== String(stop.id) && element.dataset.legacyId !== String(stop.legacyId)) return;
+      element.classList.toggle('fav-on', active);
+      element.classList.toggle('fav-off', !active);
+      element.setAttribute('aria-pressed', String(active));
+      element.setAttribute('aria-label', active ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti');
+    });
+  }
+
+  function refreshAllFavoriteElements() {
+    stops.forEach(refreshFavoriteElements);
+  }
+
+  function updateFavoriteFilterButton() {
+    dom.favoriteFilterBtn.classList.toggle('active', favoritesOnly);
+    dom.favoriteFilterBtn.setAttribute('aria-pressed', String(favoritesOnly));
+  }
+
+  function updateLocateButton() {
+    dom.locateBtn.classList.toggle('active', locationVisible);
+    dom.locateBtn.classList.toggle('loading', locationLoading);
+    dom.locateBtn.setAttribute('aria-pressed', String(locationVisible));
+    dom.locateBtn.textContent = locationLoading ? '📡' : '📍';
+  }
+
+  function applyTheme(isDark, persist = true) {
+    document.body.classList.toggle('dark', isDark);
+    dom.darkToggle.textContent = isDark ? '☀️' : '🌙';
+    dom.darkToggle.setAttribute('aria-pressed', String(isDark));
+
+    if (isDark && map.hasLayer(lightLayer)) {
       map.removeLayer(lightLayer);
       map.addLayer(darkLayer);
-    } else {
+    } else if (!isDark && map.hasLayer(darkLayer)) {
       map.removeLayer(darkLayer);
       map.addLayer(lightLayer);
     }
-    renderFavoritesList(); // aggiorna colori popup
-  });
 
-  // ---------------------- 3. Favorites in localStorage ----------------------
-  let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-  function isFavorite(id) {
-    return favorites.includes(id.toString());
-  }
-  function toggleFavorite(id) {
-    const str = id.toString();
-    const idx = favorites.indexOf(str);
-    if (idx > -1) favorites.splice(idx, 1);
-    else favorites.push(str);
-    localStorage.setItem('favorites', JSON.stringify(favorites));
+    if (persist) setStoredTheme(isDark ? 'dark' : 'light');
   }
 
-  // ---------------------- 4. Utility normalize ----------------------
-  let stops = [];
-  const markers = [];
-  function normalize(str) {
-    return str.toLowerCase()
+  function buildPopupHtml(stop) {
+    return `
+      <div class="stop-popup">
+        <div class="popup-title">
+          <strong>${escapeHtml(stop.name)}</strong>
+          ${favoriteButtonHtml(stop)}
+        </div>
+        ${stop.code ? `<p class="popup-code">Palina ${escapeHtml(stop.code)}</p>` : ''}
+        <div class="popup-actions">
+          ${detailsLinkHtml(stop)}
+          ${mapsLinkHtml(stop)}
+        </div>
+      </div>
+    `;
+  }
+
+  function favoriteButtonHtml(stop) {
+    const active = isFavoriteStop(stop);
+    return `
+      <button
+        type="button"
+        class="popup-star ${active ? 'fav-on' : 'fav-off'}"
+        data-id="${escapeHtml(stop.id)}"
+        data-legacy-id="${escapeHtml(stop.legacyId)}"
+        aria-pressed="${active}"
+        aria-label="${active ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}"
+        title="${active ? 'Rimuovi dai preferiti' : 'Aggiungi ai preferiti'}"
+      >★</button>
+    `;
+  }
+
+  function detailsLinkHtml(stop) {
+    if (!stop.url) return '';
+    return `<a href="${escapeHtml(stop.url)}" target="_blank" rel="noopener noreferrer" class="popup-link">Dettagli</a>`;
+  }
+
+  function mapsLinkHtml(stop) {
+    const destination = encodeURIComponent(`${stop.lat},${stop.lon}`);
+    return `<a href="https://www.google.com/maps/dir/?api=1&destination=${destination}" target="_blank" rel="noopener noreferrer" class="popup-link">Percorso</a>`;
+  }
+
+  function getSuggestionMeta(stop) {
+    const bits = [];
+    if (isFavoriteStop(stop)) bits.push('★');
+    if (lastUserLatLng) bits.push(formatDistance(map.distance([stop.lat, stop.lon], lastUserLatLng)));
+    if (!bits.length && stop.code) bits.push(`Palina ${stop.code}`);
+    return bits.join(' · ');
+  }
+
+  function compareSearchResult(a, b, query) {
+    const favoriteDiff = Number(isFavoriteStop(b)) - Number(isFavoriteStop(a));
+    if (favoriteDiff) return favoriteDiff;
+
+    const aStarts = a.normalizedName.startsWith(query);
+    const bStarts = b.normalizedName.startsWith(query);
+    if (aStarts !== bStarts) return Number(bStarts) - Number(aStarts);
+
+    const indexDiff = a.normalizedName.indexOf(query) - b.normalizedName.indexOf(query);
+    if (indexDiff) return indexDiff;
+
+    if (lastUserLatLng) {
+      const distanceDiff = map.distance([a.lat, a.lon], lastUserLatLng) -
+        map.distance([b.lat, b.lon], lastUserLatLng);
+      if (distanceDiff) return distanceDiff;
+    }
+
+    return a.name.localeCompare(b.name, 'it');
+  }
+
+  function openStop(stop) {
+    if (!markerCluster.hasLayer(stop.marker)) {
+      markerCluster.addLayer(stop.marker);
+    }
+
+    let popupOpened = false;
+    const showPopup = () => {
+      if (popupOpened) return;
+      popupOpened = true;
+      L.popup({ maxWidth: 280 })
+        .setLatLng([stop.lat, stop.lon])
+        .setContent(buildPopupHtml(stop))
+        .openOn(map);
+    };
+
+    map.once('moveend', showPopup);
+    map.setView(stop.marker.getLatLng(), 18, { animate: true });
+    window.setTimeout(showPopup, 450);
+  }
+
+  function getStopFromTrigger(element) {
+    return stopsById.get(element.dataset.id) ||
+      stopsByLegacyId.get(String(element.dataset.legacyId));
+  }
+
+  function groupByZone(items) {
+    return items.reduce((groups, stop) => {
+      const zone = stop.zone || 'centro';
+      groups[zone] = groups[zone] || [];
+      groups[zone].push(stop);
+      return groups;
+    }, {});
+  }
+
+  function getZone(stop, lat) {
+    const rawZone = normalize(stop.zone || '');
+    if (rawZone.includes('nord')) return 'nord';
+    if (rawZone.includes('sud')) return 'sud';
+    if (rawZone.includes('centro')) return 'centro';
+    if (lat >= 38.215) return 'nord';
+    if (lat <= 38.175) return 'sud';
+    return 'centro';
+  }
+
+  function extractStopCode(url) {
+    const match = String(url || '').match(/[?&]palina=([^&]+)/);
+    return match ? decodeURIComponent(match[1]) : '';
+  }
+
+  function makeUniqueStopId(baseId) {
+    let id = baseId;
+    let suffix = 2;
+    while (usedStopIds.has(id)) {
+      id = `${baseId}-${suffix}`;
+      suffix += 1;
+    }
+    usedStopIds.add(id);
+    return id;
+  }
+
+  function formatDistance(distance) {
+    if (!Number.isFinite(distance)) return '';
+    if (distance < 1000) return `${Math.round(distance)} m`;
+    return `${(distance / 1000).toFixed(distance < 10000 ? 1 : 0)} km`;
+  }
+
+  function normalize(value) {
+    return String(value || '')
+      .toLowerCase()
       .normalize('NFD')
       .replace(/[\u0300-\u036f]/g, '');
   }
 
-  // ---------------------- 5. Carica fermate ----------------------
-  fetch('./stops_fixed.json')
-    .then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })
-    .then(data => {
-      if (!Array.isArray(data)) throw new Error('JSON non è un array');
-
-      stops = data
-        .filter(s => s && s.name && s.lat && s.lon)
-        .map((s, idx) => ({ ...s, id: s.id ?? idx, zone: s.zone ?? 'centro' }));
-
-      stops.forEach(s => {
-        const m = L.marker([s.lat, s.lon], { title: s.name });
-        const starClass = isFavorite(s.id) ? 'fav-on' : 'fav-off';
-        const mapsLink = `https://www.google.com/maps/dir/?api=1&destination=${s.lat},${s.lon}`;
-        const html = `
-          <div>
-            <b>${s.name}</b>
-            <span
-              class="popup-star ${starClass}"
-              data-id="${s.id}"
-              title="Aggiungi/rimuovi dai preferiti"
-            >⭐</span>
-            <br>
-            <div style="display:flex; justify-content:space-between; font-size:12px; margin-top:4px;">
-              <a href="${s.url}" target="_blank" class="popup-link">ℹ️ Vedi dettagli</a>
-              <a href="${mapsLink}" target="_blank" class="popup-link">📍 Portami qui</a>
-            </div>
-          </div>`;
-        m.bindPopup(html);
-        m.normalizedName = normalize(s.name);
-        markers.push(m);
-        markerCluster.addLayer(m);
-      });
-    })
-    .catch(e => {
-      console.error(e);
-      alert('Errore nel caricamento delle fermate: ' + e.message);
-    });
-
-  // ---------------------- 6. Click su stellina popup ----------------------
-  document.addEventListener('click', e => {
-    const el = e.target.closest('.popup-star');
-    if (!el) return;
-    const id = el.dataset.id;
-    toggleFavorite(id);
-    el.classList.toggle('fav-on',  isFavorite(id));
-    el.classList.toggle('fav-off', !isFavorite(id));
-    el.classList.add('animate');
-    el.addEventListener('animationend', () => el.classList.remove('animate'), { once: true });
-  });
-
-  // ---------------------- 7. Apri/chiudi popup preferiti ----------------------
-  document.getElementById('open-favorites').addEventListener('click', () => {
-    renderFavoritesList();
-    document.getElementById('favorites-popup').style.display = 'block';
-  });
-  document.getElementById('close-favorites').addEventListener('click', () => {
-    document.getElementById('favorites-popup').style.display = 'none';
-  });
-
-  // ---------------------- 8. Render lista preferiti ----------------------
-  function renderFavoritesList() {
-    const ul = document.getElementById('favorites-list');
-    ul.innerHTML = '';
-
-    const zones = { nord: [], centro: [], sud: [] };
-    stops.forEach(s => {
-      if (!s.id || !isFavorite(s.id)) return;
-      zones[s.zone || 'centro'].push(s);
-    });
-
-    Object.keys(zones).forEach(zoneKey => {
-      const stopsInZone = zones[zoneKey];
-      if (!stopsInZone.length) return;
-
-      const h3 = document.createElement('h3');
-      h3.textContent = zoneKey.charAt(0).toUpperCase() + zoneKey.slice(1);
-      h3.style.color = document.body.classList.contains('dark') ? '#ffd54f' : '#003366';
-      ul.appendChild(h3);
-
-      stopsInZone.forEach(stop => {
-        const li = document.createElement('li');
-
-        const a = document.createElement('a');
-        a.href = stop.url;
-        a.target = '_blank';
-        a.textContent = stop.name;
-        a.style.color = document.body.classList.contains('dark') ? '#ffd54f' : '#003366';
-        li.appendChild(a);
-
-        const btn = document.createElement('button');
-        btn.textContent = '❌';
-        btn.className = 'remove-fav';
-        btn.addEventListener('click', () => {
-          const idx = favorites.indexOf(stop.id.toString());
-          if (idx > -1) favorites.splice(idx, 1);
-          localStorage.setItem('favorites', JSON.stringify(favorites));
-          renderFavoritesList();
-        });
-        li.appendChild(btn);
-
-        ul.appendChild(li);
-      });
-    });
-
-    const h2 = document.querySelector('#favorites-popup h2');
-    if (h2) h2.style.color = document.body.classList.contains('dark') ? '#ffd54f' : '#003366';
+  function escapeHtml(value) {
+    return String(value ?? '').replace(/[&<>"']/g, char => ({
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#039;'
+    })[char]);
   }
 
-  // ---------------------- 9. Ricerca ----------------------
-  const input = document.getElementById('searchInput');
-  const suggestions = document.getElementById('suggestions');
-  input.addEventListener('input', () => {
-    const q = normalize(input.value.trim());
-    suggestions.innerHTML = '';
-    if (!q) {
-      markerCluster.clearLayers();
-      markers.forEach(m => markerCluster.addLayer(m));
-      return;
+  function readFavoriteSet() {
+    try {
+      const stored = JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
+      return new Set(Array.isArray(stored) ? stored.map(String) : []);
+    } catch {
+      return new Set();
     }
-    const matched = markers.filter(m => m.normalizedName.includes(q));
-    matched.slice(0, 10).forEach(m => {
-      const div = document.createElement('div');
-      div.textContent = m.options.title;
-      div.addEventListener('click', () => {
-        map.setView(m.getLatLng(), 17);
-        m.openPopup();
-        suggestions.innerHTML = '';
-      });
-      suggestions.appendChild(div);
-    });
-    markerCluster.clearLayers();
-    matched.forEach(m => markerCluster.addLayer(m));
-    if (matched.length) map.fitBounds(L.featureGroup(matched).getBounds().pad(0.2));
-  });
+  }
 
-  // ---------------------- 10. Trova fermata più vicina ----------------------
-  const locateBtn = document.getElementById('locateBtn');
-  const infoBox = document.getElementById('nearestStop');
-  let locating = false;
-  let userMarker = null;
-  let accuracyCircle = null;
-  let nearestMarkerPopup = null;
-
-  locateBtn.addEventListener('click', () => {
-    if (locating) {
-      locating = false;
-      locateBtn.classList.remove('active');
-      infoBox.style.display = 'none';
-      if (userMarker) { map.removeLayer(userMarker); userMarker = null; }
-      if (accuracyCircle) { map.removeLayer(accuracyCircle); accuracyCircle = null; }
-      if (nearestMarkerPopup) { map.removeLayer(nearestMarkerPopup); nearestMarkerPopup = null; }
-      map.setView(initialCenter, 13);
-      return;
+  function saveFavorites() {
+    try {
+      localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites]));
+    } catch {
+      setStatus('Preferiti non salvati: memoria locale non disponibile.', 4200);
     }
-    locating = true;
-    infoBox.style.display = 'block';
-    infoBox.textContent = '📡 Caricamento...';
-    if (!navigator.geolocation) {
-      infoBox.textContent = '❌ Geolocalizzazione non supportata';
-      locating = false;
-      return;
+  }
+
+  function getStoredTheme() {
+    try {
+      return localStorage.getItem(THEME_KEY);
+    } catch {
+      return null;
     }
+  }
 
-    navigator.geolocation.getCurrentPosition(
-      ({ coords }) => {
-        locateBtn.classList.add('active');
-        const { latitude: latU, longitude: lonU, accuracy } = coords;
+  function setStoredTheme(theme) {
+    try {
+      localStorage.setItem(THEME_KEY, theme);
+    } catch {
+      // Tema non essenziale: se localStorage non è disponibile continuiamo comunque.
+    }
+  }
 
-        // Marker blu
-        if (!userMarker) {
-          userMarker = L.circleMarker([latU, lonU], {
-            radius: 8,
-            color: '#2563eb',
-            fillColor: '#2563eb',
-            fillOpacity: 1,
-            weight: 2
-          }).addTo(map);
-        } else {
-          userMarker.setLatLng([latU, lonU]);
-        }
-
-        // Cerchio di accuratezza
-        const accRadius = Math.max(accuracy, 40);
-        if (!accuracyCircle) {
-          accuracyCircle = L.circle([latU, lonU], {
-            radius: accRadius,
-            color: '#2563eb',
-            opacity: 0.4,
-            fillColor: '#2563eb',
-            fillOpacity: 0.15,
-            weight: 1,
-            className: 'leaflet-user-circle'
-          }).addTo(map);
-        } else {
-          accuracyCircle.setLatLng([latU, lonU]);
-          accuracyCircle.setRadius(accRadius);
-        }
-
-        // Trova fermata più vicina
-        let nearest = null, minDist = Infinity;
-        stops.forEach(s => {
-          const d = map.distance([s.lat, s.lon], [latU, lonU]);
-          if (d < minDist) { minDist = d; nearest = s; }
-        });
-        if (nearest) {
-          const starClass = isFavorite(nearest.id) ? 'fav-on' : 'fav-off';
-          const mapsLink = `https://www.google.com/maps/dir/?api=1&destination=${nearest.lat},${nearest.lon}`;
-          infoBox.innerHTML = `
-            📍 <strong>${nearest.name}</strong>
-            <span
-              class="popup-star ${starClass}"
-              data-id="${nearest.id}"
-              title="Aggiungi/rimuovi dai preferiti"
-            >⭐</span>
-            <br>
-            <div style="display:flex; justify-content:space-between; font-size:12px; margin-top:4px;">
-              <a href="${nearest.url}" target="_blank" class="popup-link">ℹ️ Vedi dettagli</a>
-              <a href="${mapsLink}" target="_blank" class="popup-link">📍 Portami qui</a>
-            </div>
-          `;
-          map.setView([latU, lonU], 17);
-        } else {
-          infoBox.textContent = '❌ Nessuna fermata trovata';
-        }
-      },
-      () => {
-        infoBox.textContent = '❌ Errore nella geolocalizzazione';
-        locating = false;
-      }
-    );
-  });
+  function debounce(callback, wait) {
+    let timer = null;
+    return (...args) => {
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => callback(...args), wait);
+    };
+  }
 });
