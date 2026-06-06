@@ -534,19 +534,21 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function syncViewportHeight() {
-    const viewportWidth = window.visualViewport?.width || window.innerWidth || document.documentElement.clientWidth;
-    const viewportHeight = window.visualViewport?.height || window.innerHeight || document.documentElement.clientHeight;
+    const viewportWidth = Math.max(
+      window.innerWidth || 0,
+      window.visualViewport?.width || 0,
+      document.documentElement.clientWidth || 0
+    );
+    const viewportHeight = Math.max(
+      window.innerHeight || 0,
+      window.visualViewport?.height || 0,
+      document.documentElement.clientHeight || 0
+    );
     const width = Math.ceil(viewportWidth);
     const height = Math.ceil(viewportHeight);
 
     document.documentElement.style.setProperty('--app-width', `${width}px`);
     document.documentElement.style.setProperty('--app-height', `${height}px`);
-
-    const mapElement = document.getElementById('map');
-    if (mapElement) {
-      mapElement.style.width = `${width}px`;
-      mapElement.style.height = `${height}px`;
-    }
   }
 
   function queueMapResize() {
