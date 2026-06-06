@@ -1,5 +1,6 @@
 /* -------- MAP & BASICS -------- */
 :root {
+  --app-width: 100vw;
   --app-height: 100vh;
   --bg: #eef3f7;
   --surface: #ffffff;
@@ -26,13 +27,14 @@
 
 html,
 body {
-  width: 100%;
-  height: 100%;
+  width: var(--app-width);
+  height: var(--app-height);
   margin: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 
 body {
-  overflow: hidden;
   background: var(--bg);
   color: var(--text);
   font-family: 'Montserrat', sans-serif;
@@ -49,11 +51,21 @@ button {
 
 #map {
   position: fixed;
-  inset: 0;
-  width: 100%;
+  top: 0;
+  left: 0;
+  right: auto;
+  bottom: auto;
+  width: var(--app-width);
   height: var(--app-height);
-  min-height: 100vh;
+  min-width: 100vw;
+  min-height: 100svh;
   background: #dbe7ef;
+}
+
+@supports (height: 100dvh) {
+  :root {
+    --app-height: 100dvh;
+  }
 }
 
 /* -------- TOP CONTROLS -------- */
@@ -345,6 +357,17 @@ button {
 
 .nearest-row:hover {
   background: var(--surface-soft);
+}
+
+.nearest-main.is-selected,
+.nearest-row.is-selected {
+  border-color: rgba(220, 38, 38, 0.28);
+  background: rgba(220, 38, 38, 0.1);
+}
+
+.nearest-main.is-selected strong,
+.nearest-row.is-selected strong {
+  color: #dc2626;
 }
 
 .mini-close {

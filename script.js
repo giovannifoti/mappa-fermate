@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let accuracyCircle = null;
   let nearestStopHighlight = null;
   let lastUserLatLng = null;
+  let activeNearbyStopId = null;
 
   let stops = [];
   const stopsById = new Map();
@@ -161,6 +162,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (openButton) {
       const stop = stopsById.get(openButton.dataset.openStop);
       if (stop) {
+        if (openButton.closest('#nearestStop')) {
+          selectNearbyStop(stop);
+          return;
+        }
+
         if (openButton.closest('#suggestions')) {
           dom.input.value = stop.name;
           dom.clearSearch.hidden = false;
@@ -433,6 +439,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (nearestStops.length) {
       const nearest = nearestStops[0].stop;
+      activeNearbyStopId = nearest.id;
       renderNearestPanel(nearestStops, radius);
       updateNearestStopHighlight(nearest);
       focusNearestStopArea(nearest);
@@ -469,6 +476,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function clearLocation() {
     locationLoading = false;
     locationVisible = false;
+    activeNearbyStopId = null;
     lastUserLatLng = null;
     updateLocateButton();
     dom.infoBox.classList.remove('is-open');
@@ -509,12 +517,40 @@ document.addEventListener('DOMContentLoaded', () => {
     nearestStopHighlight.setLatLng(latLng);
   }
 
+  function selectNearbyStop(stop) {
+    activeNearbyStopId = stop.id;
+    map.closePopup();
+    updateNearestStopHighlight(stop);
+    focusNearestStopArea(stop);
+    updateNearbySelection();
+  }
+
+  function updateNearbySelection() {
+    dom.infoBox.querySelectorAll('[data-open-stop]').forEach(button => {
+      const selected = button.dataset.openStop === activeNearbyStopId;
+      button.classList.toggle('is-selected', selected);
+      button.setAttribute('aria-current', selected ? 'true' : 'false');
+    });
+  }
+
   function syncViewportHeight() {
+    const viewportWidth = window.visualViewport?.width || window.innerWidth || document.documentElement.clientWidth;
     const viewportHeight = window.visualViewport?.height || window.innerHeight || document.documentElement.clientHeight;
-    document.documentElement.style.setProperty('--app-height', `${Math.round(viewportHeight)}px`);
+    const width = Math.ceil(viewportWidth);
+    const height = Math.ceil(viewportHeight);
+
+    document.documentElement.style.setProperty('--app-width', `${width}px`);
+    document.documentElement.style.setProperty('--app-height', `${height}px`);
+
+    const mapElement = document.getElementById('map');
+    if (mapElement) {
+      mapElement.style.width = `${width}px`;
+      mapElement.style.height = `${height}px`;
+    }
   }
 
   function queueMapResize() {
+    syncViewportHeight();
     window.requestAnimationFrame(() => {
       map.invalidateSize({ pan: false });
       window.setTimeout(() => map.invalidateSize({ pan: false }), 150);
@@ -528,8 +564,9 @@ document.addEventListener('DOMContentLoaded', () => {
       .slice(1)
       .map(entry => {
         const rowStop = entry.stop;
+        const selected = rowStop.id === activeNearbyStopId;
         return `
-          <button type="button" class="nearest-row" data-open-stop="${escapeHtml(rowStop.id)}">
+          <button type="button" class="nearest-row ${selected ? 'is-selected' : ''}" data-open-stop="${escapeHtml(rowStop.id)}" aria-current="${selected}">
             <span>${escapeHtml(rowStop.name)}</span>
             <strong>${formatDistance(entry.distance)}</strong>
           </button>
@@ -548,7 +585,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <button type="button" class="mini-close" data-close-nearest aria-label="Chiudi fermata più vicina">&times;</button>
         </div>
       </div>
-      <button type="button" class="nearest-main" data-open-stop="${escapeHtml(stop.id)}">
+      <button type="button" class="nearest-main ${stop.id === activeNearbyStopId ? 'is-selected' : ''}" data-open-stop="${escapeHtml(stop.id)}" aria-current="${stop.id === activeNearbyStopId}">
         <strong>${formatDistance(nearest.distance)} da te</strong>
         <span>Accuratezza posizione ${formatDistance(accuracy)}</span>
       </button>
