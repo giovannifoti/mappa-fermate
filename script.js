@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let locationLoading = false;
   let userMarker = null;
   let accuracyCircle = null;
+  let nearestStopHighlight = null;
   let lastUserLatLng = null;
 
   let stops = [];
@@ -36,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const stopsByLegacyId = new Map();
   const usedStopIds = new Set();
   const favorites = readFavoriteSet();
+
+  syncViewportHeight();
 
   function setStatus(message, timeout = 2200) {
     window.clearTimeout(statusTimer);
@@ -77,12 +80,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const map = L.map('map', {
     center: initialCenter,
     zoom: 13,
-    layers: [initialDark ? darkLayer : lightLayer],
     preferCanvas: true,
-    zoomControl: false
+    zoomControl: false,
+    attributionControl: false
   });
 
+  L.control.attribution({ position: 'bottomleft', prefix: 'Leaflet' }).addTo(map);
   L.control.zoom({ position: 'bottomright' }).addTo(map);
+  map.addLayer(initialDark ? darkLayer : lightLayer);
 
   const markerCluster = L.markerClusterGroup({
     chunkedLoading: true,
@@ -105,6 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
   map.addLayer(markerCluster);
+  queueMapResize();
 
   applyTheme(Boolean(initialDark));
   scheduleSolarThemeSync();
@@ -183,9 +189,19 @@ document.addEventListener('DOMContentLoaded', () => {
     if (dom.infoBox.classList.contains('is-open')) clearLocation();
   });
 
-  window.addEventListener('resize', debounce(() => map.invalidateSize(), 180));
+  window.addEventListener('resize', debounce(() => {
+    syncViewportHeight();
+    queueMapResize();
+  }, 180));
+  window.visualViewport?.addEventListener('resize', debounce(() => {
+    syncViewportHeight();
+    queueMapResize();
+  }, 120));
   window.addEventListener('orientationchange', () => {
-    window.setTimeout(() => map.invalidateSize(), 250);
+    window.setTimeout(() => {
+      syncViewportHeight();
+      queueMapResize();
+    }, 250);
   });
 
   if ('serviceWorker' in navigator && window.location.protocol !== 'file:') {
@@ -212,6 +228,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const markers = stops.map(createMarker);
         markerCluster.addLayers(markers);
         applyFilters();
+        queueMapResize();
         setStatus(`${stops.length.toLocaleString('it-IT')} fermate caricate`);
       })
       .catch(error => {
@@ -376,7 +393,7 @@ document.addEventListener('DOMContentLoaded', () => {
   function handlePosition(coords) {
     const { latitude, longitude, accuracy } = coords;
     const userLatLng = [latitude, longitude];
-    const nearestStops = getNearestStops(userLatLng, 5);
+    const nearestStops = getNearestStops(userLatLng, 6);
 
     lastUserLatLng = userLatLng;
     locationLoading = false;
@@ -415,8 +432,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (nearestStops.length) {
-      renderNearestPanel(nearestStops, radius);
       const nearest = nearestStops[0].stop;
+      renderNearestPanel(nearestStops, radius);
+      updateNearestStopHighlight(nearest);
       focusNearestStopArea(nearest);
       renderSuggestions(normalize(dom.input.value.trim()), getFilteredStops(normalize(dom.input.value.trim())));
     }
@@ -465,13 +483,49 @@ document.addEventListener('DOMContentLoaded', () => {
       map.removeLayer(accuracyCircle);
       accuracyCircle = null;
     }
+
+    if (nearestStopHighlight) {
+      map.removeLayer(nearestStopHighlight);
+      nearestStopHighlight = null;
+    }
+  }
+
+  function updateNearestStopHighlight(stop) {
+    const latLng = [stop.lat, stop.lon];
+
+    if (!nearestStopHighlight) {
+      nearestStopHighlight = L.circleMarker(latLng, {
+        radius: 10,
+        color: '#ffffff',
+        fillColor: '#dc2626',
+        fillOpacity: 1,
+        weight: 3,
+        interactive: false,
+        className: 'nearest-stop-highlight'
+      }).addTo(map);
+      return;
+    }
+
+    nearestStopHighlight.setLatLng(latLng);
+  }
+
+  function syncViewportHeight() {
+    const viewportHeight = window.visualViewport?.height || window.innerHeight || document.documentElement.clientHeight;
+    document.documentElement.style.setProperty('--app-height', `${Math.round(viewportHeight)}px`);
+  }
+
+  function queueMapResize() {
+    window.requestAnimationFrame(() => {
+      map.invalidateSize({ pan: false });
+      window.setTimeout(() => map.invalidateSize({ pan: false }), 150);
+    });
   }
 
   function renderNearestPanel(nearestStops, accuracy) {
     const nearest = nearestStops[0];
     const stop = nearest.stop;
     const otherRows = nearestStops
-      .slice(1, 4)
+      .slice(1)
       .map(entry => {
         const rowStop = entry.stop;
         return `
