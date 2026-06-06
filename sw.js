@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mappa-fermate-v3';
+const CACHE_NAME = 'mappa-fermate-v5';
 const APP_ASSETS = [
   './',
   './index.html',

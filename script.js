@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const FAVORITES_KEY = 'favorites';
-  const THEME_KEY = 'theme';
   const MAX_SUGGESTIONS = 12;
+  const DAY_MS = 24 * 60 * 60 * 1000;
+  const MESSINA_COORDS = { lat: 38.1938, lon: 15.5540 };
   const ZONE_LABELS = { nord: 'Nord', centro: 'Centro', sud: 'Sud' };
   const ZONE_ORDER = ['nord', 'centro', 'sud'];
 
@@ -11,8 +12,6 @@ document.addEventListener('DOMContentLoaded', () => {
     suggestions: document.getElementById('suggestions'),
     locateBtn: document.getElementById('locateBtn'),
     infoBox: document.getElementById('nearestStop'),
-    darkToggle: document.getElementById('darkToggle'),
-    favoriteFilterBtn: document.getElementById('favoriteFilterBtn'),
     favoritesBtn: document.getElementById('open-favorites'),
     favoritesPopup: document.getElementById('favorites-popup'),
     closeFavorites: document.getElementById('close-favorites'),
@@ -24,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let statusTimer = null;
   let searchTimer = null;
-  let favoritesOnly = false;
+  let solarThemeTimer = null;
   let locationVisible = false;
   let locationLoading = false;
   let userMarker = null;
@@ -62,8 +61,15 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 
   const initialCenter = [38.1938, 15.5540];
-  const initialDark = getStoredTheme() === 'dark' ||
-    (!getStoredTheme() && window.matchMedia?.('(prefers-color-scheme: dark)').matches);
+  const defaultStopIcon = new L.Icon.Default();
+  const favoriteStopIcon = L.divIcon({
+    className: 'favorite-stop-marker',
+    html: '<span aria-hidden="true"></span>',
+    iconSize: [34, 44],
+    iconAnchor: [17, 42],
+    popupAnchor: [0, -38]
+  });
+  const initialDark = shouldUseDarkTheme(new Date());
 
   document.body.classList.toggle('dark', Boolean(initialDark));
 
@@ -83,16 +89,25 @@ document.addEventListener('DOMContentLoaded', () => {
     chunkDelay: 30,
     disableClusteringAtZoom: 18,
     showCoverageOnHover: false,
-    maxClusterRadius: zoom => (zoom < 14 ? 64 : 40)
+    maxClusterRadius: zoom => (zoom < 14 ? 64 : 40),
+    iconCreateFunction: cluster => {
+      const childMarkers = cluster.getAllChildMarkers();
+      const hasFavorite = childMarkers.some(marker => marker.stop && isFavoriteStop(marker.stop));
+      const count = cluster.getChildCount();
+      const size = count < 10 ? 'small' : count < 100 ? 'medium' : 'large';
+
+      return L.divIcon({
+        html: `<div><span>${count}</span></div>`,
+        className: `marker-cluster marker-cluster-${size}${hasFavorite ? ' marker-cluster-favorite' : ''}`,
+        iconSize: L.point(40, 40)
+      });
+    }
   });
   map.addLayer(markerCluster);
 
-  applyTheme(Boolean(initialDark), false);
+  applyTheme(Boolean(initialDark));
+  scheduleSolarThemeSync();
   loadStops();
-
-  dom.darkToggle.addEventListener('click', () => {
-    applyTheme(!document.body.classList.contains('dark'));
-  });
 
   dom.input.addEventListener('input', () => {
     dom.clearSearch.hidden = dom.input.value.length === 0;
@@ -111,13 +126,6 @@ document.addEventListener('DOMContentLoaded', () => {
     closeSuggestions();
     applyFilters();
     dom.input.focus();
-  });
-
-  dom.favoriteFilterBtn.addEventListener('click', () => {
-    favoritesOnly = !favoritesOnly;
-    updateFavoriteFilterButton();
-    applyFilters({ fit: false });
-    setStatus(favoritesOnly ? 'Mostro solo i preferiti' : 'Mostro tutte le fermate');
   });
 
   dom.locateBtn.addEventListener('click', locateUser);
@@ -240,14 +248,16 @@ document.addEventListener('DOMContentLoaded', () => {
   function createMarker(stop) {
     const marker = L.marker([stop.lat, stop.lon], {
       title: stop.name,
-      keyboard: true
+      keyboard: true,
+      icon: isFavoriteStop(stop) ? favoriteStopIcon : defaultStopIcon
     });
 
     marker.bindPopup(() => buildPopupHtml(stop), {
-      maxWidth: 280
+      maxWidth: 340
     });
 
     stop.marker = marker;
+    marker.stop = stop;
     stopsById.set(stop.id, stop);
     stopsByLegacyId.set(String(stop.legacyId), stop);
     return marker;
@@ -265,7 +275,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     renderSuggestions(query, filteredStops);
-    updateFavoriteFilterButton();
 
     if (fit && query.length >= 2 && filteredStops.length > 0 && filteredStops.length <= 250) {
       const bounds = L.latLngBounds(filteredStops.map(stop => [stop.lat, stop.lon])).pad(0.18);
@@ -274,15 +283,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (query && filteredStops.length === 0) {
       setStatus('Nessuna fermata trovata');
-    } else if (favoritesOnly && filteredStops.length === 0) {
-      setStatus('Non hai ancora preferiti');
     }
   }
 
   function getFilteredStops(query) {
     const activeQuery = query || '';
     const filtered = stops.filter(stop => {
-      if (favoritesOnly && !isFavoriteStop(stop)) return false;
       return !activeQuery || stop.normalizedName.includes(activeQuery);
     });
 
@@ -466,6 +472,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <div class="nearest-header">
         <div>
           <p class="nearest-kicker">Fermata più vicina</p>
+          <strong>${escapeHtml(stop.name)}</strong>
         </div>
         <div class="nearest-header-actions">
           ${favoriteButtonHtml(stop)}
@@ -473,14 +480,14 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
       <button type="button" class="nearest-main" data-open-stop="${escapeHtml(stop.id)}">
-        <strong>${escapeHtml(stop.name)}</strong>
-        <span>${formatDistance(nearest.distance)} da te · accuratezza ${formatDistance(accuracy)}</span>
+        <strong>${formatDistance(nearest.distance)} da te</strong>
+        <span>Accuratezza posizione ${formatDistance(accuracy)}</span>
       </button>
       <div class="popup-actions">
         ${detailsLinkHtml(stop)}
         ${mapsLinkHtml(stop)}
       </div>
-      ${otherRows ? `<div class="nearby-list">${otherRows}</div>` : ''}
+      ${otherRows ? `<p class="nearby-list-title">Altre fermate vicine</p><div class="nearby-list">${otherRows}</div>` : ''}
     `;
     dom.infoBox.classList.add('is-open');
   }
@@ -553,7 +560,7 @@ document.addEventListener('DOMContentLoaded', () => {
         name.textContent = stop.name;
 
         const meta = document.createElement('span');
-        meta.textContent = stop.code ? `Palina ${stop.code}` : ZONE_LABELS[stop.zone];
+        meta.textContent = ZONE_LABELS[stop.zone];
 
         main.append(name, meta);
 
@@ -593,7 +600,9 @@ document.addEventListener('DOMContentLoaded', () => {
     setFavorite(stop, shouldFavorite);
     refreshFavoriteElements(stop);
     if (dom.favoritesPopup.classList.contains('is-open')) renderFavoritesList();
-    if (favoritesOnly) applyFilters();
+    if (dom.input.value.trim()) {
+      renderSuggestions(normalize(dom.input.value.trim()), getFilteredStops(normalize(dom.input.value.trim())));
+    }
     return shouldFavorite;
   }
 
@@ -610,6 +619,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function refreshFavoriteElements(stop) {
     const active = isFavoriteStop(stop);
+    refreshFavoriteMarker(stop);
     document.querySelectorAll('.popup-star').forEach(element => {
       if (element.dataset.id !== String(stop.id) && element.dataset.legacyId !== String(stop.legacyId)) return;
       element.classList.toggle('fav-on', active);
@@ -623,9 +633,10 @@ document.addEventListener('DOMContentLoaded', () => {
     stops.forEach(refreshFavoriteElements);
   }
 
-  function updateFavoriteFilterButton() {
-    dom.favoriteFilterBtn.classList.toggle('active', favoritesOnly);
-    dom.favoriteFilterBtn.setAttribute('aria-pressed', String(favoritesOnly));
+  function refreshFavoriteMarker(stop) {
+    if (!stop.marker) return;
+    stop.marker.setIcon(isFavoriteStop(stop) ? favoriteStopIcon : defaultStopIcon);
+    markerCluster.refreshClusters?.();
   }
 
   function updateLocateButton() {
@@ -635,10 +646,11 @@ document.addEventListener('DOMContentLoaded', () => {
     dom.locateBtn.textContent = locationLoading ? '📡' : '📍';
   }
 
-  function applyTheme(isDark, persist = true) {
+  function applyTheme(isDark) {
     document.body.classList.toggle('dark', isDark);
-    dom.darkToggle.textContent = isDark ? '☀️' : '🌙';
-    dom.darkToggle.setAttribute('aria-pressed', String(isDark));
+
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
+    if (themeMeta) themeMeta.setAttribute('content', isDark ? '#101820' : '#003366');
 
     if (isDark && map.hasLayer(lightLayer)) {
       map.removeLayer(lightLayer);
@@ -647,8 +659,6 @@ document.addEventListener('DOMContentLoaded', () => {
       map.removeLayer(darkLayer);
       map.addLayer(lightLayer);
     }
-
-    if (persist) setStoredTheme(isDark ? 'dark' : 'light');
   }
 
   function buildPopupHtml(stop) {
@@ -658,7 +668,6 @@ document.addEventListener('DOMContentLoaded', () => {
           <strong>${escapeHtml(stop.name)}</strong>
           ${favoriteButtonHtml(stop)}
         </div>
-        ${stop.code ? `<p class="popup-code">Palina ${escapeHtml(stop.code)}</p>` : ''}
         <div class="popup-actions">
           ${detailsLinkHtml(stop)}
           ${mapsLinkHtml(stop)}
@@ -696,7 +705,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bits = [];
     if (isFavoriteStop(stop)) bits.push('★');
     if (lastUserLatLng) bits.push(formatDistance(map.distance([stop.lat, stop.lon], lastUserLatLng)));
-    if (!bits.length && stop.code) bits.push(`Palina ${stop.code}`);
+    if (!bits.length) bits.push(ZONE_LABELS[stop.zone]);
     return bits.join(' · ');
   }
 
@@ -729,7 +738,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const showPopup = () => {
       if (popupOpened) return;
       popupOpened = true;
-      L.popup({ maxWidth: 280 })
+      L.popup({ maxWidth: 340 })
         .setLatLng([stop.lat, stop.lon])
         .setContent(buildPopupHtml(stop))
         .openOn(map);
@@ -820,20 +829,95 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function getStoredTheme() {
-    try {
-      return localStorage.getItem(THEME_KEY);
-    } catch {
-      return null;
-    }
+  function scheduleSolarThemeSync() {
+    window.clearTimeout(solarThemeTimer);
+
+    const now = new Date();
+    const { sunrise, sunset } = getSunTimes(now, MESSINA_COORDS.lat, MESSINA_COORDS.lon);
+    const tomorrow = new Date(now.getTime() + DAY_MS);
+    const nextSunrise = getSunTimes(tomorrow, MESSINA_COORDS.lat, MESSINA_COORDS.lon).sunrise;
+    const nextChange = now < sunrise ? sunrise : now < sunset ? sunset : nextSunrise;
+    const delay = Math.max(60000, Math.min(nextChange.getTime() - now.getTime() + 1000, DAY_MS));
+
+    solarThemeTimer = window.setTimeout(() => {
+      applyTheme(shouldUseDarkTheme(new Date()));
+      scheduleSolarThemeSync();
+    }, delay);
   }
 
-  function setStoredTheme(theme) {
-    try {
-      localStorage.setItem(THEME_KEY, theme);
-    } catch {
-      // Tema non essenziale: se localStorage non è disponibile continuiamo comunque.
-    }
+  function shouldUseDarkTheme(date) {
+    const { sunrise, sunset } = getSunTimes(date, MESSINA_COORDS.lat, MESSINA_COORDS.lon);
+    return date < sunrise || date >= sunset;
+  }
+
+  function getSunTimes(date, latitude, longitude) {
+    const day = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+    return {
+      sunrise: calculateSunEvent(day, latitude, longitude, true),
+      sunset: calculateSunEvent(day, latitude, longitude, false)
+    };
+  }
+
+  function calculateSunEvent(day, latitude, longitude, isSunrise) {
+    const zenith = 90.833;
+    const dayOfYear = getDayOfYear(day);
+    const lngHour = longitude / 15;
+    const approxTime = dayOfYear + ((isSunrise ? 6 : 18) - lngHour) / 24;
+    const meanAnomaly = (0.9856 * approxTime) - 3.289;
+    const trueLongitude = normalizeDegrees(
+      meanAnomaly +
+      (1.916 * Math.sin(degToRad(meanAnomaly))) +
+      (0.020 * Math.sin(2 * degToRad(meanAnomaly))) +
+      282.634
+    );
+    const rightAscensionBase = radToDeg(Math.atan(0.91764 * Math.tan(degToRad(trueLongitude))));
+    const rightAscension = (
+      normalizeDegrees(rightAscensionBase) +
+      (Math.floor(trueLongitude / 90) * 90) -
+      (Math.floor(normalizeDegrees(rightAscensionBase) / 90) * 90)
+    ) / 15;
+    const sinDeclination = 0.39782 * Math.sin(degToRad(trueLongitude));
+    const cosDeclination = Math.cos(Math.asin(sinDeclination));
+    const cosHourAngle = (
+      Math.cos(degToRad(zenith)) -
+      (sinDeclination * Math.sin(degToRad(latitude)))
+    ) / (cosDeclination * Math.cos(degToRad(latitude)));
+    const safeCosHourAngle = Math.min(1, Math.max(-1, cosHourAngle));
+
+    const hourAngleDegrees = isSunrise
+      ? 360 - radToDeg(Math.acos(safeCosHourAngle))
+      : radToDeg(Math.acos(safeCosHourAngle));
+    const localMeanTime = (hourAngleDegrees / 15) + rightAscension - (0.06571 * approxTime) - 6.622;
+    const utcHour = normalizeHours(localMeanTime - lngHour);
+
+    return new Date(Date.UTC(
+      day.getFullYear(),
+      day.getMonth(),
+      day.getDate(),
+      0,
+      Math.round(utcHour * 60)
+    ));
+  }
+
+  function getDayOfYear(date) {
+    const start = new Date(date.getFullYear(), 0, 0);
+    return Math.floor((date - start) / (24 * 60 * 60 * 1000));
+  }
+
+  function degToRad(degrees) {
+    return degrees * Math.PI / 180;
+  }
+
+  function radToDeg(radians) {
+    return radians * 180 / Math.PI;
+  }
+
+  function normalizeDegrees(degrees) {
+    return ((degrees % 360) + 360) % 360;
+  }
+
+  function normalizeHours(hours) {
+    return ((hours % 24) + 24) % 24;
   }
 
   function debounce(callback, wait) {
