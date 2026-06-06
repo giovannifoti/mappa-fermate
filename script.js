@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const FAVORITES_KEY = 'favorites';
   const MAX_SUGGESTIONS = 12;
+  const LOCATION_FOCUS_ZOOM = 15;
   const DAY_MS = 24 * 60 * 60 * 1000;
   const MESSINA_COORDS = { lat: 38.1938, lon: 15.5540 };
   const ZONE_LABELS = { nord: 'Nord', centro: 'Centro', sud: 'Sud' };
@@ -416,10 +417,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (nearestStops.length) {
       renderNearestPanel(nearestStops, radius);
       const nearest = nearestStops[0].stop;
-      const bounds = L.latLngBounds([userLatLng, [nearest.lat, nearest.lon]]).pad(0.35);
-      map.fitBounds(bounds, { maxZoom: 17, animate: true });
+      focusNearestStopArea(nearest);
       renderSuggestions(normalize(dom.input.value.trim()), getFilteredStops(normalize(dom.input.value.trim())));
     }
+  }
+
+  function focusNearestStopArea(stop) {
+    const focusPoint = map.project([stop.lat, stop.lon], LOCATION_FOCUS_ZOOM);
+    const offset = getNearestPanelOffset();
+    const adjustedCenter = map.unproject(focusPoint.add([0, offset]), LOCATION_FOCUS_ZOOM);
+    map.setView(adjustedCenter, LOCATION_FOCUS_ZOOM, { animate: true });
+  }
+
+  function getNearestPanelOffset() {
+    const panelHeight = dom.infoBox.getBoundingClientRect().height || 0;
+    const mapHeight = map.getSize().y || window.innerHeight;
+    const mobileOffset = Math.min(mapHeight * 0.22, Math.max(105, panelHeight * 0.36));
+    const desktopOffset = Math.min(120, Math.max(60, panelHeight * 0.24));
+    return window.matchMedia?.('(max-width: 640px)').matches ? mobileOffset : desktopOffset;
   }
 
   function handleLocationError(error) {
